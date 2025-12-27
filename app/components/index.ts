@@ -1,0 +1,13 @@
+export { default as Navigation } from './Navigation';
+export { default as Hero } from './Hero';
+export { default as ValueProposition } from './ValueProposition';
+export { default as Personas } from './Personas';
+export { default as RiskDetection } from './RiskDetection';
+export { default as Statistics } from './Statistics';
+export { default as FeatureBento } from './FeatureBento';
+export { default as Workflow } from './Workflow';
+export { default as Comparison } from './Comparison';
+export { default as Testimonials } from './Testimonials';
+export { default as FAQ } from './FAQ';
+export { default as CTA } from './CTA';
+export { default as Footer } from './Footer';
