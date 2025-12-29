@@ -128,12 +128,12 @@ function GrowthChart() {
 
 export default function TrustSection() {
   return (
-    <section className="bg-[#faf8f5] py-20 lg:py-28">
+    <section className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left - Headline & Trust Badges */}
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl tracking-tight">
               <span
                 className="italic block"
                 style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif', color: 'var(--color-brand)' }}
@@ -149,7 +149,7 @@ export default function TrustSection() {
             </h2>
 
             <p
-              className="mt-5 text-gray-500 text-base lg:text-lg leading-relaxed max-w-md"
+              className="mt-4 sm:mt-5 text-gray-500 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               We partner with CLIA-certified laboratories trusted by physicians nationwide.
@@ -157,7 +157,7 @@ export default function TrustSection() {
             </p>
 
             {/* Trust Badges */}
-            <div className="mt-8 flex items-center gap-6">
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
               <div className="flex items-center gap-2 text-gray-400">
                 <svg className="h-8 w-8" viewBox="0 0 40 40" fill="currentColor">
                   <path d="M20 2L4 8v12c0 9.55 6.82 18.48 16 20 9.18-1.52 16-10.45 16-20V8L20 2zm-2 28l-6-6 2.12-2.12L18 25.76l9.88-9.88L30 18l-12 12z"/>
@@ -191,17 +191,17 @@ export default function TrustSection() {
           </div>
 
           {/* Right - Stats Cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
             {/* Locations Card */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
-              <div className="text-xs text-gray-500 mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+              <div className="text-[11px] sm:text-xs text-gray-500 mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-body)' }}>
                 <span style={{ color: 'var(--color-brand)' }} className="font-semibold">3,500+</span> lab locations across the US
               </div>
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-3 sm:mb-4">
                 <USMapDots />
               </div>
               <div
-                className="text-4xl font-semibold text-gray-900"
+                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 <AnimatedNumber value={3500} suffix="+" />
@@ -209,15 +209,15 @@ export default function TrustSection() {
             </div>
 
             {/* Results Card */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
-              <div className="text-xs text-gray-500 mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+              <div className="text-[11px] sm:text-xs text-gray-500 mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-body)' }}>
                 <span style={{ color: 'var(--color-brand)' }} className="font-semibold">99.7%</span> accuracy rate verified
               </div>
-              <div className="mb-4">
+              <div className="mb-3 sm:mb-4">
                 <GrowthChart />
               </div>
               <div
-                className="text-4xl font-semibold text-gray-900"
+                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 99.7%
@@ -225,24 +225,24 @@ export default function TrustSection() {
             </div>
 
             {/* Results Delivered - Full Width */}
-            <div className="sm:col-span-2 rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
-              <div className="flex items-center justify-between">
+            <div className="sm:col-span-2 rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+              <div className="flex items-center justify-between gap-4">
                 <div>
-                  <div className="text-xs text-gray-500 mb-1" style={{ fontFamily: 'var(--font-body)' }}>
+                  <div className="text-[11px] sm:text-xs text-gray-500 mb-1" style={{ fontFamily: 'var(--font-body)' }}>
                     Results delivered to members
                   </div>
                   <div
-                    className="text-3xl sm:text-4xl font-semibold text-gray-900"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     <AnimatedNumber value={250} suffix="K+" />
                   </div>
                 </div>
-                <div className="flex -space-x-2">
+                <div className="flex -space-x-1.5 sm:-space-x-2">
                   {[...Array(5)].map((_, i) => (
                     <div
                       key={i}
-                      className="h-10 w-10 rounded-full border-2 border-white flex items-center justify-center text-xs font-medium text-white"
+                      className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-white flex items-center justify-center text-[10px] sm:text-xs font-medium text-white"
                       style={{
                         backgroundColor: `hsl(${20 + i * 8}, 60%, ${55 + i * 5}%)`,
                       }}
@@ -250,7 +250,7 @@ export default function TrustSection() {
                       {String.fromCharCode(65 + i)}
                     </div>
                   ))}
-                  <div className="h-10 w-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-600">
+                  <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] sm:text-xs font-medium text-gray-600">
                     +
                   </div>
                 </div>

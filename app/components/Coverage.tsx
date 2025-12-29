@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Coverage() {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28 bg-[#faf8f5]">
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28 bg-[#faf8f5]">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -14,7 +14,7 @@ export default function Coverage() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Map Side */}
           <div className="relative order-2 lg:order-1">
             <div className="relative">
@@ -31,7 +31,7 @@ export default function Coverage() {
           {/* Content Side */}
           <div className="order-1 lg:order-2">
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900"
+              className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-gray-900"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Innovative. Dedicated.
@@ -40,7 +40,7 @@ export default function Coverage() {
             </h2>
 
             <p
-              className="mt-6 text-gray-600 text-lg leading-relaxed"
+              className="mt-4 sm:mt-6 text-gray-600 text-base sm:text-lg leading-relaxed"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               Access to preventive healthcare is a right for everyone, everywhere.
@@ -48,7 +48,7 @@ export default function Coverage() {
             </p>
 
             {/* Stats */}
-            <div className="mt-8 grid grid-cols-2 gap-6">
+            <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-6">
               {[
                 { value: '3,500+', label: 'Lab locations' },
                 { value: '50', label: 'States covered' },
@@ -57,21 +57,21 @@ export default function Coverage() {
               ].map((stat, i) => (
                 <div key={i} className="text-left">
                   <div
-                    className="text-2xl sm:text-3xl font-bold text-gray-900"
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* CTA */}
-            <div className="mt-10">
+            <div className="mt-8 sm:mt-10">
               <a
                 href="#find-lab"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02]"
                 style={{
                   backgroundColor: 'var(--color-brand)',
                   boxShadow: '0 10px 25px -5px rgba(184, 101, 74, 0.3)',

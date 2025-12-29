@@ -123,9 +123,9 @@ export default function Hero() {
           </div>
 
           {/* Bottom Stats Strip */}
-          <div className="absolute bottom-8 left-0 right-0">
+          <div className="absolute bottom-6 sm:bottom-8 left-0 right-0">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-0">
+              <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-row sm:items-center sm:gap-0">
                 {[
                   { value: '100+', label: 'lab tests', sublabel: 'Detect 1k+ diseases' },
                   { value: '2x', label: 'per year', sublabel: 'Track for life' },
@@ -134,18 +134,18 @@ export default function Hero() {
                   <div
                     key={index}
                     className={`${
-                      index !== 2 ? 'sm:border-r sm:border-white/20 sm:pr-10 sm:mr-10' : ''
+                      index !== 2 ? 'sm:border-r sm:border-white/20 sm:pr-6 md:pr-10 sm:mr-6 md:mr-10' : ''
                     }`}
                   >
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl sm:text-3xl font-bold text-white">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-1.5">
+                      <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                         {stat.value}
                       </span>
-                      <span className="text-base sm:text-lg font-medium text-white">
+                      <span className="text-xs sm:text-base md:text-lg font-medium text-white/90">
                         {stat.label}
                       </span>
                     </div>
-                    <p className="text-sm text-white/60">{stat.sublabel}</p>
+                    <p className="text-xs sm:text-sm text-white/60 hidden sm:block">{stat.sublabel}</p>
                   </div>
                 ))}
               </div>

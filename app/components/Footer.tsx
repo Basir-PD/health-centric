@@ -69,17 +69,17 @@ export default function Footer() {
   return (
     <footer className="bg-[#faf8f5]">
       {/* Main Footer */}
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-12">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-12">
           {/* Logo */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 group">
               <div
-                className="flex h-8 w-8 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
+                className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
                 style={{ background: 'linear-gradient(135deg, var(--color-brand-light), var(--color-brand))' }}
               >
                 <svg
-                  className="h-4 w-4 text-white"
+                  className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -93,7 +93,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span
-                className="text-lg font-semibold text-gray-900"
+                className="text-base sm:text-lg font-semibold text-gray-900"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 Health Centric
@@ -103,21 +103,21 @@ export default function Footer() {
 
           {/* Link Columns */}
           <div className="lg:col-span-5">
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
               {/* Company */}
               <div>
                 <h4
-                  className="text-sm font-semibold text-gray-900 mb-4"
+                  className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Company
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {footerLinks.company.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="group relative text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
+                        className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
@@ -136,17 +136,17 @@ export default function Footer() {
               {/* Explore */}
               <div>
                 <h4
-                  className="text-sm font-semibold text-gray-900 mb-4"
+                  className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Explore
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {footerLinks.explore.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="group relative text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
+                        className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
@@ -163,19 +163,19 @@ export default function Footer() {
               </div>
 
               {/* Community */}
-              <div>
+              <div className="col-span-2 sm:col-span-1">
                 <h4
-                  className="text-sm font-semibold text-gray-900 mb-4"
+                  className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Community
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {footerLinks.community.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="group relative text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
+                        className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
@@ -197,7 +197,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <div className="max-w-sm lg:ml-auto">
               <h3
-                className="text-xl font-medium text-gray-900 leading-snug"
+                className="text-lg sm:text-xl font-medium text-gray-900 leading-snug"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 Subscribe and get health guides for living{' '}
@@ -209,26 +209,26 @@ export default function Footer() {
                 </span>
               </h3>
               <p
-                className="mt-2 text-sm text-gray-500"
+                className="mt-2 text-xs sm:text-sm text-gray-500"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Get foundational guides for lifelong health. Built by top experts with decades of research.
               </p>
 
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="mt-5 flex gap-2">
+                <form onSubmit={handleSubmit} className="mt-4 sm:mt-5 flex gap-2">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email address"
                     required
-                    className="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition-all duration-200 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                    className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-400 transition-all duration-200 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
                     style={{ fontFamily: 'var(--font-body)' }}
                   />
                   <button
                     type="submit"
-                    className="rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
+                    className="rounded-lg px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 flex-shrink-0"
                     style={{ backgroundColor: 'var(--color-brand)' }}
                   >
                     Submit
@@ -236,7 +236,7 @@ export default function Footer() {
                 </form>
               ) : (
                 <div
-                  className="mt-5 rounded-lg bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-700"
+                  className="mt-4 sm:mt-5 rounded-lg bg-green-50 border border-green-200 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-700"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   Thanks for subscribing! Check your email for your health guides.
@@ -247,9 +247,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 flex flex-col gap-6 border-t border-gray-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 sm:mt-16 flex flex-col gap-4 sm:gap-6 border-t border-gray-200 pt-6 sm:pt-8 sm:flex-row sm:items-center sm:justify-between">
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -263,7 +263,7 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-500">
             <Link
               href="#privacy"
               className="transition-colors hover:text-gray-700"
@@ -289,7 +289,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p
-            className="text-sm text-gray-400"
+            className="text-xs sm:text-sm text-gray-400"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             &copy; {new Date().getFullYear()} Health Centric
