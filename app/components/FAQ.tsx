@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'What biomarkers are included in the comprehensive panel?',
     answer:
-      'Our comprehensive panel tests 80+ biomarkers across key health categories including cardiovascular health (cholesterol, triglycerides, inflammation markers), metabolic function (blood sugar, insulin, HbA1c), thyroid health (TSH, T3, T4), hormones (testosterone, estrogen, cortisol), vitamins and minerals (D, B12, iron, magnesium), and organ function markers (liver, kidney).',
+      'Our comprehensive panel tests 100+ biomarkers across key health categories including cardiovascular health (cholesterol, triglycerides, inflammation markers), metabolic function (blood sugar, insulin, HbA1c), thyroid health (TSH, T3, T4), hormones (testosterone, estrogen, cortisol), vitamins and minerals (D, B12, iron, magnesium), and organ function markers (liver, kidney).',
   },
   {
     question: 'Do I need to fast before taking the test?',
@@ -26,22 +26,22 @@ const faqs = [
   {
     question: 'How is my health data protected?',
     answer:
-      'We take data security seriously. All health information is encrypted using industry-standard protocols and stored in HIPAA-compliant systems. We never sell your data to third parties. You have full control over your information and can request deletion at any time. Our platform undergoes regular security audits to ensure the highest level of protection.',
+      'We take data security seriously. All health information is encrypted using industry-standard protocols and stored in HIPAA-compliant systems. We never sell your data to third parties. You have full control over your information and can request deletion at any time.',
   },
   {
     question: 'Can I share my results with my doctor?',
     answer:
-      'Absolutely! We encourage you to share your results with your healthcare provider. You can easily download a PDF report or grant your doctor direct access to your dashboard. Many of our members use VitalPath results to have more informed conversations with their physicians.',
+      'Absolutely! We encourage you to share your results with your healthcare provider. You can easily download a PDF report or grant your doctor direct access to your dashboard. Many of our members use Health Centric results to have more informed conversations with their physicians.',
   },
   {
     question: 'What if my results show something concerning?',
     answer:
-      'If our physicians identify any results that require immediate attention, we\'ll reach out to you directly. For less urgent findings, your personalized report will include clear recommendations and next steps. You can also schedule a consultation with our medical team to discuss your results in detail. We always recommend following up with your primary care provider for any significant findings.',
+      'If our physicians identify any results that require immediate attention, we\'ll reach out to you directly. For less urgent findings, your personalized report will include clear recommendations and next steps. You can also schedule a consultation with our medical team to discuss your results in detail.',
   },
   {
-    question: 'How often should I test?',
+    question: 'Is Health Centric covered by insurance?',
     answer:
-      'For most people, we recommend comprehensive testing every 3-6 months to track progress and catch changes early. If you\'re actively working on improving specific health markers, more frequent testing (every 6-8 weeks) can help you fine-tune your approach. Your personalized action plan will include specific retesting recommendations based on your results.',
+      'While we don\'t bill insurance directly, many of our members use their HSA or FSA funds to pay for testing. We provide itemized receipts that you can submit to your insurance for potential reimbursement. Our transparent pricing means no surprise bills.',
   },
 ];
 
@@ -53,46 +53,72 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-gray-50 py-20 lg:py-28">
+    <section id="faq" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Frequently asked questions
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            <span
+              className="font-medium text-gray-900"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              Common
+            </span>
+            <span
+              className="italic ml-2"
+              style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif', color: 'var(--color-brand)' }}
+            >
+              questions
+            </span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Everything you need to know about VitalPath testing.
+          <p
+            className="mt-4 text-gray-500 text-base lg:text-lg"
+            style={{ fontFamily: 'var(--font-body)' }}
+          >
+            Everything you need to know about Health Centric testing.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="mt-12 space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-xl border border-gray-200 bg-white"
+              className={`overflow-hidden rounded-xl border transition-all duration-300 ${
+                openIndex === index
+                  ? 'border-gray-200 bg-[#faf8f5]'
+                  : 'border-gray-100 bg-white hover:border-gray-200'
+              }`}
             >
               <button
                 onClick={() => toggleFaq(index)}
-                className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-gray-50"
+                className="flex w-full items-center justify-between px-6 py-5 text-left"
                 aria-expanded={openIndex === index}
               >
-                <span className="text-base font-medium text-gray-900 pr-4">
+                <span
+                  className={`text-base font-medium pr-4 transition-colors ${
+                    openIndex === index ? 'text-gray-900' : 'text-gray-700'
+                  }`}
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
                   {faq.question}
                 </span>
-                <span className="flex-shrink-0">
+                <span
+                  className={`flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full transition-all duration-300 ${
+                    openIndex === index ? 'rotate-180' : ''
+                  }`}
+                  style={openIndex === index ? { backgroundColor: 'var(--color-brand)', color: 'white' } : { backgroundColor: '#f3f4f6', color: '#6b7280' }}
+                >
                   <svg
-                    className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
+                    className="h-4 w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    strokeWidth={2}
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
@@ -107,8 +133,13 @@ export default function FAQ() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="border-t border-gray-100 px-6 py-5">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <div className="px-6 pb-5">
+                    <p
+                      className="text-gray-600 leading-relaxed"
+                      style={{ fontFamily: 'var(--font-body)' }}
+                    >
+                      {faq.answer}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -118,11 +149,12 @@ export default function FAQ() {
 
         {/* Contact CTA */}
         <div className="mt-12 text-center">
-          <p className="text-gray-600">
+          <p className="text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
             Still have questions?{' '}
             <a
               href="#contact"
-              className="font-medium text-teal-600 hover:text-teal-700"
+              className="font-medium transition-colors hover:opacity-80"
+              style={{ color: 'var(--color-brand)' }}
             >
               Contact our team
             </a>

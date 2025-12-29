@@ -72,7 +72,7 @@ export default function Statistics() {
           <p className="text-gray-600">
             Join over{' '}
             <span className="font-semibold text-gray-900">50,000 members</span>{' '}
-            who have transformed their health with VitalPath.
+            who have transformed their health with Health Centric.
           </p>
         </div>
       </div>

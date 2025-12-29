@@ -1,12 +1,11 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Awards from './components/Awards';
+import HowItWorks from './components/HowItWorks';
 import ValueProposition from './components/ValueProposition';
-import Personas from './components/Personas';
-import RiskDetection from './components/RiskDetection';
-import Statistics from './components/Statistics';
-import FeatureBento from './components/FeatureBento';
-import Workflow from './components/Workflow';
-import Comparison from './components/Comparison';
+import TrustSection from './components/TrustSection';
+import Coverage from './components/Coverage';
+import MedicalTeam from './components/MedicalTeam';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
@@ -18,13 +17,12 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <Awards />
+        <HowItWorks />
         <ValueProposition />
-        <Personas />
-        <RiskDetection />
-        <Statistics />
-        <FeatureBento />
-        <Workflow />
-        <Comparison />
+        <TrustSection />
+        <Coverage />
+        <MedicalTeam />
         <Testimonials />
         <FAQ />
         <CTA />
