@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function CTA() {
   return (
-    <section className="relative py-16 sm:py-24 lg:py-32 bg-[#faf8f5]">
+    <section id="pricing" className="relative py-16 sm:py-24 lg:py-32 bg-[#faf8f5]">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:32px_32px] sm:bg-[size:48px_48px]" />
 

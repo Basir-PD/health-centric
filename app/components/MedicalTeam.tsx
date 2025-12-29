@@ -37,7 +37,7 @@ const doctors = [
 
 export default function MedicalTeam() {
   return (
-    <section className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
+    <section id="about" className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">

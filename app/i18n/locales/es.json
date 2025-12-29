@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "howItWorks": "Cómo funciona",
+    "whatWeTest": "Qué analizamos",
+    "pricing": "Precios",
+    "faq": "Preguntas",
+    "about": "Nosotros",
+    "login": "Iniciar sesión",
+    "startTesting": "Obtén tu análisis"
+  },
+  "hero": {
+    "eyebrow": "Atención preventiva avanzada",
+    "headline1": "Detecta lo que tu médico",
+    "headline2": "podría pasar por alto.",
+    "description": "Analiza más de 100 biomarcadores desde casa. Detecta señales tempranas de enfermedad antes de los síntomas. Resultados en 48 horas con pasos claros a seguir.",
+    "cta": "Comienza tu análisis",
+    "ctaSecondary": "Ver qué analizamos",
+    "trustClia": "Laboratorios certificados CLIA",
+    "trustHipaa": "Cumple con HIPAA",
+    "trustHsa": "Elegible para HSA/FSA",
+    "scroll": "Desplazar"
+  },
+  "awards": {
+    "sectionTitle": "Reconocidos por",
+    "sectionTitleHighlight": "excelencia en salud",
+    "subtitle": "Construido con los mismos estándares de laboratorio de los hospitales líderes",
+    "trust1": "100+ biomarcadores",
+    "trust2": "Laboratorios certificados CLIA",
+    "trust3": "Revisado por médicos",
+    "trust4": "Elegible HSA/FSA"
+  },
+  "howItWorks": {
+    "title": "Detecta señales tempranas de",
+    "titleHighlight": "enfermedades graves",
+    "subtitle": "Tu chequeo anual analiza 15 biomarcadores. Nosotros analizamos más de 100.",
+    "feature1": "Rastrea cambios en el tiempo",
+    "feature2": "Monitorea tu línea base",
+    "feature3": "Detecta problemas temprano"
+  },
+  "valueProposition": {
+    "title": "Qué analizamos",
+    "subtitle": "Más de 100 biomarcadores en las áreas más importantes para tu salud a largo plazo."
+  },
+  "testimonials": {
+    "title": "Confiado por",
+    "titleHighlight": "más de 50,000 miembros",
+    "subtitle": "Resultados reales de personas que controlan su salud."
+  },
+  "faq": {
+    "title": "Preguntas",
+    "titleHighlight": "frecuentes",
+    "subtitle": "Todo lo que necesitas saber antes de realizar tu análisis."
+  },
+  "footer": {
+    "company": "Empresa",
+    "explore": "Explorar",
+    "community": "Comunidad",
+    "joinUs": "Únete a Health Centric",
+    "login": "Iniciar sesión",
+    "careers": "Carreras",
+    "contactUs": "Contáctanos",
+    "testimonials": "Testimonios",
+    "about": "Nosotros",
+    "labLocations": "Ubicación de laboratorios",
+    "pricing": "Precios",
+    "gift": "Regala Health Centric",
+    "employers": "Para empleadores",
+    "practitioners": "Para profesionales",
+    "shareStory": "Comparte tu historia",
+    "newsletterTitle": "Recibe información sobre salud para",
+    "newsletterHighlight": "vivir mejor, por más tiempo",
+    "newsletterDescription": "Guías respaldadas por expertos sobre prevención, longevidad y optimización. Sin relleno, solo ciencia.",
+    "emailPlaceholder": "Correo electrónico",
+    "submit": "Obtener la guía",
+    "subscribeSuccess": "Revisa tu bandeja de entrada. Tu guía está en camino.",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos de servicio",
+    "hipaa": "HIPAA",
+    "copyright": "Health Centric"
+  },
+  "language": {
+    "select": "Idioma",
+    "en": "English",
+    "es": "Español"
+  }
+}

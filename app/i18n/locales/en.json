@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "howItWorks": "How it works",
+    "whatWeTest": "What we test",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "about": "About",
+    "login": "Login",
+    "startTesting": "Get your test"
+  },
+  "hero": {
+    "eyebrow": "Advanced preventive care",
+    "headline1": "Catch what your doctor",
+    "headline2": "might miss.",
+    "description": "Test 100+ biomarkers from home. Detect early signs of disease before symptoms appear. Get results in 48 hours with clear next steps.",
+    "cta": "Start your test",
+    "ctaSecondary": "See what we test",
+    "trustClia": "CLIA Certified Labs",
+    "trustHipaa": "HIPAA Compliant",
+    "trustHsa": "HSA/FSA Eligible",
+    "scroll": "Scroll"
+  },
+  "awards": {
+    "sectionTitle": "Recognized for",
+    "sectionTitleHighlight": "healthcare excellence",
+    "subtitle": "Built on the same lab standards used by leading hospitals",
+    "trust1": "100+ biomarkers",
+    "trust2": "CLIA-certified labs",
+    "trust3": "Physician-reviewed",
+    "trust4": "HSA/FSA eligible"
+  },
+  "howItWorks": {
+    "title": "Detect early signs of",
+    "titleHighlight": "serious disease",
+    "subtitle": "Your annual checkup tests 15 biomarkers. We test 100+.",
+    "feature1": "Track changes over time",
+    "feature2": "Monitor your baseline",
+    "feature3": "Catch problems early"
+  },
+  "valueProposition": {
+    "title": "What we test",
+    "subtitle": "100+ biomarkers across the areas that matter most to your long-term health."
+  },
+  "testimonials": {
+    "title": "Trusted by",
+    "titleHighlight": "50,000+ members",
+    "subtitle": "Real results from people taking control of their health."
+  },
+  "faq": {
+    "title": "Common",
+    "titleHighlight": "questions",
+    "subtitle": "Everything you need to know before you test."
+  },
+  "footer": {
+    "company": "Company",
+    "explore": "Explore",
+    "community": "Community",
+    "joinUs": "Join Health Centric",
+    "login": "Login",
+    "careers": "Careers",
+    "contactUs": "Contact us",
+    "testimonials": "What people say",
+    "about": "About",
+    "labLocations": "Lab locations",
+    "pricing": "Pricing",
+    "gift": "Gift Health Centric",
+    "employers": "For employers",
+    "practitioners": "For practitioners",
+    "shareStory": "Share your story",
+    "newsletterTitle": "Get evidence-based health insights for",
+    "newsletterHighlight": "living better, longer",
+    "newsletterDescription": "Expert-backed guides on prevention, longevity, and optimization. No fluff, just science.",
+    "emailPlaceholder": "Email address",
+    "submit": "Get the guide",
+    "subscribeSuccess": "Check your inbox. Your guide is on the way.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "hipaa": "HIPAA",
+    "copyright": "Health Centric"
+  },
+  "language": {
+    "select": "Language",
+    "en": "English",
+    "es": "Español"
+  }
+}

@@ -1,26 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
+import { motion, useInView } from 'framer-motion';
+import { useTranslation } from '../i18n/provider';
 
-const footerLinks = {
+const footerLinkKeys = {
   company: [
-    { label: 'Join Health Centric', href: '#get-started' },
-    { label: 'Login', href: '#login' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Contact us', href: '#contact' },
+    { key: 'joinUs', href: '#get-started' },
+    { key: 'login', href: '#login' },
+    { key: 'careers', href: '#careers' },
+    { key: 'contactUs', href: '#contact' },
   ],
   explore: [
-    { label: 'What people say', href: '#testimonials' },
-    { label: 'About', href: '#about' },
-    { label: 'Lab locations', href: '#locations' },
-    { label: 'Pricing', href: '#pricing' },
+    { key: 'testimonials', href: '#testimonials' },
+    { key: 'about', href: '#about' },
+    { key: 'labLocations', href: '#locations' },
+    { key: 'pricing', href: '#pricing' },
   ],
   community: [
-    { label: 'Gift Health Centric', href: '#gift' },
-    { label: 'For employers', href: '#employers' },
-    { label: 'For practitioners', href: '#practitioners' },
-    { label: 'Share your story', href: '#stories' },
+    { key: 'gift', href: '#gift' },
+    { key: 'employers', href: '#employers' },
+    { key: 'practitioners', href: '#practitioners' },
+    { key: 'shareStory', href: '#stories' },
   ],
 };
 
@@ -55,8 +57,11 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const footerRef = useRef<HTMLDivElement>(null);
+  const isFooterInView = useInView(footerRef, { once: true, amount: 0.1 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,13 +71,36 @@ export default function Footer() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }
+    }
+  };
+
   return (
     <footer className="bg-[#faf8f5]">
       {/* Main Footer */}
       <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-8 sm:gap-12 lg:grid-cols-12">
+        <motion.div
+          ref={footerRef}
+          initial="hidden"
+          animate={isFooterInView ? 'visible' : 'hidden'}
+          variants={containerVariants}
+          className="grid gap-8 sm:gap-12 lg:grid-cols-12"
+        >
           {/* Logo */}
-          <div className="lg:col-span-2">
+          <motion.div variants={itemVariants} className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 group">
               <div
                 className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
@@ -99,10 +127,10 @@ export default function Footer() {
                 Health Centric
               </span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Link Columns */}
-          <div className="lg:col-span-5">
+          <motion.div variants={itemVariants} className="lg:col-span-5">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
               {/* Company */}
               <div>
@@ -110,18 +138,18 @@ export default function Footer() {
                   className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
-                  Company
+                  {t('footer.company')}
                 </h4>
                 <ul className="space-y-2 sm:space-y-3">
-                  {footerLinks.company.map((link) => (
-                    <li key={link.label}>
+                  {footerLinkKeys.company.map((link) => (
+                    <li key={link.key}>
                       <Link
                         href={link.href}
                         className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
-                          {link.label}
+                          {t(`footer.${link.key}`)}
                           <span
                             className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
                             style={{ backgroundColor: 'var(--color-brand)' }}
@@ -139,18 +167,18 @@ export default function Footer() {
                   className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
-                  Explore
+                  {t('footer.explore')}
                 </h4>
                 <ul className="space-y-2 sm:space-y-3">
-                  {footerLinks.explore.map((link) => (
-                    <li key={link.label}>
+                  {footerLinkKeys.explore.map((link) => (
+                    <li key={link.key}>
                       <Link
                         href={link.href}
                         className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
-                          {link.label}
+                          {t(`footer.${link.key}`)}
                           <span
                             className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
                             style={{ backgroundColor: 'var(--color-brand)' }}
@@ -168,18 +196,18 @@ export default function Footer() {
                   className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
-                  Community
+                  {t('footer.community')}
                 </h4>
                 <ul className="space-y-2 sm:space-y-3">
-                  {footerLinks.community.map((link) => (
-                    <li key={link.label}>
+                  {footerLinkKeys.community.map((link) => (
+                    <li key={link.key}>
                       <Link
                         href={link.href}
                         className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
-                          {link.label}
+                          {t(`footer.${link.key}`)}
                           <span
                             className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
                             style={{ backgroundColor: 'var(--color-brand)' }}
@@ -191,28 +219,28 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-5">
+          <motion.div variants={itemVariants} className="lg:col-span-5">
             <div className="max-w-sm lg:ml-auto">
               <h3
                 className="text-lg sm:text-xl font-medium text-gray-900 leading-snug"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                Subscribe and get health guides for living{' '}
+                {t('footer.newsletterTitle')}{' '}
                 <span
                   className="italic"
                   style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif', color: 'var(--color-brand)' }}
                 >
-                  100 healthy years
+                  {t('footer.newsletterHighlight')}
                 </span>
               </h3>
               <p
                 className="mt-2 text-xs sm:text-sm text-gray-500"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
-                Get foundational guides for lifelong health. Built by top experts with decades of research.
+                {t('footer.newsletterDescription')}
               </p>
 
               {!isSubmitted ? (
@@ -221,7 +249,7 @@ export default function Footer() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address"
+                    placeholder={t('footer.emailPlaceholder')}
                     required
                     className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-400 transition-all duration-200 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
                     style={{ fontFamily: 'var(--font-body)' }}
@@ -231,7 +259,7 @@ export default function Footer() {
                     className="rounded-lg px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 flex-shrink-0"
                     style={{ backgroundColor: 'var(--color-brand)' }}
                   >
-                    Submit
+                    {t('footer.submit')}
                   </button>
                 </form>
               ) : (
@@ -239,15 +267,20 @@ export default function Footer() {
                   className="mt-4 sm:mt-5 rounded-lg bg-green-50 border border-green-200 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-700"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
-                  Thanks for subscribing! Check your email for your health guides.
+                  {t('footer.subscribeSuccess')}
                 </div>
               )}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 sm:mt-16 flex flex-col gap-4 sm:gap-6 border-t border-gray-200 pt-6 sm:pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isFooterInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mt-10 sm:mt-16 flex flex-col gap-4 sm:gap-6 border-t border-gray-200 pt-6 sm:pt-8 sm:flex-row sm:items-center sm:justify-between"
+        >
           {/* Social Links */}
           <div className="flex items-center gap-3 sm:gap-4">
             {socialLinks.map((social) => (
@@ -269,21 +302,21 @@ export default function Footer() {
               className="transition-colors hover:text-gray-700"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              Privacy Policy
+              {t('footer.privacyPolicy')}
             </Link>
             <Link
               href="#terms"
               className="transition-colors hover:text-gray-700"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              Terms of Service
+              {t('footer.termsOfService')}
             </Link>
             <Link
               href="#hipaa"
               className="transition-colors hover:text-gray-700"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              HIPAA
+              {t('footer.hipaa')}
             </Link>
           </div>
 
@@ -292,9 +325,9 @@ export default function Footer() {
             className="text-xs sm:text-sm text-gray-400"
             style={{ fontFamily: 'var(--font-body)' }}
           >
-            &copy; {new Date().getFullYear()} Health Centric
+            &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

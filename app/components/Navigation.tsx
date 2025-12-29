@@ -2,21 +2,24 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslation } from '../i18n/provider';
+import LanguageSelector from './LanguageSelector';
 
 interface NavItem {
-  label: string;
+  labelKey: string;
   href: string;
 }
 
-const navigation: NavItem[] = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'What we test', href: '#tests' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'About', href: '#about' },
+const navigationItems: NavItem[] = [
+  { labelKey: 'nav.howItWorks', href: '#how-it-works' },
+  { labelKey: 'nav.whatWeTest', href: '#tests' },
+  { labelKey: 'nav.pricing', href: '#pricing' },
+  { labelKey: 'nav.faq', href: '#faq' },
+  { labelKey: 'nav.about', href: '#about' },
 ];
 
 export default function Navigation() {
+  const { t, isLoading } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -97,9 +100,9 @@ export default function Navigation() {
 
               {/* Desktop Navigation */}
               <div className="hidden lg:flex lg:items-center lg:gap-1">
-                {navigation.map((item) => (
+                {navigationItems.map((item) => (
                   <Link
-                    key={item.label}
+                    key={item.labelKey}
                     href={item.href}
                     className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                       isScrolled
@@ -107,13 +110,14 @@ export default function Navigation() {
                         : 'text-white/80 hover:text-white hover:bg-white/10'
                     }`}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 ))}
               </div>
 
               {/* Desktop CTA */}
               <div className="hidden lg:flex lg:items-center lg:gap-3">
+                <LanguageSelector isScrolled={isScrolled} />
                 <Link
                   href="#login"
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
@@ -122,14 +126,14 @@ export default function Navigation() {
                       : 'text-white/80 hover:text-white'
                   }`}
                 >
-                  Login
+                  {t('nav.login')}
                 </Link>
                 <Link
                   href="#get-started"
                   className="rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg hover:opacity-90"
                   style={{ backgroundColor: 'var(--color-brand)', boxShadow: '0 4px 6px -1px rgba(184, 101, 74, 0.2)' }}
                 >
-                  Start testing
+                  {t('nav.startTesting')}
                 </Link>
               </div>
 
@@ -194,9 +198,9 @@ export default function Navigation() {
           >
             <div className="max-h-[calc(100vh-6rem)] overflow-y-auto p-5">
               <div className="space-y-0.5">
-                {navigation.map((item) => (
+                {navigationItems.map((item) => (
                   <Link
-                    key={item.label}
+                    key={item.labelKey}
                     href={item.href}
                     className="block rounded-xl px-4 py-2.5 text-sm font-medium text-gray-900 transition-colors"
                     style={{ '--hover-bg': 'rgba(184, 101, 74, 0.1)', '--hover-color': 'var(--color-brand)' } as React.CSSProperties}
@@ -204,18 +208,23 @@ export default function Navigation() {
                     onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = ''; }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 ))}
               </div>
 
-              <div className="mt-6 space-y-2.5 border-t border-gray-100 pt-5">
+              {/* Mobile Language Selector */}
+              <div className="mt-4 border-t border-gray-100 pt-4">
+                <LanguageSelector isScrolled={true} />
+              </div>
+
+              <div className="mt-4 space-y-2.5 border-t border-gray-100 pt-5">
                 <Link
                   href="#login"
                   className="block w-full rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Login
+                  {t('nav.login')}
                 </Link>
                 <Link
                   href="#get-started"
@@ -223,7 +232,7 @@ export default function Navigation() {
                   style={{ backgroundColor: 'var(--color-brand)', boxShadow: '0 4px 6px -1px rgba(184, 101, 74, 0.2)' }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Start testing
+                  {t('nav.startTesting')}
                 </Link>
               </div>
             </div>

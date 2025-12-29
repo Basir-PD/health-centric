@@ -1,5 +1,9 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useTranslation } from '../i18n/provider';
+
 const diseases1 = [
   'Lead toxicity', 'Alzheimer\'s disease', 'Graves\' disease', 'Ovarian cancer',
   'Hypothyroidism', 'Celiac disease', 'PCOS', 'Prostate cancer', 'Addison\'s disease',
@@ -30,11 +34,6 @@ const diseases4 = [
   'Cortisol dysfunction', 'Growth hormone deficiency', 'Parathyroid disorders', 'Bone loss',
 ];
 
-const features = [
-  'Establish your long-term baseline',
-  'Tracked for life',
-  'Monitor how your body changes',
-];
 
 function MarqueeRow({ diseases, direction = 'left', speed = 30 }: { diseases: string[]; direction?: 'left' | 'right'; speed?: number }) {
   const doubled = [...diseases, ...diseases];
@@ -61,39 +60,96 @@ function MarqueeRow({ diseases, direction = 'left', speed = 30 }: { diseases: st
 }
 
 export default function HowItWorks() {
+  const { t } = useTranslation();
+  const headerRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
+  const isFeaturesInView = useInView(featuresRef, { once: true, amount: 0.5 });
+  const isMarqueeInView = useInView(marqueeRef, { once: true, amount: 0.2 });
+
+  const features = [
+    t('howItWorks.feature1'),
+    t('howItWorks.feature2'),
+    t('howItWorks.feature3'),
+  ];
+
+  const featureVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const featureItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const }
+    }
+  };
+
   return (
-    <section className="relative bg-[#faf8f5] py-16 sm:py-20 lg:py-28 overflow-hidden">
+    <section id="how-it-works" className="relative bg-[#faf8f5] py-16 sm:py-20 lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8">
+        <motion.div
+          ref={headerRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-6 sm:mb-8"
+        >
           <h2
             className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl xl:text-5xl"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Monitor early indicators of
+            {t('howItWorks.title')}
           </h2>
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl italic mt-1"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--color-brand)' }}
+            style={{ fontFamily: 'Georgia, Cambria, \"Times New Roman\", Times, serif', color: 'var(--color-brand)' }}
           >
-            1000s of diseases
-          </p>
-        </div>
+            {t('howItWorks.titleHighlight')}
+          </motion.p>
+        </motion.div>
 
         {/* Features */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-8 mb-8 sm:mb-12">
+        <motion.div
+          ref={featuresRef}
+          initial="hidden"
+          animate={isFeaturesInView ? 'visible' : 'hidden'}
+          variants={featureVariants}
+          className="flex flex-wrap justify-center gap-3 sm:gap-8 mb-8 sm:mb-12"
+        >
           {features.map((feature, i) => (
-            <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
+            <motion.div
+              key={i}
+              variants={featureItemVariants}
+              className="flex items-center gap-2 text-sm text-gray-600"
+            >
               <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span>{feature}</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Marquee Container */}
-        <div className="relative">
+        <motion.div
+          ref={marqueeRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isMarqueeInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="relative"
+        >
           {/* Edge fade gradients */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#faf8f5] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#faf8f5] to-transparent z-10 pointer-events-none" />
@@ -105,7 +161,7 @@ export default function HowItWorks() {
             <MarqueeRow diseases={diseases3} direction="left" speed={42} />
             <MarqueeRow diseases={diseases4} direction="right" speed={48} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

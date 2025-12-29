@@ -4,7 +4,6 @@ import Awards from './components/Awards';
 import HowItWorks from './components/HowItWorks';
 import ValueProposition from './components/ValueProposition';
 import TrustSection from './components/TrustSection';
-import Coverage from './components/Coverage';
 import MedicalTeam from './components/MedicalTeam';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -21,7 +20,6 @@ export default function Home() {
         <HowItWorks />
         <ValueProposition />
         <TrustSection />
-        <Coverage />
         <MedicalTeam />
         <Testimonials />
         <FAQ />

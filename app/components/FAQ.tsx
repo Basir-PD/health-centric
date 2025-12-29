@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useTranslation } from '../i18n/provider';
 
 const faqs = [
   {
@@ -46,44 +48,83 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const accordionRef = useRef<HTMLDivElement>(null);
+
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
+  const isAccordionInView = useInView(accordionRef, { once: true, amount: 0.1 });
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const }
+    }
   };
 
   return (
     <section id="faq" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight">
             <span
               className="font-medium text-gray-900"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              Common
+              {t('faq.title')}
             </span>
             <span
               className="italic ml-2"
               style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif', color: 'var(--color-brand)' }}
             >
-              questions
+              {t('faq.titleHighlight')}
             </span>
           </h2>
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-4 text-gray-500 text-base lg:text-lg"
             style={{ fontFamily: 'var(--font-body)' }}
           >
-            Everything you need to know about Health Centric testing.
-          </p>
-        </div>
+            {t('faq.subtitle')}
+          </motion.p>
+        </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="space-y-3">
+        <motion.div
+          ref={accordionRef}
+          initial="hidden"
+          animate={isAccordionInView ? 'visible' : 'hidden'}
+          variants={containerVariants}
+          className="space-y-3"
+        >
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
               className={`overflow-hidden rounded-xl border transition-all duration-300 ${
                 openIndex === index
                   ? 'border-gray-200 bg-[#faf8f5]'
@@ -143,12 +184,17 @@ export default function FAQ() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Contact CTA */}
-        <div className="mt-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isAccordionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-12 text-center"
+        >
           <p className="text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
             Still have questions?{' '}
             <a
@@ -159,7 +205,7 @@ export default function FAQ() {
               Contact our team
             </a>
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

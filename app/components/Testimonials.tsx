@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useTranslation } from '../i18n/provider';
 
 const testimonials = [
   {
@@ -133,7 +135,13 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
 }
 
 export default function Testimonials() {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
+  const isGridInView = useInView(gridRef, { once: true, amount: 0.1 });
 
   // Split testimonials into columns for masonry effect
   // Initial view: 2 items per column (8 total on desktop)
@@ -148,34 +156,66 @@ export default function Testimonials() {
   const col3Extra = [testimonials[10]];
   const col4Extra = [testimonials[11]];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.06, delayChildren: 0.1 }
+    }
+  };
+
+  const columnVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }
+    }
+  };
+
   return (
     <section className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-16">
+        <motion.div
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center mb-10 sm:mb-16"
+        >
           <h2
             className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-gray-900"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Loved by{' '}
+            {t('testimonials.title')}{' '}
             <span
               className="italic"
               style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif', color: 'var(--color-brand)' }}
             >
-              thousands of people
+              {t('testimonials.titleHighlight')}
             </span>
           </h2>
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-base lg:text-lg max-w-xl mx-auto px-4"
             style={{ fontFamily: 'var(--font-body)' }}
           >
-            Here&apos;s what some of our users have to say about Health Centric.
-          </p>
-        </div>
+            {t('testimonials.subtitle')}
+          </motion.p>
+        </motion.div>
 
         {/* Masonry Grid - Desktop: 4 columns */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-3">
-          <div className="space-y-3">
+        <motion.div
+          ref={gridRef}
+          initial="hidden"
+          animate={isGridInView ? 'visible' : 'hidden'}
+          variants={containerVariants}
+          className="hidden lg:grid lg:grid-cols-4 gap-3"
+        >
+          <motion.div variants={columnVariants} className="space-y-3">
             {col1Initial.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />
             ))}
@@ -184,8 +224,8 @@ export default function Testimonials() {
                 <TestimonialCard key={t.id} testimonial={t} />
               ))}
             </div>
-          </div>
-          <div className="space-y-3 mt-6">
+          </motion.div>
+          <motion.div variants={columnVariants} className="space-y-3 mt-6">
             {col2Initial.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />
             ))}
@@ -194,8 +234,8 @@ export default function Testimonials() {
                 <TestimonialCard key={t.id} testimonial={t} />
               ))}
             </div>
-          </div>
-          <div className="space-y-3">
+          </motion.div>
+          <motion.div variants={columnVariants} className="space-y-3">
             {col3Initial.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />
             ))}
@@ -204,8 +244,8 @@ export default function Testimonials() {
                 <TestimonialCard key={t.id} testimonial={t} />
               ))}
             </div>
-          </div>
-          <div className="space-y-3 mt-6">
+          </motion.div>
+          <motion.div variants={columnVariants} className="space-y-3 mt-6">
             {col4Initial.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />
             ))}
@@ -214,8 +254,8 @@ export default function Testimonials() {
                 <TestimonialCard key={t.id} testimonial={t} />
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Tablet: 2 columns */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:hidden gap-3">
