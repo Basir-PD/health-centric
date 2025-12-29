@@ -4,57 +4,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/provider';
 
-const testCategories = [
-  {
-    title: 'Thyroid & hormones',
-    biomarkerCount: 14,
-    tests: [
-      'TSH (Thyroid Stimulating)',
-      'Free T3 & T4',
-      'Testosterone Panel',
-      'Estradiol & Progesterone',
-    ],
-  },
-  {
-    title: 'Early risk detection',
-    biomarkerCount: 28,
-    tests: [
-      'Multi-Cancer Screening',
-      'PSA (Prostate Health)',
-      'CA-125 (Ovarian)',
-      'Heavy Metals Panel',
-    ],
-  },
-  {
-    title: 'Heart & metabolism',
-    biomarkerCount: 22,
-    tests: [
-      'Advanced Lipid Panel',
-      'Lp(a) Cardiovascular',
-      'ApoB & ApoA1 Ratio',
-      'HbA1c & Fasting Glucose',
-    ],
-  },
-  {
-    title: 'Longevity markers',
-    biomarkerCount: 19,
-    tests: [
-      'IGF-1 (Growth Factor)',
-      'DHEA-S (Adrenal Health)',
-      'Homocysteine Levels',
-    ],
-  },
-  {
-    title: 'Brain & stress',
-    biomarkerCount: 12,
-    tests: [
-      'Cortisol (AM/PM)',
-      'hs-CRP Inflammation',
-      'Vitamin B12 & Folate',
-    ],
-  },
-];
-
 export default function ValueProposition() {
   const { t } = useTranslation();
   const headerRef = useRef<HTMLDivElement>(null);
@@ -62,6 +11,57 @@ export default function ValueProposition() {
 
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
   const isGridInView = useInView(gridRef, { once: true, amount: 0.1 });
+
+  const testCategories = [
+    {
+      titleKey: 'valueProposition.cat1Title',
+      biomarkerCount: 14,
+      testKeys: [
+        'valueProposition.cat1Test1',
+        'valueProposition.cat1Test2',
+        'valueProposition.cat1Test3',
+        'valueProposition.cat1Test4',
+      ],
+    },
+    {
+      titleKey: 'valueProposition.cat2Title',
+      biomarkerCount: 28,
+      testKeys: [
+        'valueProposition.cat2Test1',
+        'valueProposition.cat2Test2',
+        'valueProposition.cat2Test3',
+        'valueProposition.cat2Test4',
+      ],
+    },
+    {
+      titleKey: 'valueProposition.cat3Title',
+      biomarkerCount: 22,
+      testKeys: [
+        'valueProposition.cat3Test1',
+        'valueProposition.cat3Test2',
+        'valueProposition.cat3Test3',
+        'valueProposition.cat3Test4',
+      ],
+    },
+    {
+      titleKey: 'valueProposition.cat4Title',
+      biomarkerCount: 19,
+      testKeys: [
+        'valueProposition.cat4Test1',
+        'valueProposition.cat4Test2',
+        'valueProposition.cat4Test3',
+      ],
+    },
+    {
+      titleKey: 'valueProposition.cat5Title',
+      biomarkerCount: 12,
+      testKeys: [
+        'valueProposition.cat5Test1',
+        'valueProposition.cat5Test2',
+        'valueProposition.cat5Test3',
+      ],
+    },
+  ];
 
   const gridVariants = {
     hidden: { opacity: 0 },
@@ -127,7 +127,7 @@ export default function ValueProposition() {
                 className="text-lg sm:text-xl lg:text-2xl font-medium text-gray-900 leading-snug tracking-tight"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                {category.title}
+                {t(category.titleKey)}
               </h3>
 
               {/* Biomarker count */}
@@ -135,18 +135,18 @@ export default function ValueProposition() {
                 <svg className="h-3 w-3 sm:h-3.5 sm:w-3.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clipRule="evenodd"/>
                 </svg>
-                <span className="font-semibold tracking-wide">{category.biomarkerCount} Biomarkers</span>
+                <span className="font-semibold tracking-wide">{category.biomarkerCount} {t('valueProposition.biomarkers')}</span>
               </div>
 
               {/* Test list */}
               <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-2.5">
-                {category.tests.map((test, i) => (
+                {category.testKeys.map((testKey, i) => (
                   <div
                     key={i}
                     className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed"
                     style={{ fontFamily: 'var(--font-body)' }}
                   >
-                    {test}
+                    {t(testKey)}
                   </div>
                 ))}
               </div>
@@ -162,13 +162,13 @@ export default function ValueProposition() {
               className="text-lg sm:text-xl lg:text-2xl font-medium"
               style={{ fontFamily: 'var(--font-display)', color: 'var(--color-brand)' }}
             >
-              +More
+              {t('valueProposition.more')}
             </div>
             <p
               className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-2xl italic text-gray-600 leading-snug"
               style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
             >
-              Complete health<br />in one test
+              {t('valueProposition.moreText')}
             </p>
           </motion.div>
         </motion.div>
