@@ -115,7 +115,7 @@ export default function CTA() {
               </ul>
 
               <Link
-                href="#get-started"
+                href="/test"
                 className="mt-5 sm:mt-8 block w-full rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-center text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:brightness-110 active:scale-[0.98]"
                 style={{
                   backgroundColor: 'var(--color-brand)',
@@ -169,7 +169,7 @@ export default function CTA() {
               </ul>
 
               <Link
-                href="#subscribe"
+                href="/test"
                 className="mt-4 sm:mt-6 block w-full rounded-lg sm:rounded-xl border-2 px-4 sm:px-6 py-2.5 sm:py-3 text-center text-sm font-medium transition-all duration-300 hover:bg-[rgba(184,101,74,0.05)] active:scale-[0.98]"
                 style={{ borderColor: 'var(--color-brand)', color: 'var(--color-brand)' }}
               >

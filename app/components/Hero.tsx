@@ -107,7 +107,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4">
             <Link
-              href="#get-started"
+              href="/test"
               className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: 'var(--color-brand)',
@@ -157,15 +157,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center gap-2 text-white/40">
-          <span className="text-[10px] uppercase tracking-widest">{t('hero.scroll')}</span>
-          <div className="w-5 h-8 rounded-full border border-white/30 flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-white/50 rounded-full animate-bounce" />
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

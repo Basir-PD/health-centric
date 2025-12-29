@@ -298,21 +298,21 @@ export default function Footer() {
           {/* Legal Links */}
           <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-500">
             <Link
-              href="#privacy"
+              href="/privacy"
               className="transition-colors hover:text-gray-700"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {t('footer.privacyPolicy')}
             </Link>
             <Link
-              href="#terms"
+              href="/terms"
               className="transition-colors hover:text-gray-700"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {t('footer.termsOfService')}
             </Link>
             <Link
-              href="#hipaa"
+              href="/hipaa"
               className="transition-colors hover:text-gray-700"
               style={{ fontFamily: 'var(--font-body)' }}
             >

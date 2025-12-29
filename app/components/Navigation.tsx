@@ -12,7 +12,7 @@ interface NavItem {
 
 const navigationItems: NavItem[] = [
   { labelKey: 'nav.howItWorks', href: '#how-it-works' },
-  { labelKey: 'nav.whatWeTest', href: '#tests' },
+  { labelKey: 'nav.whatWeTest', href: '/test' },
   { labelKey: 'nav.pricing', href: '#pricing' },
   { labelKey: 'nav.faq', href: '#faq' },
   { labelKey: 'nav.about', href: '#about' },
@@ -25,7 +25,9 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 200);
+      // Become sticky after scrolling past the hero section (viewport height - some offset)
+      const heroHeight = window.innerHeight - 100;
+      setIsScrolled(window.scrollY > heroHeight);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -46,7 +48,9 @@ export default function Navigation() {
     <>
       {/* Main Navigation */}
       <header
-        className="fixed left-0 right-0 top-0 z-50 transition-all duration-700 ease-out"
+        className={`left-0 right-0 top-0 z-50 transition-all duration-700 ease-out ${
+          isScrolled ? 'fixed' : 'absolute'
+        }`}
       >
         <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           isScrolled
@@ -119,17 +123,7 @@ export default function Navigation() {
               <div className="hidden lg:flex lg:items-center lg:gap-3">
                 <LanguageSelector isScrolled={isScrolled} />
                 <Link
-                  href="#login"
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isScrolled
-                      ? 'text-gray-600 hover:text-gray-900'
-                      : 'text-white/80 hover:text-white'
-                  }`}
-                >
-                  {t('nav.login')}
-                </Link>
-                <Link
-                  href="#get-started"
+                  href="/test"
                   className="rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg hover:opacity-90"
                   style={{ backgroundColor: 'var(--color-brand)', boxShadow: '0 4px 6px -1px rgba(184, 101, 74, 0.2)' }}
                 >
@@ -178,7 +172,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed inset-0 top-16 transition-all duration-500 ${
+          className={`lg:hidden fixed inset-0 top-0 pt-20 transition-all duration-500 ${
             isMobileMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'
           }`}
         >
@@ -220,14 +214,7 @@ export default function Navigation() {
 
               <div className="mt-4 space-y-2.5 border-t border-gray-100 pt-5">
                 <Link
-                  href="#login"
-                  className="block w-full rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {t('nav.login')}
-                </Link>
-                <Link
-                  href="#get-started"
+                  href="/test"
                   className="block w-full rounded-xl px-4 py-3 text-center text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg hover:opacity-90"
                   style={{ backgroundColor: 'var(--color-brand)', boxShadow: '0 4px 6px -1px rgba(184, 101, 74, 0.2)' }}
                   onClick={() => setIsMobileMenuOpen(false)}
