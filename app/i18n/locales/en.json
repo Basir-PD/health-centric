@@ -5,6 +5,7 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "about": "About",
+    "contact": "Contact",
     "login": "Login",
     "startTesting": "Get your test"
   },
@@ -107,7 +108,9 @@
   "language": {
     "select": "Language",
     "en": "English",
-    "es": "Español"
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português"
   },
   "waitlist": {
     "title": "Join the Waitlist",

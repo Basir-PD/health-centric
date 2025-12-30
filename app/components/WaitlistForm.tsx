@@ -176,14 +176,14 @@ export default function WaitlistForm() {
         <FormField label={t('waitlist.firstName')} error={errors.first_name?.message}>
           <Input
             {...register('first_name')}
-            placeholder="John"
+            placeholder="Your first name"
             disabled={isSubmitting}
           />
         </FormField>
         <FormField label={t('waitlist.lastName')} error={errors.last_name?.message}>
           <Input
             {...register('last_name')}
-            placeholder="Doe"
+            placeholder="Your last name"
             disabled={isSubmitting}
           />
         </FormField>
@@ -195,7 +195,7 @@ export default function WaitlistForm() {
           <Input
             {...register('email')}
             type="email"
-            placeholder="john@example.com"
+            placeholder="Your email address"
             disabled={isSubmitting}
           />
         </FormField>
@@ -203,7 +203,7 @@ export default function WaitlistForm() {
           <Input
             {...register('phone')}
             type="tel"
-            placeholder="+1 (555) 000-0000"
+            placeholder="Your phone number"
             disabled={isSubmitting}
           />
         </FormField>

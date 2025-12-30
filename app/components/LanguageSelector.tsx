@@ -6,9 +6,10 @@ import { locales, localeNames, Locale } from '../i18n/config';
 
 interface LanguageSelectorProps {
   isScrolled?: boolean;
+  isDarkNav?: boolean;
 }
 
-export default function LanguageSelector({ isScrolled = false }: LanguageSelectorProps) {
+export default function LanguageSelector({ isScrolled = false, isDarkNav = false }: LanguageSelectorProps) {
   const { locale, setLocale, t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ export default function LanguageSelector({ isScrolled = false }: LanguageSelecto
 
       {/* Dropdown */}
       <div
-        className={`absolute right-0 mt-2 w-36 rounded-lg bg-white shadow-lg ring-1 ring-black/5 transition-all duration-200 origin-top-right ${
+        className={`absolute right-0 mt-2 w-36 rounded-lg bg-white shadow-lg ring-1 ring-black/5 overflow-hidden transition-all duration-200 origin-top-right ${
           isOpen
             ? 'opacity-100 scale-100 visible'
             : 'opacity-0 scale-95 invisible'

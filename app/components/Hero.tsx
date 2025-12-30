@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { useTranslation } from '../i18n/provider';
 
-const videoSources = ['/hero-main.mp4', '/hero.mp4'];
+const videoSources = ['/hero/hero-main.mp4', '/hero/hero.mp4'];
 
 export default function Hero() {
   const { t } = useTranslation();

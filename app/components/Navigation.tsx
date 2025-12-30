@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from '../i18n/provider';
 import LanguageSelector from './LanguageSelector';
 
@@ -15,15 +17,25 @@ const navigationItems: NavItem[] = [
   { labelKey: 'nav.whatWeTest', href: '/test' },
   { labelKey: 'nav.pricing', href: '#pricing' },
   { labelKey: 'nav.faq', href: '#faq' },
-  { labelKey: 'nav.about', href: '#about' },
+  { labelKey: 'nav.contact', href: '/contact' },
 ];
 
 export default function Navigation() {
   const { t, isLoading } = useTranslation();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Check if we're on a page that needs always-white navbar
+  const isContactPage = pathname === '/contact';
+
+  // On contact page, always show scrolled (white) style
+  const showScrolledStyle = isContactPage || isScrolled;
+
   useEffect(() => {
+    // Skip scroll listener on contact page since it's always white
+    if (isContactPage) return;
+
     const handleScroll = () => {
       // Become sticky after scrolling past the hero section (viewport height - some offset)
       const heroHeight = window.innerHeight - 100;
@@ -31,7 +43,7 @@ export default function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isContactPage]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -46,60 +58,41 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Main Navigation */}
+      {/* Main Navigation - Always fixed at top */}
       <header
-        className={`left-0 right-0 top-0 z-50 transition-all duration-700 ease-out ${
-          isScrolled ? 'fixed' : 'absolute'
-        }`}
+        className="fixed left-0 right-0 top-0 z-50 transition-all duration-700 ease-out"
       >
         <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-          isScrolled
+          showScrolledStyle
             ? 'mx-0 px-0 pt-0'
             : 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-3'
         }`}>
           <nav
             className={`transition-[background-color,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-              isScrolled
-                ? 'rounded-none bg-white/70 shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.08)] border-b border-gray-200/50'
+              showScrolledStyle
+                ? 'rounded-none bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.08)] border-b border-gray-200/50'
                 : 'rounded-lg bg-black/20 border border-white/10'
             }`}
             style={{
-              backdropFilter: 'blur(16px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(16px) saturate(180%)'
+              backdropFilter: showScrolledStyle ? 'none' : 'blur(16px) saturate(180%)',
+              WebkitBackdropFilter: showScrolledStyle ? 'none' : 'blur(16px) saturate(180%)'
             }}
           >
             <div className={`flex items-center justify-between transition-all duration-500 ${
-              isScrolled
+              showScrolledStyle
                 ? 'h-14 px-4 lg:h-16 lg:px-8 mx-auto max-w-7xl'
                 : 'h-16 px-5 lg:h-[72px] lg:px-6'
             }`}>
               {/* Logo */}
-              <Link href="/" className="flex items-center gap-2.5 group">
-                <div
-                  className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-300 ${
-                    isScrolled ? 'shadow-sm' : 'bg-white/20'
-                  }`}
-                  style={isScrolled ? { background: 'linear-gradient(to bottom right, var(--color-brand-light), var(--color-brand))' } : {}}
-                >
-                  <svg
-                    className={`h-5 w-5 transition-colors duration-300 ${isScrolled ? 'text-white' : 'text-white'}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </div>
-                <span className={`text-base font-semibold tracking-tight transition-colors duration-300 ${
-                  isScrolled ? 'text-gray-900' : 'text-white'
-                }`} style={{ fontFamily: 'var(--font-display)' }}>
-                  Health Centric
-                </span>
+              <Link href="/" className="flex items-center group">
+                <Image
+                  src="/logo-main.png"
+                  alt="Health Centric"
+                  width={160}
+                  height={48}
+                  className="h-10 w-auto transition-all duration-300"
+                  priority
+                />
               </Link>
 
               {/* Desktop Navigation */}
@@ -109,7 +102,7 @@ export default function Navigation() {
                     key={item.labelKey}
                     href={item.href}
                     className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                      isScrolled
+                      showScrolledStyle
                         ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80'
                         : 'text-white/80 hover:text-white hover:bg-white/10'
                     }`}
@@ -121,7 +114,7 @@ export default function Navigation() {
 
               {/* Desktop CTA */}
               <div className="hidden lg:flex lg:items-center lg:gap-3">
-                <LanguageSelector isScrolled={isScrolled} />
+                <LanguageSelector isScrolled={showScrolledStyle} />
                 <Link
                   href="/test"
                   className="rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg hover:opacity-90"
@@ -135,7 +128,7 @@ export default function Navigation() {
               <button
                 type="button"
                 className={`lg:hidden rounded-lg p-1.5 transition-all duration-300 ${
-                  isScrolled
+                  showScrolledStyle
                     ? 'text-gray-700 hover:bg-gray-100'
                     : 'text-white hover:bg-white/10'
                 }`}
@@ -147,21 +140,21 @@ export default function Navigation() {
                     className={`absolute left-0 block h-0.5 w-5 rounded-full transition-all duration-300 ${
                       isMobileMenuOpen
                         ? 'top-2 rotate-45 bg-gray-900'
-                        : `top-0 ${isScrolled ? 'bg-gray-700' : 'bg-white'}`
+                        : `top-0 ${showScrolledStyle ? 'bg-gray-700' : 'bg-white'}`
                     }`}
                   />
                   <span
                     className={`absolute left-0 top-2 block h-0.5 w-5 rounded-full transition-all duration-300 ${
                       isMobileMenuOpen
                         ? 'opacity-0'
-                        : `opacity-100 ${isScrolled ? 'bg-gray-700' : 'bg-white'}`
+                        : `opacity-100 ${showScrolledStyle ? 'bg-gray-700' : 'bg-white'}`
                     }`}
                   />
                   <span
                     className={`absolute left-0 block h-0.5 w-5 rounded-full transition-all duration-300 ${
                       isMobileMenuOpen
                         ? 'top-2 -rotate-45 bg-gray-900'
-                        : `top-4 ${isScrolled ? 'bg-gray-700' : 'bg-white'}`
+                        : `top-4 ${showScrolledStyle ? 'bg-gray-700' : 'bg-white'}`
                     }`}
                   />
                 </div>

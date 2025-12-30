@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/provider';
 
@@ -10,7 +11,7 @@ const footerLinkKeys = {
     { key: 'joinUs', href: '#get-started' },
     { key: 'login', href: '#login' },
     { key: 'careers', href: '#careers' },
-    { key: 'contactUs', href: '#contact' },
+    { key: 'contactUs', href: '/contact' },
   ],
   explore: [
     { key: 'testimonials', href: '#testimonials' },
@@ -101,31 +102,14 @@ export default function Footer() {
         >
           {/* Logo */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 group">
-              <div
-                className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, var(--color-brand-light), var(--color-brand))' }}
-              >
-                <svg
-                  className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <span
-                className="text-base sm:text-lg font-semibold text-gray-900"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                Health Centric
-              </span>
+            <Link href="/" className="inline-block group">
+              <Image
+                src="/logo.png"
+                alt="Health Centric"
+                width={140}
+                height={42}
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
           </motion.div>
 

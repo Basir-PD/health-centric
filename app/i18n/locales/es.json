@@ -5,6 +5,7 @@
     "pricing": "Precios",
     "faq": "Preguntas",
     "about": "Nosotros",
+    "contact": "Contacto",
     "login": "Iniciar sesión",
     "startTesting": "Obtén tu análisis"
   },
@@ -107,7 +108,9 @@
   "language": {
     "select": "Idioma",
     "en": "English",
-    "es": "Español"
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português"
   },
   "waitlist": {
     "title": "Únete a la lista de espera",
