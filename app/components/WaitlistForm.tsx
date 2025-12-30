@@ -130,11 +130,11 @@ export default function WaitlistForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12 px-6"
+        className="text-center py-8 sm:py-12 px-4 sm:px-6"
       >
-        <div className="mx-auto w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6">
+        <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 sm:mb-6">
           <svg
-            className="w-8 h-8 text-green-600"
+            className="w-7 h-7 sm:w-8 sm:h-8 text-green-600"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -148,13 +148,13 @@ export default function WaitlistForm() {
           </svg>
         </div>
         <h3
-          className="text-2xl font-semibold text-gray-900 mb-2"
+          className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {t('waitlist.successTitle')}
         </h3>
         <p
-          className="text-gray-600 mb-6 max-w-md mx-auto"
+          className="text-sm sm:text-base text-gray-600 mb-5 sm:mb-6 max-w-md mx-auto"
           style={{ fontFamily: 'var(--font-body)' }}
         >
           {t('waitlist.successMessage')}
@@ -225,7 +225,7 @@ export default function WaitlistForm() {
           {...register('health_issues')}
           placeholder={t('waitlist.healthIssuesPlaceholder')}
           disabled={isSubmitting}
-          className="min-h-[100px]"
+          className="min-h-[80px] sm:min-h-[100px]"
         />
       </FormField>
 
@@ -235,7 +235,7 @@ export default function WaitlistForm() {
           {...register('health_goals')}
           placeholder={t('waitlist.healthGoalsPlaceholder')}
           disabled={isSubmitting}
-          className="min-h-[100px]"
+          className="min-h-[80px] sm:min-h-[100px]"
         />
       </FormField>
 
@@ -245,7 +245,7 @@ export default function WaitlistForm() {
           {...register('message')}
           placeholder={t('waitlist.messagePlaceholder')}
           disabled={isSubmitting}
-          className="min-h-[80px]"
+          className="min-h-[60px] sm:min-h-[80px]"
         />
       </FormField>
 

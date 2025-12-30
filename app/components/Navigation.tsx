@@ -27,14 +27,14 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Check if we're on a page that needs always-white navbar
-  const isContactPage = pathname === '/contact';
+  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/hipaa' || pathname === '/test';
 
-  // On contact page, always show scrolled (white) style
-  const showScrolledStyle = isContactPage || isScrolled;
+  // On these pages, always show scrolled (white) style
+  const showScrolledStyle = isWhiteNavbarPage || isScrolled;
 
   useEffect(() => {
-    // Skip scroll listener on contact page since it's always white
-    if (isContactPage) return;
+    // Skip scroll listener on pages with always-white navbar
+    if (isWhiteNavbarPage) return;
 
     const handleScroll = () => {
       // Become sticky after scrolling past the hero section (viewport height - some offset)
@@ -43,7 +43,7 @@ export default function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isContactPage]);
+  }, [isWhiteNavbarPage]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -71,7 +71,7 @@ export default function Navigation() {
             className={`transition-[background-color,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
               showScrolledStyle
                 ? 'rounded-none bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.08)] border-b border-gray-200/50'
-                : 'rounded-lg bg-black/20 border border-white/10'
+                : 'rounded-lg bg-black/30 border border-white/10'
             }`}
             style={{
               backdropFilter: showScrolledStyle ? 'none' : 'blur(16px) saturate(180%)',
@@ -104,7 +104,7 @@ export default function Navigation() {
                     className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                       showScrolledStyle
                         ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80'
-                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {t(item.labelKey)}

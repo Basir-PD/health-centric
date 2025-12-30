@@ -120,7 +120,7 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <a
-                  href="mailto:alnoor@healthcentric.ai"
+                  href="mailto:al@healthcentric.ai"
                   className="group flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(184, 101, 74, 0.1)' }}>
