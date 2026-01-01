@@ -27,7 +27,7 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Check if we're on a page that needs always-white navbar
-  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/hipaa' || pathname === '/test';
+  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/test';
 
   // On these pages, always show scrolled (white) style
   const showScrolledStyle = isWhiteNavbarPage || isScrolled;

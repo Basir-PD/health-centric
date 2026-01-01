@@ -49,6 +49,12 @@ export type WaitlistSubmission = {
   created_at?: string;
 };
 
+export type NewsletterSubscription = {
+  id?: string;
+  email: string;
+  created_at?: string;
+};
+
 export async function submitToWaitlist(data: Omit<WaitlistSubmission, 'id' | 'created_at'>) {
   const supabase = getSupabase();
 
@@ -127,6 +133,64 @@ export async function submitToContact(data: Omit<ContactSubmission, 'id' | 'crea
   console.log('✅ Successfully submitted:', result);
   return result;
 }
+
+export async function submitToNewsletter(data: Omit<NewsletterSubscription, 'id' | 'created_at'>) {
+  const supabase = getSupabase();
+
+  if (!supabase) {
+    // Development mode: log data and simulate success
+    console.log('📋 Newsletter subscription (Supabase not configured):', data);
+    return { ...data, id: 'dev-' + Date.now(), created_at: new Date().toISOString() };
+  }
+
+  console.log('📤 Submitting to Supabase newsletter_subscriptions table:', data);
+
+  const { data: result, error } = await supabase
+    .from('newsletter_subscriptions')
+    .insert([data])
+    .select()
+    .single();
+
+  if (error) {
+    console.error('❌ Supabase error:', error.message);
+    console.error('Error code:', error.code);
+    if (error.details) console.error('Error details:', error.details);
+    if (error.hint) console.error('Error hint:', error.hint);
+
+    // Provide helpful error messages
+    if (error.code === 'PGRST205' || error.code === '42P01') {
+      throw new Error('Table "newsletter_subscriptions" does not exist. Please create it in Supabase.');
+    }
+    if (error.code === '42501') {
+      throw new Error('Permission denied. Check RLS policies in Supabase.');
+    }
+    if (error.code === '23505') {
+      throw new Error('This email is already subscribed.');
+    }
+
+    throw new Error(error.message || 'Failed to subscribe. Please try again.');
+  }
+
+  console.log('✅ Successfully subscribed:', result);
+  return result;
+}
+
+/*
+ * SQL to create the newsletter_subscriptions table in Supabase:
+ *
+ * CREATE TABLE newsletter_subscriptions (
+ *   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+ *   email TEXT NOT NULL UNIQUE,
+ *   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+ * );
+ *
+ * -- Enable RLS
+ * ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
+ *
+ * -- Allow anonymous inserts
+ * CREATE POLICY "Allow anonymous inserts" ON newsletter_subscriptions
+ *   FOR INSERT WITH CHECK (true);
+ */
 
 /*
  * SQL to create the contact_submissions table in Supabase:

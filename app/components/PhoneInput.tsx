@@ -313,9 +313,9 @@ export default function PhoneInput({
             onClick={() => setIsOpen(false)}
           />
           <div className="absolute top-full left-0 mt-1 z-50 w-56 max-h-64 overflow-y-auto bg-white rounded-lg shadow-lg border border-gray-200">
-            {countryCodes.map((country) => (
+            {countryCodes.map((country, index) => (
               <button
-                key={country.code}
+                key={`${country.code}-${country.country}`}
                 type="button"
                 onClick={() => handleCodeChange(country.code)}
                 className={`

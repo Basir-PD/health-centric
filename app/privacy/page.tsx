@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
                 Health Centric (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile applications, and health testing services (collectively, the &quot;Services&quot;).
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We operate in compliance with Panama Law 81 of March 26, 2019 (Personal Data Protection Law), the Health Insurance Portability and Accountability Act (HIPAA), and other applicable international data protection standards.
+                We operate in compliance with Panama Law 81 of March 26, 2019 (Personal Data Protection Law) and other applicable international data protection standards.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy. If you do not agree, please discontinue use of our Services immediately.
@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
 
               <h3 className="text-lg font-medium text-gray-800 mb-3">2.3 Information from Third Parties</h3>
               <p className="text-gray-600 leading-relaxed">
-                We may receive information from CLIA-certified laboratories, healthcare providers, insurance companies, and identity verification services that you have authorized to share information with us.
+                We may receive information from MINSA-certified laboratories, healthcare providers, insurance companies, and identity verification services that you have authorized to share information with us.
               </p>
             </section>
 
@@ -96,15 +96,15 @@ export default function PrivacyPolicy() {
 
             <section className="mb-10">
               <h2 className="text-xl font-semibold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                4. Protected Health Information (PHI) &amp; HIPAA Compliance
+                4. Protected Health Information (PHI) &amp; Ley 81 Compliance
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                As a provider of health-related services, we handle Protected Health Information (PHI) in accordance with HIPAA regulations. This includes:
+                As a provider of health-related services, we handle Protected Health Information (PHI) in accordance with Panama&apos;s Ley 81 regulations. This includes:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                 <li>Implementing administrative, physical, and technical safeguards to protect PHI</li>
-                <li>Training all employees on HIPAA privacy and security requirements</li>
-                <li>Maintaining Business Associate Agreements with all third parties who access PHI</li>
+                <li>Training all employees on Ley 81 privacy and security requirements</li>
+                <li>Maintaining Data Processing Agreements with all third parties who access PHI</li>
                 <li>Providing you with access to your health records upon request</li>
                 <li>Limiting PHI use and disclosure to the minimum necessary</li>
               </ul>

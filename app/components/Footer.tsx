@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/provider';
+import { submitToNewsletter } from '../lib/supabase';
 
 const footerLinkKeys = {
   company: [
@@ -19,13 +20,7 @@ const footerLinkKeys = {
     { key: 'labLocations', href: '#locations' },
     { key: 'pricing', href: '#pricing' },
   ],
-  community: [
-    { key: 'gift', href: '#gift' },
-    { key: 'employers', href: '#employers' },
-    { key: 'practitioners', href: '#practitioners' },
-    { key: 'shareStory', href: '#stories' },
-  ],
-};
+  };
 
 const socialLinks = [
   {
@@ -61,14 +56,26 @@ export default function Footer() {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const footerRef = useRef<HTMLDivElement>(null);
   const isFooterInView = useInView(footerRef, { once: true, amount: 0.1 });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await submitToNewsletter({ email });
       setIsSubmitted(true);
       setEmail('');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to subscribe. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -115,7 +122,7 @@ export default function Footer() {
 
           {/* Link Columns */}
           <motion.div variants={itemVariants} className="lg:col-span-5">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8">
               {/* Company */}
               <div>
                 <h4
@@ -173,35 +180,6 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-
-              {/* Community */}
-              <div className="col-span-2 sm:col-span-1">
-                <h4
-                  className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  {t('footer.community')}
-                </h4>
-                <ul className="space-y-2 sm:space-y-3">
-                  {footerLinkKeys.community.map((link) => (
-                    <li key={link.key}>
-                      <Link
-                        href={link.href}
-                        className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
-                        style={{ fontFamily: 'var(--font-body)' }}
-                      >
-                        <span className="relative">
-                          {t(`footer.${link.key}`)}
-                          <span
-                            className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
-                            style={{ backgroundColor: 'var(--color-brand)' }}
-                          />
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </motion.div>
 
@@ -228,24 +206,33 @@ export default function Footer() {
               </p>
 
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="mt-4 sm:mt-5 flex gap-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t('footer.emailPlaceholder')}
-                    required
-                    className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-400 transition-all duration-200 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                    style={{ fontFamily: 'var(--font-body)' }}
-                  />
-                  <button
-                    type="submit"
-                    className="rounded-lg px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 flex-shrink-0"
-                    style={{ backgroundColor: 'var(--color-brand)' }}
-                  >
-                    {t('footer.submit')}
-                  </button>
-                </form>
+                <div>
+                  <form onSubmit={handleSubmit} className="mt-4 sm:mt-5 flex gap-2">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={t('footer.emailPlaceholder')}
+                      required
+                      disabled={isLoading}
+                      className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-400 transition-all duration-200 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ fontFamily: 'var(--font-body)' }}
+                    />
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="rounded-lg px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ backgroundColor: 'var(--color-brand)' }}
+                    >
+                      {isLoading ? 'Subscribing...' : t('footer.submit')}
+                    </button>
+                  </form>
+                  {error && (
+                    <p className="mt-2 text-xs text-red-600" style={{ fontFamily: 'var(--font-body)' }}>
+                      {error}
+                    </p>
+                  )}
+                </div>
               ) : (
                 <div
                   className="mt-4 sm:mt-5 rounded-lg bg-green-50 border border-green-200 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-700"
@@ -294,13 +281,6 @@ export default function Footer() {
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {t('footer.termsOfService')}
-            </Link>
-            <Link
-              href="/hipaa"
-              className="transition-colors hover:text-gray-700"
-              style={{ fontFamily: 'var(--font-body)' }}
-            >
-              {t('footer.hipaa')}
             </Link>
           </div>
 
