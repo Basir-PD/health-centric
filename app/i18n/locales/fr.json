@@ -157,6 +157,7 @@
     "error": "Une erreur s'est produite. Veuillez réessayer.",
     "required": "Ce champ est obligatoire",
     "validEmail": "Veuillez entrer un email valide",
+    "validPhone": "Veuillez entrer un numéro de téléphone panaméen valide",
     "agreements": "Veuillez lire et accepter les conditions suivantes",
     "agreeTerms": "J'accepte les",
     "termsLink": "Conditions d'utilisation",

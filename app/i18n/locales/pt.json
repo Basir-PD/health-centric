@@ -157,6 +157,7 @@
     "error": "Algo deu errado. Por favor, tente novamente.",
     "required": "Este campo é obrigatório",
     "validEmail": "Por favor, insira um e-mail válido",
+    "validPhone": "Por favor, insira um número de telefone válido do Panamá",
     "agreements": "Por favor, leia e aceite os termos a seguir",
     "agreeTerms": "Eu concordo com os",
     "termsLink": "Termos de Uso",

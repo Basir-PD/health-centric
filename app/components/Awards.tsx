@@ -40,10 +40,8 @@ const awards = [
 
 export default function Awards() {
   const { t } = useTranslation();
-  const trustRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const awardsRef = useRef<HTMLDivElement>(null);
-  const isTrustInView = useInView(trustRef, { once: true, amount: 0.3 });
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.3 });
   const isAwardsInView = useInView(awardsRef, { once: true, amount: 0.2 });
 
@@ -52,15 +50,6 @@ export default function Awards() {
     visible: {
       opacity: 1,
       transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }
     }
   };
 
@@ -76,48 +65,6 @@ export default function Awards() {
   return (
     <section className="bg-white py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Trust Badges Row */}
-        <motion.div
-          ref={trustRef}
-          initial="hidden"
-          animate={isTrustInView ? 'visible' : 'hidden'}
-          variants={containerVariants}
-          className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 sm:mb-16 pb-12 sm:pb-16 border-b border-gray-100"
-        >
-          {[
-            {
-              icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>,
-              label: t('awards.trust1')
-            },
-            {
-              icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>,
-              label: t('awards.trust2')
-            },
-            {
-              icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>,
-              label: t('awards.trust3')
-            },
-            {
-              icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" /></svg>,
-              label: t('awards.trust4')
-            },
-          ].map((badge, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-gray-50 border border-gray-100"
-            >
-              <span className="text-gray-500">{badge.icon}</span>
-              <span
-                className="text-xs sm:text-sm font-medium text-gray-700"
-                style={{ fontFamily: 'var(--font-body)' }}
-              >
-                {badge.label}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Section Header */}
         <motion.div
           ref={headerRef}

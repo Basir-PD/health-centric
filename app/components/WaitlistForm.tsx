@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { submitToWaitlist } from '../lib/supabase';
 import { useTranslation } from '../i18n/provider';
+import PhoneInput from './PhoneInput';
 
 const waitlistSchema = z.object({
   first_name: z
@@ -26,8 +27,11 @@ const waitlistSchema = z.object({
     .email('Please enter a valid email address'),
   phone: z
     .string()
-    .min(10, 'Please enter a valid phone number')
-    .max(20, 'Phone number is too long'),
+    .min(8, 'Please enter a valid phone number')
+    .regex(
+      /^\+\d{1,4}\d{6,14}$/,
+      'Please enter a valid phone number with country code'
+    ),
   date_of_birth: z
     .string()
     .min(1, 'Date of birth is required'),
@@ -88,6 +92,8 @@ export default function WaitlistForm() {
     register,
     handleSubmit,
     reset,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm<WaitlistFormData>({
     resolver: zodResolver(waitlistSchema),
@@ -95,7 +101,7 @@ export default function WaitlistForm() {
       first_name: '',
       last_name: '',
       email: '',
-      phone: '',
+      phone: '+507',
       date_of_birth: '',
       health_issues: '',
       health_goals: '',
@@ -200,11 +206,12 @@ export default function WaitlistForm() {
           />
         </FormField>
         <FormField label={t('waitlist.phone')} error={errors.phone?.message}>
-          <Input
-            {...register('phone')}
-            type="tel"
-            placeholder="Your phone number"
+          <PhoneInput
+            value={watch('phone') || ''}
+            onChange={(value) => setValue('phone', value, { shouldValidate: true })}
             disabled={isSubmitting}
+            error={!!errors.phone}
+            placeholder="6123-4567"
           />
         </FormField>
       </div>

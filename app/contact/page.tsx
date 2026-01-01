@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import Navigation from '../components/Navigation';
+import PhoneInput from '../components/PhoneInput';
 
 type FormData = {
   name: string;
@@ -28,17 +29,26 @@ export default function ContactPage() {
     register,
     handleSubmit,
     reset,
+    watch,
+    setValue,
     formState: { errors, isSubmitting }
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: {
+      phone: '+507'
+    }
+  });
 
   const onSubmit = async (data: FormData) => {
     setSubmitError('');
+
+    // Only include phone if user entered a number (not just country code)
+    const phoneValue = data.phone && data.phone.length > 5 ? data.phone : undefined;
 
     try {
       await submitToContact({
         name: data.name,
         email: data.email,
-        phone: data.phone || undefined,
+        phone: phoneValue,
         message: data.message,
       });
 
@@ -218,12 +228,17 @@ export default function ContactPage() {
                     <Label htmlFor="phone" className="text-gray-600 font-normal text-sm">
                       Phone number <span className="text-gray-400">(optional)</span>
                     </Label>
-                    <Input
+                    <PhoneInput
                       id="phone"
-                      type="tel"
-                      placeholder="Your phone number"
-                      {...register('phone')}
+                      value={watch('phone') || '+507'}
+                      onChange={(value) => setValue('phone', value)}
+                      disabled={isSubmitting}
+                      error={!!errors.phone}
+                      placeholder="6123-4567"
                     />
+                    {errors.phone && (
+                      <p className="text-xs text-red-500">{errors.phone.message || t('contact.validPhone')}</p>
+                    )}
                   </div>
 
                   {/* Message */}

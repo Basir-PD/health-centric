@@ -16,9 +16,9 @@
     "description": "Test 100+ biomarkers from comfort of your home or a lab near you. Detect early signs of disease before symptoms appear. Get results in 48 hours with clear next steps.",
     "cta": "Start your test",
     "ctaSecondary": "See what we test",
-    "trustClia": "CLIA Certified Labs",
-    "trustHipaa": "MINSA Certified",
-    "trustHsa": "HSA/FSA Eligible",
+    "trustClia": "100+ biomarkers",
+    "trustHipaa": "MINSA-certified",
+    "trustHsa": "Doctor-verified results",
     "scroll": "Scroll"
   },
   "awards": {
@@ -157,6 +157,7 @@
     "error": "Something went wrong. Please try again.",
     "required": "This field is required",
     "validEmail": "Please enter a valid email",
+    "validPhone": "Please enter a valid Panama phone number",
     "agreements": "Please review and accept the following",
     "agreeTerms": "I agree to Health Centric's",
     "termsLink": "Terms of Service",
