@@ -6,14 +6,14 @@ import { useTranslation } from '../i18n/provider';
 
 const faqs = [
   {
-    question: 'How does the at-home blood collection work?',
+    question: 'How does the blood collection work?',
     answer:
-      'Our at-home collection kit uses a simple finger-prick method. You\'ll receive everything you need, including detailed instructions, a lancet, collection tube, and pre-paid return envelope. The entire process takes about 5 minutes. Once collected, simply mail your sample back using the provided envelope, and your results will be ready within 48 hours.',
+      'Choose the option that works best for you: have a certified nurse visit your home or office for a quick blood draw, or visit one of our partner labs near you. The process takes about 10 minutes and is performed by trained healthcare professionals. Your results will be ready within 48 hours.',
   },
   {
     question: 'How accurate are the test results?',
     answer:
-      'Our tests are processed in CLIA-certified and CAP-accredited laboratories, the same facilities used by major hospitals and healthcare providers. We maintain rigorous quality control standards to ensure accuracy comparable to traditional lab testing. All results are reviewed by licensed physicians before being released.',
+      'Our tests are processed in MINSA-certified laboratories, the same facilities used by major hospitals and healthcare providers. We maintain rigorous quality control standards to ensure accuracy comparable to traditional lab testing. All results are reviewed by licensed physicians before being released.',
   },
   {
     question: 'What biomarkers are included in the comprehensive panel?',
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: 'How is my health data protected?',
     answer:
-      'We take data security seriously. All health information is encrypted using industry-standard protocols and stored in HIPAA-compliant systems. We never sell your data to third parties. You have full control over your information and can request deletion at any time.',
+      'We take data security seriously. All health information is encrypted using industry-standard protocols and stored in systems compliant with Panama\'s Ley 81 (Personal Data Protection Law). We never sell your data to third parties. You have full control over your information and can request deletion at any time.',
   },
   {
     question: 'Can I share my results with my doctor?',

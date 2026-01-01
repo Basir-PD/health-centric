@@ -7,14 +7,14 @@ const steps = [
     id: 'test',
     number: '01',
     title: 'Test',
-    headline: 'Simple at-home collection',
+    headline: 'Professional blood collection',
     description:
-      'Order your kit online and receive it within 2-3 days. Our simple finger-prick collection takes just 5 minutes. No clinic visits, no fasting, no hassle.',
+      'Book online and choose your preferred option: a certified nurse visits your home or office, or visit a partner lab near you. Quick, professional, and hassle-free.',
     features: [
-      'Free 2-day shipping on all kits',
-      'Simple finger-prick collection',
-      'Pre-paid return shipping included',
-      'CLIA-certified lab processing',
+      'Nurse home visit available',
+      'Partner labs nationwide',
+      'Professional blood draw',
+      'MINSA-certified lab processing',
     ],
     visual: (
       <div className="relative">
