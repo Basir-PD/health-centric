@@ -152,7 +152,7 @@ export default function TrustSection() {
               className="mt-4 sm:mt-5 text-gray-500 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              We partner with CLIA-certified laboratories trusted by physicians nationwide.
+              We partner with MINSA-certified laboratories trusted by physicians nationwide.
               No shortcuts, no compromises on accuracy.
             </p>
 
@@ -163,8 +163,8 @@ export default function TrustSection() {
                   <path d="M20 2L4 8v12c0 9.55 6.82 18.48 16 20 9.18-1.52 16-10.45 16-20V8L20 2zm-2 28l-6-6 2.12-2.12L18 25.76l9.88-9.88L30 18l-12 12z"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">CLIA</div>
-                  <div className="text-[10px] text-gray-400">Certified</div>
+                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">100+</div>
+                  <div className="text-[10px] text-gray-400">Biomarkers</div>
                 </div>
               </div>
               <div className="h-8 w-px bg-gray-200" />
@@ -173,8 +173,8 @@ export default function TrustSection() {
                   <path d="M20 4C12.27 4 6 10.27 6 18c0 5.52 3.19 10.29 7.82 12.57L20 36l6.18-5.43C30.81 28.29 34 23.52 34 18c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">CAP</div>
-                  <div className="text-[10px] text-gray-400">Accredited</div>
+                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">MINSA</div>
+                  <div className="text-[10px] text-gray-400">Certified</div>
                 </div>
               </div>
               <div className="h-8 w-px bg-gray-200" />
@@ -183,8 +183,8 @@ export default function TrustSection() {
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z" transform="translate(8, 8)"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">HIPAA</div>
-                  <div className="text-[10px] text-gray-400">Compliant</div>
+                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Doctor</div>
+                  <div className="text-[10px] text-gray-400">Verified</div>
                 </div>
               </div>
             </div>
