@@ -111,11 +111,12 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <Link href="/" className="inline-block group">
               <Image
-                src="/logo.png"
+                src="/logo-main.png"
                 alt="Health Centric"
                 width={140}
                 height={42}
                 className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+                style={{ filter: 'sepia(100%) saturate(300%) hue-rotate(-10deg) brightness(0.85)' }}
               />
             </Link>
           </motion.div>
