@@ -61,7 +61,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-screen flex-col items-center justify-center text-center pt-16 pb-12">
+        <div className="flex min-h-screen flex-col items-center justify-center text-center pt-32 pb-12">
 
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-6 sm:mb-8">

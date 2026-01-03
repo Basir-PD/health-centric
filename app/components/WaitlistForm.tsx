@@ -116,6 +116,23 @@ export default function WaitlistForm() {
 
     try {
       await submitToWaitlist(data);
+
+      // Send confirmation email
+      try {
+        await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'waitlist',
+            email: data.email,
+            firstName: data.first_name,
+          }),
+        });
+      } catch (emailError) {
+        // Don't block form submission if email fails
+        console.error('Failed to send confirmation email:', emailError);
+      }
+
       setSubmitStatus('success');
       reset();
     } catch (error) {

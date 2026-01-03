@@ -70,6 +70,22 @@ export default function Footer() {
 
     try {
       await submitToNewsletter({ email });
+
+      // Send welcome email
+      try {
+        await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'newsletter',
+            email: email,
+          }),
+        });
+      } catch (emailError) {
+        // Don't block subscription if email fails
+        console.error('Failed to send welcome email:', emailError);
+      }
+
       setIsSubmitted(true);
       setEmail('');
     } catch (err) {

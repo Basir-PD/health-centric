@@ -52,6 +52,22 @@ export default function ContactPage() {
         message: data.message,
       });
 
+      // Send confirmation email
+      try {
+        await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'contact',
+            email: data.email,
+            name: data.name,
+          }),
+        });
+      } catch (emailError) {
+        // Don't block form submission if email fails
+        console.error('Failed to send confirmation email:', emailError);
+      }
+
       setIsSubmitted(true);
       reset();
     } catch (err) {
