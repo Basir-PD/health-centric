@@ -3,6 +3,9 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { Locale, defaultLocale, getDeviceLocale, locales } from './config';
 
+// Import default translations synchronously for SSR
+import defaultTranslations from './locales/en.json';
+
 type Translations = Record<string, any>;
 
 interface I18nContextType {
@@ -16,8 +19,10 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 const STORAGE_KEY = 'preferred-language';
 
-// Cache for loaded translations
-const translationsCache: Partial<Record<Locale, Translations>> = {};
+// Cache for loaded translations - pre-populate with default
+const translationsCache: Partial<Record<Locale, Translations>> = {
+  en: defaultTranslations,
+};
 
 async function loadTranslations(locale: Locale): Promise<Translations> {
   // Return from cache if available
@@ -40,9 +45,10 @@ function getNestedValue(obj: any, path: string): string | undefined {
 }
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
+  // Initialize with default translations so SSR has content
   const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-  const [translations, setTranslations] = useState<Translations>({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [translations, setTranslations] = useState<Translations>(defaultTranslations);
+  const [isLoading, setIsLoading] = useState(false);
   const initializedRef = useRef(false);
 
   useEffect(() => {
@@ -53,15 +59,18 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     const savedLocale = localStorage.getItem(STORAGE_KEY) as Locale | null;
     const initialLocale = savedLocale || getDeviceLocale();
 
-    // Load initial translations and preload others in background
-    loadTranslations(initialLocale).then((trans) => {
-      setLocaleState(initialLocale);
-      setTranslations(trans);
-      setIsLoading(false);
+    // If different from default, load that locale's translations
+    if (initialLocale !== defaultLocale) {
+      setIsLoading(true);
+      loadTranslations(initialLocale).then((trans) => {
+        setLocaleState(initialLocale);
+        setTranslations(trans);
+        setIsLoading(false);
+      });
+    }
 
-      // Preload other translations in background for instant switching
-      preloadAllTranslations();
-    });
+    // Preload other translations in background for instant switching
+    preloadAllTranslations();
   }, []);
 
   const setLocale = useCallback(async (newLocale: Locale) => {
@@ -79,12 +88,13 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const t = useCallback((key: string, params?: Record<string, string | number>): string => {
-    // During initial load, return empty string to avoid flashing keys
-    if (isLoading) {
-      return '';
-    }
-
+    // Always try to get translation - we have default translations available
     let value = getNestedValue(translations, key);
+
+    // If switching languages and translation not found, fall back to default
+    if (value === undefined && isLoading) {
+      value = getNestedValue(defaultTranslations, key);
+    }
 
     if (value === undefined) {
       // Suppress console warnings in production
