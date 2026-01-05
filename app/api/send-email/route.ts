@@ -4,8 +4,6 @@ import WaitlistConfirmation from '@/app/emails/WaitlistConfirmation';
 import ContactConfirmation from '@/app/emails/ContactConfirmation';
 import NewsletterWelcome from '@/app/emails/NewsletterWelcome';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -56,6 +54,10 @@ export async function POST(request: NextRequest) {
         message: 'Email simulated (Resend not configured)',
       });
     }
+
+    // Initialize Resend inside the function (not at module level)
+    // to avoid build-time errors when env vars aren't available
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'Health Centric <onboarding@resend.dev>',
