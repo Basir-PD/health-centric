@@ -1,30 +1,36 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from '../i18n/provider';
 import LanguageSelector from './LanguageSelector';
 
 interface NavItem {
   labelKey: string;
   href: string;
+  sectionId?: string; // For scroll spy tracking
 }
 
 const navigationItems: NavItem[] = [
-  { labelKey: 'nav.howItWorks', href: '#how-it-works' },
-  { labelKey: 'nav.whatWeTest', href: '/test' },
-  { labelKey: 'nav.pricing', href: '#pricing' },
-  { labelKey: 'nav.faq', href: '#faq' },
+  { labelKey: 'nav.howItWorks', href: '#how-it-works', sectionId: 'how-it-works' },
+  { labelKey: 'nav.whatWeTest', href: '#tests', sectionId: 'tests' },
+  { labelKey: 'nav.pricing', href: '#pricing', sectionId: 'pricing' },
+  { labelKey: 'nav.faq', href: '#faq', sectionId: 'faq' },
   { labelKey: 'nav.contact', href: '/contact' },
 ];
 
 export default function Navigation() {
   const { t, isLoading } = useTranslation();
   const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  // Check if we're on home page
+  const isHomePage = pathname === '/';
 
   // Check if we're on a page that needs always-white navbar
   const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/test';
@@ -32,18 +38,90 @@ export default function Navigation() {
   // On these pages, always show scrolled (white) style
   const showScrolledStyle = isWhiteNavbarPage || isScrolled;
 
+  // Get the correct href for hash links (prepend / if not on home page)
+  const getNavHref = useCallback((item: NavItem) => {
+    if (item.href.startsWith('#') && !isHomePage) {
+      return '/' + item.href;
+    }
+    return item.href;
+  }, [isHomePage]);
+
+  // Handle navigation click for hash links
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
+    if (item.href.startsWith('#')) {
+      if (isHomePage) {
+        // On home page, smooth scroll to section
+        e.preventDefault();
+        const element = document.getElementById(item.sectionId || item.href.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // If not on home page, let the default Link behavior navigate to /#section
+    }
+    setIsMobileMenuOpen(false);
+  }, [isHomePage]);
+
+  // Scroll spy to track active section
   useEffect(() => {
-    // Skip scroll listener on pages with always-white navbar
-    if (isWhiteNavbarPage) return;
+    if (!isHomePage) {
+      // Set active section based on current page
+      if (pathname === '/contact') setActiveSection('contact');
+      else setActiveSection(null);
+      return;
+    }
+
+    const sectionIds = navigationItems
+      .filter(item => item.sectionId)
+      .map(item => item.sectionId as string);
 
     const handleScroll = () => {
-      // Become sticky after scrolling past the hero section (viewport height - some offset)
+      // Become sticky after scrolling past the hero section
+      const heroHeight = window.innerHeight - 100;
+      setIsScrolled(window.scrollY > heroHeight);
+
+      // Find the current active section
+      let currentSection: string | null = null;
+      const scrollPosition = window.scrollY + 150; // Offset for header
+
+      for (const sectionId of sectionIds) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            currentSection = sectionId;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHomePage, pathname]);
+
+  // Separate effect for non-home pages scroll behavior
+  useEffect(() => {
+    if (isWhiteNavbarPage) return;
+    if (isHomePage) return; // Already handled above
+
+    const handleScroll = () => {
       const heroHeight = window.innerHeight - 100;
       setIsScrolled(window.scrollY > heroHeight);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isWhiteNavbarPage]);
+  }, [isWhiteNavbarPage, isHomePage]);
+
+  // Check if a nav item is active
+  const isNavItemActive = useCallback((item: NavItem) => {
+    if (item.sectionId && activeSection === item.sectionId) return true;
+    if (item.href === '/contact' && pathname === '/contact') return true;
+    return false;
+  }, [activeSection, pathname]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -97,19 +175,27 @@ export default function Navigation() {
 
               {/* Desktop Navigation */}
               <div className="hidden lg:flex lg:items-center lg:gap-1">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.labelKey}
-                    href={item.href}
-                    className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                      showScrolledStyle
-                        ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80'
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    {t(item.labelKey)}
-                  </Link>
-                ))}
+                {navigationItems.map((item) => {
+                  const isActive = isNavItemActive(item);
+                  return (
+                    <Link
+                      key={item.labelKey}
+                      href={getNavHref(item)}
+                      onClick={(e) => handleNavClick(e, item)}
+                      className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                        showScrolledStyle
+                          ? isActive
+                            ? 'text-[var(--color-brand)] bg-[rgba(184,101,74,0.1)]'
+                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80'
+                          : isActive
+                            ? 'text-white bg-white/20'
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      {t(item.labelKey)}
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* Desktop CTA */}
@@ -185,19 +271,26 @@ export default function Navigation() {
           >
             <div className="max-h-[calc(100vh-6rem)] overflow-y-auto p-5">
               <div className="space-y-0.5">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.labelKey}
-                    href={item.href}
-                    className="block rounded-xl px-4 py-2.5 text-sm font-medium text-gray-900 transition-colors"
-                    style={{ '--hover-bg': 'rgba(184, 101, 74, 0.1)', '--hover-color': 'var(--color-brand)' } as React.CSSProperties}
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(184, 101, 74, 0.1)'; e.currentTarget.style.color = 'var(--color-brand)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = ''; }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t(item.labelKey)}
-                  </Link>
-                ))}
+                {navigationItems.map((item) => {
+                  const isActive = isNavItemActive(item);
+                  return (
+                    <Link
+                      key={item.labelKey}
+                      href={getNavHref(item)}
+                      className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'text-[var(--color-brand)] bg-[rgba(184,101,74,0.1)]'
+                          : 'text-gray-900'
+                      }`}
+                      style={!isActive ? { '--hover-bg': 'rgba(184, 101, 74, 0.1)', '--hover-color': 'var(--color-brand)' } as React.CSSProperties : undefined}
+                      onMouseEnter={!isActive ? (e) => { e.currentTarget.style.backgroundColor = 'rgba(184, 101, 74, 0.1)'; e.currentTarget.style.color = 'var(--color-brand)'; } : undefined}
+                      onMouseLeave={!isActive ? (e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = ''; } : undefined}
+                      onClick={(e) => handleNavClick(e, item)}
+                    >
+                      {t(item.labelKey)}
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* Mobile Language Selector */}

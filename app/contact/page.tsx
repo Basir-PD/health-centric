@@ -12,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import Navigation from '../components/Navigation';
 import PhoneInput from '../components/PhoneInput';
+import Footer from '../components/Footer';
 
 type FormData = {
   name: string;
@@ -355,6 +356,7 @@ export default function ContactPage() {
         </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
