@@ -17,7 +17,7 @@ const navigationItems: NavItem[] = [
   { labelKey: 'nav.howItWorks', href: '#how-it-works', sectionId: 'how-it-works' },
   { labelKey: 'nav.whatWeTest', href: '#tests', sectionId: 'tests' },
   { labelKey: 'nav.pricing', href: '#pricing', sectionId: 'pricing' },
-  { labelKey: 'nav.faq', href: '#faq', sectionId: 'faq' },
+  { labelKey: 'nav.faq', href: '/faq' },
   { labelKey: 'nav.contact', href: '/contact' },
 ];
 
@@ -33,7 +33,7 @@ export default function Navigation() {
   const isHomePage = pathname === '/';
 
   // Check if we're on a page that needs always-white navbar
-  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/test';
+  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/test' || pathname === '/faq';
 
   // On these pages, always show scrolled (white) style
   const showScrolledStyle = isWhiteNavbarPage || isScrolled;
@@ -67,6 +67,7 @@ export default function Navigation() {
     if (!isHomePage) {
       // Set active section based on current page
       if (pathname === '/contact') setActiveSection('contact');
+      else if (pathname === '/faq') setActiveSection('faq');
       else setActiveSection(null);
       return;
     }
@@ -120,6 +121,7 @@ export default function Navigation() {
   const isNavItemActive = useCallback((item: NavItem) => {
     if (item.sectionId && activeSection === item.sectionId) return true;
     if (item.href === '/contact' && pathname === '/contact') return true;
+    if (item.href === '/faq' && pathname === '/faq') return true;
     return false;
   }, [activeSection, pathname]);
 
