@@ -37,13 +37,13 @@ const doctors = [
 
 export default function MedicalTeam() {
   return (
-    <section id="about" className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
+    <section id="about" className="bg-[#faf8f5] dark:bg-gray-950 py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl tracking-tight">
             <span
-              className="font-medium text-gray-900"
+              className="font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Led by
@@ -56,7 +56,7 @@ export default function MedicalTeam() {
             </span>
           </h2>
           <p
-            className="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-base lg:text-lg max-w-xl mx-auto px-4"
+            className="mt-3 sm:mt-4 text-gray-500 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto px-4"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             Our medical team reviews every result and provides personalized guidance.
@@ -68,7 +68,7 @@ export default function MedicalTeam() {
           {doctors.map((doctor, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
+              className="group bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all duration-300"
             >
               {/* Image */}
               <div className="relative aspect-[4/5] overflow-hidden">
@@ -99,9 +99,9 @@ export default function MedicalTeam() {
                 >
                   {doctor.title}
                 </div>
-                <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">{doctor.specialty}</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5 sm:mt-1">{doctor.specialty}</div>
                 <p
-                  className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed hidden sm:block"
+                  className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed hidden sm:block"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {doctor.bio}

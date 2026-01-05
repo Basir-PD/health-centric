@@ -81,7 +81,7 @@ export default function ValueProposition() {
   };
 
   return (
-    <section id="tests" className="relative bg-[#faf8f5] py-16 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="tests" className="relative bg-[#faf8f5] dark:bg-gray-950 py-16 sm:py-24 lg:py-32 overflow-hidden">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -92,7 +92,7 @@ export default function ValueProposition() {
           className="text-center mb-10 sm:mb-16"
         >
           <h2
-            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-gray-900"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-gray-900 dark:text-white"
             style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}
           >
             {t('valueProposition.title')}
@@ -101,7 +101,7 @@ export default function ValueProposition() {
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-4"
+            className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-4"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {t('valueProposition.subtitle')}
@@ -120,11 +120,11 @@ export default function ValueProposition() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="p-6 sm:p-8 lg:p-10 hover:bg-white/60 transition-colors duration-300 border-b border-gray-200 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+3)]:border-b-0 lg:border-r lg:[&:nth-child(3n)]:border-r-0 sm:border-r sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r"
+              className="p-6 sm:p-8 lg:p-10 hover:bg-white/60 dark:hover:bg-gray-900/60 transition-colors duration-300 border-b border-gray-200 dark:border-gray-800 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+3)]:border-b-0 lg:border-r lg:[&:nth-child(3n)]:border-r-0 sm:border-r sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r"
             >
               {/* Title */}
               <h3
-                className="text-lg sm:text-xl lg:text-2xl font-medium text-gray-900 leading-snug tracking-tight"
+                className="text-lg sm:text-xl lg:text-2xl font-medium text-gray-900 dark:text-white leading-snug tracking-tight"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {t(category.titleKey)}
@@ -143,7 +143,7 @@ export default function ValueProposition() {
                 {category.testKeys.map((testKey, i) => (
                   <div
                     key={i}
-                    className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed"
+                    className="text-[13px] sm:text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed"
                     style={{ fontFamily: 'var(--font-body)' }}
                   >
                     {t(testKey)}
@@ -156,7 +156,7 @@ export default function ValueProposition() {
           {/* +More Card */}
           <motion.div
             variants={cardVariants}
-            className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center hover:bg-white/60 transition-colors duration-300"
+            className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center hover:bg-white/60 dark:hover:bg-gray-900/60 transition-colors duration-300"
           >
             <div
               className="text-lg sm:text-xl lg:text-2xl font-medium"
@@ -165,7 +165,7 @@ export default function ValueProposition() {
               {t('valueProposition.more')}
             </div>
             <p
-              className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-2xl italic text-gray-600 leading-snug"
+              className="mt-2 sm:mt-3 text-lg sm:text-xl lg:text-2xl italic text-gray-600 dark:text-gray-400 leading-snug"
               style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
             >
               {t('valueProposition.moreText')}

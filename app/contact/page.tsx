@@ -78,7 +78,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#faf8f5]">
+    <main className="min-h-screen bg-[#faf8f5] dark:bg-gray-950">
       {/* Shared Navigation - always shows white/scrolled style on contact page */}
       <Navigation />
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
               </div>
 
               <h1
-                className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 tracking-tight leading-tight"
+                className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 dark:text-white tracking-tight leading-tight"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 Let&apos;s start your{' '}
@@ -116,7 +116,7 @@ export default function ContactPage() {
               </h1>
 
               <p
-                className="mt-3 text-gray-500 text-sm sm:text-base leading-relaxed"
+                className="mt-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base leading-relaxed"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Have questions about our health testing? We&apos;re here to help.
@@ -129,7 +129,7 @@ export default function ContactPage() {
                   href="https://wa.me/50768317334"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 hover:border-[#25D366]/30 hover:shadow-md transition-all duration-300"
+                  className="group flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 hover:border-[#25D366]/30 dark:hover:border-[#25D366]/30 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
                     <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -137,8 +137,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900">WhatsApp</p>
-                    <p className="text-xs text-gray-500">+507 6831 7334</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">WhatsApp</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">+507 6831 7334</p>
                   </div>
                   <svg className="w-4 h-4 text-gray-400 group-hover:text-[#25D366] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -148,7 +148,7 @@ export default function ContactPage() {
                 {/* Email */}
                 <a
                   href="mailto:al@healthcentric.ai"
-                  className="group flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
+                  className="group flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(184, 101, 74, 0.1)' }}>
                     <svg className="w-4 h-4" style={{ color: 'var(--color-brand)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -156,25 +156,25 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900">Email</p>
-                    <p className="text-xs text-gray-500">alnoor@healthcentric.ai</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">Email</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">alnoor@healthcentric.ai</p>
                   </div>
-                  <svg className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
               </div>
 
               {/* Trust Badges */}
-              <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800">
                 <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                  <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
                     <svg className="w-3.5 h-3.5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                     Ley 81 Compliant
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                  <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
                     <svg className="w-3.5 h-3.5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
@@ -194,10 +194,10 @@ export default function ContactPage() {
             {!isSubmitted ? (
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl shadow-gray-900/5 border border-gray-100"
+                className="bg-white dark:bg-gray-900 rounded-2xl p-5 sm:p-6 shadow-xl shadow-gray-900/5 dark:shadow-gray-950/30 border border-gray-100 dark:border-gray-800"
               >
                 <h2
-                  className="text-lg font-semibold text-gray-900 mb-4"
+                  className="text-lg font-semibold text-gray-900 dark:text-white mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Send us a message
@@ -206,7 +206,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   {/* Name */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="name" className="text-gray-600 font-normal text-sm">
+                    <Label htmlFor="name" className="text-gray-600 dark:text-gray-400 font-normal text-sm">
                       Full name <span className="text-red-400">*</span>
                     </Label>
                     <Input
@@ -222,7 +222,7 @@ export default function ContactPage() {
 
                   {/* Email */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-gray-600 font-normal text-sm">
+                    <Label htmlFor="email" className="text-gray-600 dark:text-gray-400 font-normal text-sm">
                       Email address <span className="text-red-400">*</span>
                     </Label>
                     <Input
@@ -242,8 +242,8 @@ export default function ContactPage() {
 
                   {/* Phone */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone" className="text-gray-600 font-normal text-sm">
-                      Phone number <span className="text-gray-400">(optional)</span>
+                    <Label htmlFor="phone" className="text-gray-600 dark:text-gray-400 font-normal text-sm">
+                      Phone number <span className="text-gray-400 dark:text-gray-500">(optional)</span>
                     </Label>
                     <PhoneInput
                       id="phone"
@@ -260,7 +260,7 @@ export default function ContactPage() {
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="message" className="text-gray-600 font-normal text-sm">
+                    <Label htmlFor="message" className="text-gray-600 dark:text-gray-400 font-normal text-sm">
                       How can we help? <span className="text-red-400">*</span>
                     </Label>
                     <Textarea
@@ -276,7 +276,7 @@ export default function ContactPage() {
 
                   {/* Error Message */}
                   {submitError && (
-                    <div className="rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-sm text-red-700">
+                    <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 px-3 py-2 text-sm text-red-700 dark:text-red-400">
                       {submitError}
                     </div>
                   )}
@@ -302,9 +302,9 @@ export default function ContactPage() {
                   </Button>
 
                   {/* Privacy Note */}
-                  <p className="text-xs text-gray-400 text-center">
+                  <p className="text-xs text-gray-400 dark:text-gray-500 text-center">
                     By submitting, you agree to our{' '}
-                    <Link href="/privacy" className="underline hover:text-gray-600">
+                    <Link href="/privacy" className="underline hover:text-gray-600 dark:hover:text-gray-400">
                       Privacy Policy
                     </Link>
                   </p>
@@ -315,7 +315,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
-                className="bg-white rounded-2xl p-8 sm:p-12 shadow-xl shadow-gray-900/5 border border-gray-100 text-center"
+                className="bg-white dark:bg-gray-900 rounded-2xl p-8 sm:p-12 shadow-xl shadow-gray-900/5 dark:shadow-gray-950/30 border border-gray-100 dark:border-gray-800 text-center"
               >
                 <div
                   className="mx-auto flex h-16 w-16 items-center justify-center rounded-full mb-6"
@@ -326,13 +326,13 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h2
-                  className="text-2xl font-medium text-gray-900 mb-3"
+                  className="text-2xl font-medium text-gray-900 dark:text-white mb-3"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Message sent!
                 </h2>
                 <p
-                  className="text-gray-500 mb-8"
+                  className="text-gray-500 dark:text-gray-400 mb-8"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   Thank you for reaching out. We&apos;ll get back to you within 24 hours.

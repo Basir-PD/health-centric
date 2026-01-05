@@ -89,7 +89,7 @@ export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <main className="min-h-screen bg-[#faf8f5]">
+    <main className="min-h-screen bg-[#faf8f5] dark:bg-gray-950">
       <Navigation />
 
       {/* Hero Section */}
@@ -126,7 +126,7 @@ export default function PricingPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 dark:text-white tracking-tight"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Invest in your{' '}
@@ -139,14 +139,14 @@ export default function PricingPage() {
             </h1>
 
             <p
-              className="mt-4 text-gray-500 text-base sm:text-lg max-w-2xl mx-auto"
+              className="mt-4 text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-2xl mx-auto"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               Choose the plan that fits your health goals. No hidden fees, no surprise charges. HSA/FSA eligible.
             </p>
 
             {/* Trust badges */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <svg className="h-5 w-5" style={{ color: 'var(--color-brand)' }} fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -182,8 +182,8 @@ export default function PricingPage() {
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 ${
                   plan.popular
-                    ? 'bg-white shadow-2xl shadow-gray-900/10 ring-2 ring-[#b8654a]'
-                    : 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-xl'
+                    ? 'bg-white dark:bg-gray-900 shadow-2xl shadow-gray-900/10 dark:shadow-gray-950/30 ring-2 ring-[#b8654a]'
+                    : 'bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-xl'
                 }`}
               >
                 {/* Popular badge */}
@@ -215,22 +215,22 @@ export default function PricingPage() {
 
                 <div className={plan.popular ? 'mt-2' : ''}>
                   <h3
-                    className="text-lg font-semibold text-gray-900"
+                    className="text-lg font-semibold text-gray-900 dark:text-white"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {plan.name}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">{plan.description}</p>
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{plan.description}</p>
                 </div>
 
                 <div className="mt-6 flex items-baseline gap-2">
                   <span
-                    className="text-4xl sm:text-5xl font-bold text-gray-900"
+                    className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     ${plan.price}
                   </span>
-                  <span className="text-gray-500">{plan.period}</span>
+                  <span className="text-gray-500 dark:text-gray-400">{plan.period}</span>
                   {plan.originalPrice && (
                     <span className="text-sm text-gray-400 line-through ml-2">
                       ${plan.originalPrice}
@@ -256,7 +256,7 @@ export default function PricingPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-sm text-gray-600">{feature}</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -285,7 +285,7 @@ export default function PricingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 text-center text-sm text-gray-500"
+            className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400"
           >
             All plans are HSA/FSA eligible. No subscription required for one-time purchases.
           </motion.p>
@@ -293,7 +293,7 @@ export default function PricingPage() {
       </section>
 
       {/* What's Included Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900/50">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -302,12 +302,12 @@ export default function PricingPage() {
             className="text-center mb-12"
           >
             <h2
-              className="text-2xl sm:text-3xl font-medium text-gray-900"
+              className="text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               What's included in every test
             </h2>
-            <p className="mt-3 text-gray-500">Premium care at every step of your health journey</p>
+            <p className="mt-3 text-gray-500 dark:text-gray-400">Premium care at every step of your health journey</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -363,10 +363,10 @@ export default function PricingPage() {
                     {item.icon}
                   </svg>
                 </div>
-                <h3 className="font-semibold text-gray-900" style={{ fontFamily: 'var(--font-display)' }}>
+                <h3 className="font-semibold text-gray-900 dark:text-white" style={{ fontFamily: 'var(--font-display)' }}>
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">{item.description}</p>
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -383,7 +383,7 @@ export default function PricingPage() {
             className="text-center mb-12"
           >
             <h2
-              className="text-2xl sm:text-3xl font-medium text-gray-900"
+              className="text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Pricing questions
@@ -399,26 +399,21 @@ export default function PricingPage() {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
                   openFaq === index
-                    ? 'border-gray-200 bg-white shadow-lg shadow-gray-900/5'
-                    : 'border-gray-100 bg-white hover:border-gray-200'
+                    ? 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-lg shadow-gray-900/5 dark:shadow-gray-950/30'
+                    : 'border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900/50 hover:border-gray-200 dark:hover:border-gray-700'
                 }`}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="flex w-full items-center justify-between px-6 py-5 text-left"
                 >
-                  <span className="text-base font-medium text-gray-900" style={{ fontFamily: 'var(--font-display)' }}>
+                  <span className="text-base font-medium text-gray-900 dark:text-white" style={{ fontFamily: 'var(--font-display)' }}>
                     {faq.question}
                   </span>
                   <span
                     className={`flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full transition-all duration-300 ${
-                      openFaq === index ? 'rotate-180' : ''
+                      openFaq === index ? 'rotate-180 bg-[var(--color-brand)] text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
                     }`}
-                    style={
-                      openFaq === index
-                        ? { backgroundColor: 'var(--color-brand)', color: 'white' }
-                        : { backgroundColor: '#f3f4f6', color: '#6b7280' }
-                    }
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -433,7 +428,7 @@ export default function PricingPage() {
                 >
                   <div className="overflow-hidden">
                     <div className="px-6 pb-5">
-                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{faq.answer}</p>
                     </div>
                   </div>
                 </div>
@@ -463,7 +458,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -473,12 +468,12 @@ export default function PricingPage() {
             style={{ backgroundColor: 'rgba(184, 101, 74, 0.08)' }}
           >
             <h2
-              className="text-2xl sm:text-3xl font-medium text-gray-900"
+              className="text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Ready to take control of your health?
             </h2>
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
+            <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Join 50,000+ members who have discovered a smarter approach to preventive health.
             </p>
 
@@ -495,7 +490,7 @@ export default function PricingPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold bg-white text-gray-700 border border-gray-200 shadow-sm transition-all hover:shadow-md hover:border-gray-300"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 shadow-sm transition-all hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600"
               >
                 Talk to an Advisor
               </Link>
@@ -509,7 +504,7 @@ export default function PricingPage() {
         <div className="text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />

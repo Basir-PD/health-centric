@@ -63,7 +63,7 @@ export default function Awards() {
   };
 
   return (
-    <section className="bg-white py-16 lg:py-20">
+    <section className="bg-white dark:bg-gray-950 py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -75,7 +75,7 @@ export default function Awards() {
         >
           <h2 className="text-2xl sm:text-3xl tracking-tight">
             <span
-              className="font-medium text-gray-900"
+              className="font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('awards.sectionTitle')}
@@ -116,7 +116,7 @@ export default function Awards() {
               {/* Award Info - Hidden on mobile, shown on hover on desktop */}
               <div className="mt-3 hidden sm:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p
-                  className="text-xs font-medium text-gray-700"
+                  className="text-xs font-medium text-gray-700 dark:text-gray-300"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {award.name}
@@ -131,7 +131,7 @@ export default function Awards() {
           initial={{ opacity: 0 }}
           animate={isAwardsInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 text-center text-sm text-gray-400"
+          className="mt-10 text-center text-sm text-gray-400 dark:text-gray-500"
           style={{ fontFamily: 'var(--font-body)' }}
         >
           {t('awards.subtitle')}

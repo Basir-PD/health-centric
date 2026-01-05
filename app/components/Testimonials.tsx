@@ -94,7 +94,7 @@ const testimonials = [
 function QuoteIcon() {
   return (
     <span
-      className="text-xl sm:text-2xl leading-none font-serif text-gray-200"
+      className="text-xl sm:text-2xl leading-none font-serif text-gray-200 dark:text-gray-700"
       style={{ fontFamily: 'Georgia, serif' }}
     >
       "
@@ -104,10 +104,10 @@ function QuoteIcon() {
 
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <div className="bg-white rounded-xl p-4 sm:p-5 border border-gray-100/80 hover:border-gray-200 hover:shadow-sm transition-all duration-300">
+    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 sm:p-5 border border-gray-100/80 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-sm transition-all duration-300">
       <QuoteIcon />
       <p
-        className="mt-2 text-[13px] sm:text-sm text-gray-600 leading-relaxed"
+        className="mt-2 text-[13px] sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
         style={{ fontFamily: 'var(--font-body)' }}
       >
         {testimonial.quote}
@@ -120,12 +120,12 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
         />
         <div>
           <div
-            className="text-xs font-medium text-gray-900"
+            className="text-xs font-medium text-gray-900 dark:text-white"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {testimonial.name}
           </div>
-          <div className="text-[10px] sm:text-[11px] text-gray-400">
+          <div className="text-[10px] sm:text-[11px] text-gray-400 dark:text-gray-500">
             {testimonial.role}
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
+    <section className="bg-[#faf8f5] dark:bg-gray-950 py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -185,7 +185,7 @@ export default function Testimonials() {
           className="text-center mb-10 sm:mb-16"
         >
           <h2
-            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-gray-900"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-gray-900 dark:text-white"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {t('testimonials.title')}{' '}
@@ -200,7 +200,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-base lg:text-lg max-w-xl mx-auto px-4"
+            className="mt-3 sm:mt-4 text-gray-500 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto px-4"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {t('testimonials.subtitle')}
@@ -297,7 +297,7 @@ export default function Testimonials() {
         <div className="mt-8 sm:mt-10 text-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {isExpanded ? 'Show less' : 'Read more'}

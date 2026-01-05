@@ -128,7 +128,7 @@ function GrowthChart() {
 
 export default function TrustSection() {
   return (
-    <section className="bg-[#faf8f5] py-16 sm:py-20 lg:py-28">
+    <section className="bg-[#faf8f5] dark:bg-gray-950 py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left - Headline & Trust Badges */}
@@ -141,7 +141,7 @@ export default function TrustSection() {
                 Trusted results
               </span>
               <span
-                className="font-medium text-gray-900"
+                className="font-medium text-gray-900 dark:text-white"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 from certified labs
@@ -149,7 +149,7 @@ export default function TrustSection() {
             </h2>
 
             <p
-              className="mt-4 sm:mt-5 text-gray-500 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md"
+              className="mt-4 sm:mt-5 text-gray-500 dark:text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               We partner with MINSA-certified laboratories trusted by physicians nationwide.
@@ -158,33 +158,33 @@ export default function TrustSection() {
 
             {/* Trust Badges */}
             <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
                 <svg className="h-8 w-8" viewBox="0 0 40 40" fill="currentColor">
                   <path d="M20 2L4 8v12c0 9.55 6.82 18.48 16 20 9.18-1.52 16-10.45 16-20V8L20 2zm-2 28l-6-6 2.12-2.12L18 25.76l9.88-9.88L30 18l-12 12z"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">100+</div>
-                  <div className="text-[10px] text-gray-400">Biomarkers</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">100+</div>
+                  <div className="text-[10px] text-gray-400 dark:text-gray-500">Biomarkers</div>
                 </div>
               </div>
-              <div className="h-8 w-px bg-gray-200" />
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="h-8 w-px bg-gray-200 dark:bg-gray-700" />
+              <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
                 <svg className="h-8 w-8" viewBox="0 0 40 40" fill="currentColor">
                   <path d="M20 4C12.27 4 6 10.27 6 18c0 5.52 3.19 10.29 7.82 12.57L20 36l6.18-5.43C30.81 28.29 34 23.52 34 18c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">MINSA</div>
-                  <div className="text-[10px] text-gray-400">Certified</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">MINSA</div>
+                  <div className="text-[10px] text-gray-400 dark:text-gray-500">Certified</div>
                 </div>
               </div>
-              <div className="h-8 w-px bg-gray-200" />
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="h-8 w-px bg-gray-200 dark:bg-gray-700" />
+              <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
                 <svg className="h-8 w-8" viewBox="0 0 40 40" fill="currentColor">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z" transform="translate(8, 8)"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Doctor</div>
-                  <div className="text-[10px] text-gray-400">Verified</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Doctor</div>
+                  <div className="text-[10px] text-gray-400 dark:text-gray-500">Verified</div>
                 </div>
               </div>
             </div>
@@ -193,15 +193,15 @@ export default function TrustSection() {
           {/* Right - Stats Cards */}
           <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
             {/* Locations Card */}
-            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
-              <div className="text-[11px] sm:text-xs text-gray-500 mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+            <div className="rounded-xl sm:rounded-2xl bg-white dark:bg-gray-900 p-4 sm:p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+              <div className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-body)' }}>
                 <span style={{ color: 'var(--color-brand)' }} className="font-semibold">3,500+</span> lab locations across the US
               </div>
               <div className="flex justify-center mb-3 sm:mb-4">
                 <USMapDots />
               </div>
               <div
-                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900"
+                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 dark:text-white"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 <AnimatedNumber value={3500} suffix="+" />
@@ -209,15 +209,15 @@ export default function TrustSection() {
             </div>
 
             {/* Results Card */}
-            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
-              <div className="text-[11px] sm:text-xs text-gray-500 mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+            <div className="rounded-xl sm:rounded-2xl bg-white dark:bg-gray-900 p-4 sm:p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+              <div className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-body)' }}>
                 <span style={{ color: 'var(--color-brand)' }} className="font-semibold">99.7%</span> accuracy rate verified
               </div>
               <div className="mb-3 sm:mb-4">
                 <GrowthChart />
               </div>
               <div
-                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900"
+                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 dark:text-white"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 99.7%
@@ -225,14 +225,14 @@ export default function TrustSection() {
             </div>
 
             {/* Results Delivered - Full Width */}
-            <div className="sm:col-span-2 rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-gray-100">
+            <div className="sm:col-span-2 rounded-xl sm:rounded-2xl bg-white dark:bg-gray-900 p-4 sm:p-6 shadow-sm border border-gray-100 dark:border-gray-800">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <div className="text-[11px] sm:text-xs text-gray-500 mb-1" style={{ fontFamily: 'var(--font-body)' }}>
+                  <div className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1" style={{ fontFamily: 'var(--font-body)' }}>
                     Results delivered to members
                   </div>
                   <div
-                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 dark:text-white"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     <AnimatedNumber value={250} suffix="K+" />
@@ -242,7 +242,7 @@ export default function TrustSection() {
                   {[...Array(5)].map((_, i) => (
                     <div
                       key={i}
-                      className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-white flex items-center justify-center text-[10px] sm:text-xs font-medium text-white"
+                      className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-white dark:border-gray-900 flex items-center justify-center text-[10px] sm:text-xs font-medium text-white"
                       style={{
                         backgroundColor: `hsl(${20 + i * 8}, 60%, ${55 + i * 5}%)`,
                       }}
@@ -250,7 +250,7 @@ export default function TrustSection() {
                       {String.fromCharCode(65 + i)}
                     </div>
                   ))}
-                  <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] sm:text-xs font-medium text-gray-600">
+                  <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-white dark:border-gray-900 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[10px] sm:text-xs font-medium text-gray-600 dark:text-gray-400">
                     +
                   </div>
                 </div>

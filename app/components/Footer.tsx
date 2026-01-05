@@ -113,7 +113,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#faf8f5]">
+    <footer className="bg-[#faf8f5] dark:bg-gray-950">
       {/* Main Footer */}
       <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
         <motion.div
@@ -143,7 +143,7 @@ export default function Footer() {
               {/* Company */}
               <div>
                 <h4
-                  className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
+                  className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {t('footer.company')}
@@ -153,7 +153,7 @@ export default function Footer() {
                     <li key={link.key}>
                       <Link
                         href={link.href}
-                        className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
+                        className="group relative text-xs sm:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-200 hover:text-gray-900 dark:hover:text-white"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
@@ -172,7 +172,7 @@ export default function Footer() {
               {/* Explore */}
               <div>
                 <h4
-                  className="text-xs sm:text-sm font-semibold text-gray-900 mb-3 sm:mb-4"
+                  className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {t('footer.explore')}
@@ -182,7 +182,7 @@ export default function Footer() {
                     <li key={link.key}>
                       <Link
                         href={link.href}
-                        className="group relative text-xs sm:text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900"
+                        className="group relative text-xs sm:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-200 hover:text-gray-900 dark:hover:text-white"
                         style={{ fontFamily: 'var(--font-body)' }}
                       >
                         <span className="relative">
@@ -204,7 +204,7 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-5">
             <div className="max-w-sm lg:ml-auto">
               <h3
-                className="text-lg sm:text-xl font-medium text-gray-900 leading-snug"
+                className="text-lg sm:text-xl font-medium text-gray-900 dark:text-gray-100 leading-snug"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {t('footer.newsletterTitle')}{' '}
@@ -216,7 +216,7 @@ export default function Footer() {
                 </span>
               </h3>
               <p
-                className="mt-2 text-xs sm:text-sm text-gray-500"
+                className="mt-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 {t('footer.newsletterDescription')}
@@ -232,7 +232,7 @@ export default function Footer() {
                       placeholder={t('footer.emailPlaceholder')}
                       required
                       disabled={isLoading}
-                      className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-400 transition-all duration-200 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{ fontFamily: 'var(--font-body)' }}
                     />
                     <button
@@ -252,7 +252,7 @@ export default function Footer() {
                 </div>
               ) : (
                 <div
-                  className="mt-4 sm:mt-5 rounded-lg bg-green-50 border border-green-200 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-700"
+                  className="mt-4 sm:mt-5 rounded-lg bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-700 dark:text-green-400"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {t('footer.subscribeSuccess')}
@@ -267,7 +267,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           animate={isFooterInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-10 sm:mt-16 flex flex-col gap-4 sm:gap-6 border-t border-gray-200 pt-6 sm:pt-8 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-10 sm:mt-16 flex flex-col gap-4 sm:gap-6 border-t border-gray-200 dark:border-gray-800 pt-6 sm:pt-8 sm:flex-row sm:items-center sm:justify-between"
         >
           {/* Social Links */}
           <div className="flex items-center gap-3 sm:gap-4">
@@ -275,7 +275,7 @@ export default function Footer() {
               <a
                 key={social.label}
                 href={social.href}
-                className="text-gray-400 transition-all duration-200 hover:text-gray-600 hover:scale-110"
+                className="text-gray-400 dark:text-gray-500 transition-all duration-200 hover:text-gray-600 dark:hover:text-gray-300 hover:scale-110"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -284,17 +284,17 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             <Link
               href="/privacy"
-              className="transition-colors hover:text-gray-700"
+              className="transition-colors hover:text-gray-700 dark:hover:text-gray-300"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {t('footer.privacyPolicy')}
             </Link>
             <Link
               href="/terms"
-              className="transition-colors hover:text-gray-700"
+              className="transition-colors hover:text-gray-700 dark:hover:text-gray-300"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {t('footer.termsOfService')}
@@ -303,7 +303,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p
-            className="text-xs sm:text-sm text-gray-400"
+            className="text-xs sm:text-sm text-gray-400 dark:text-gray-500"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             &copy; {new Date().getFullYear()} {t('footer.copyright')}

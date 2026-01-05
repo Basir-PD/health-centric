@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from '../i18n/provider';
 import LanguageSelector from './LanguageSelector';
+import ThemeToggle from './ThemeToggle';
 
 interface NavItem {
   labelKey: string;
@@ -157,7 +158,7 @@ export default function Navigation() {
           <nav
             className={`transition-[background-color,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
               showScrolledStyle
-                ? 'rounded-none bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.08)] border-b border-gray-200/50'
+                ? 'rounded-none bg-white dark:bg-gray-900 shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2),0_4px_12px_rgba(0,0,0,0.3)] border-b border-gray-200/50 dark:border-gray-800'
                 : 'rounded-lg bg-black/30 border border-white/10'
             }`}
             style={{
@@ -195,7 +196,7 @@ export default function Navigation() {
                         showScrolledStyle
                           ? isActive
                             ? 'text-[var(--color-brand)] bg-[rgba(184,101,74,0.1)]'
-                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80'
+                            : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/80 dark:hover:bg-gray-800'
                           : isActive
                             ? 'text-white bg-white/20'
                             : 'text-white/90 hover:text-white hover:bg-white/10'
@@ -209,6 +210,7 @@ export default function Navigation() {
 
               {/* Desktop CTA */}
               <div className="hidden lg:flex lg:items-center lg:gap-3">
+                <ThemeToggle isScrolled={showScrolledStyle} />
                 <LanguageSelector isScrolled={showScrolledStyle} />
                 <Link
                   href="/test"
@@ -224,7 +226,7 @@ export default function Navigation() {
                 type="button"
                 className={`lg:hidden rounded-lg p-1.5 transition-all duration-300 ${
                   showScrolledStyle
-                    ? 'text-gray-700 hover:bg-gray-100'
+                    ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     : 'text-white hover:bg-white/10'
                 }`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -234,22 +236,22 @@ export default function Navigation() {
                   <span
                     className={`absolute left-0 block h-0.5 w-5 rounded-full transition-all duration-300 ${
                       isMobileMenuOpen
-                        ? 'top-2 rotate-45 bg-gray-900'
-                        : `top-0 ${showScrolledStyle ? 'bg-gray-700' : 'bg-white'}`
+                        ? 'top-2 rotate-45 bg-gray-900 dark:bg-gray-100'
+                        : `top-0 ${showScrolledStyle ? 'bg-gray-700 dark:bg-gray-300' : 'bg-white'}`
                     }`}
                   />
                   <span
                     className={`absolute left-0 top-2 block h-0.5 w-5 rounded-full transition-all duration-300 ${
                       isMobileMenuOpen
                         ? 'opacity-0'
-                        : `opacity-100 ${showScrolledStyle ? 'bg-gray-700' : 'bg-white'}`
+                        : `opacity-100 ${showScrolledStyle ? 'bg-gray-700 dark:bg-gray-300' : 'bg-white'}`
                     }`}
                   />
                   <span
                     className={`absolute left-0 block h-0.5 w-5 rounded-full transition-all duration-300 ${
                       isMobileMenuOpen
-                        ? 'top-2 -rotate-45 bg-gray-900'
-                        : `top-4 ${showScrolledStyle ? 'bg-gray-700' : 'bg-white'}`
+                        ? 'top-2 -rotate-45 bg-gray-900 dark:bg-gray-100'
+                        : `top-4 ${showScrolledStyle ? 'bg-gray-700 dark:bg-gray-300' : 'bg-white'}`
                     }`}
                   />
                 </div>
@@ -274,7 +276,7 @@ export default function Navigation() {
 
           {/* Menu Panel */}
           <div
-            className={`absolute inset-x-4 top-2 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl transition-all duration-500 ${
+            className={`absolute inset-x-4 top-2 rounded-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl transition-all duration-500 ${
               isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}
           >
@@ -289,7 +291,7 @@ export default function Navigation() {
                       className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
                         isActive
                           ? 'text-[var(--color-brand)] bg-[rgba(184,101,74,0.1)]'
-                          : 'text-gray-900'
+                          : 'text-gray-900 dark:text-gray-100'
                       }`}
                       style={!isActive ? { '--hover-bg': 'rgba(184, 101, 74, 0.1)', '--hover-color': 'var(--color-brand)' } as React.CSSProperties : undefined}
                       onMouseEnter={!isActive ? (e) => { e.currentTarget.style.backgroundColor = 'rgba(184, 101, 74, 0.1)'; e.currentTarget.style.color = 'var(--color-brand)'; } : undefined}
@@ -302,12 +304,13 @@ export default function Navigation() {
                 })}
               </div>
 
-              {/* Mobile Language Selector */}
-              <div className="mt-4 border-t border-gray-100 pt-4">
+              {/* Mobile Theme & Language */}
+              <div className="mt-4 border-t border-gray-100 dark:border-gray-800 pt-4 flex items-center justify-between">
                 <LanguageSelector isScrolled={true} />
+                <ThemeToggle isScrolled={true} />
               </div>
 
-              <div className="mt-4 space-y-2.5 border-t border-gray-100 pt-5">
+              <div className="mt-4 space-y-2.5 border-t border-gray-100 dark:border-gray-800 pt-5">
                 <Link
                   href="/test"
                   className="block w-full rounded-xl px-4 py-3 text-center text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg hover:opacity-90"

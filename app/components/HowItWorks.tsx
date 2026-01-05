@@ -49,7 +49,7 @@ function MarqueeRow({ diseases, direction = 'left', speed = 30 }: { diseases: st
         {doubled.map((disease, i) => (
           <div
             key={i}
-            className="flex-shrink-0 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 text-sm text-gray-700 font-medium whitespace-nowrap shadow-sm hover:bg-white hover:shadow-md transition-all duration-300"
+            className="flex-shrink-0 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 text-sm text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap shadow-sm hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all duration-300"
           >
             {disease}
           </div>
@@ -93,7 +93,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <section id="how-it-works" className="relative bg-[#faf8f5] py-16 sm:py-20 lg:py-28 overflow-hidden">
+    <section id="how-it-works" className="relative bg-[#faf8f5] dark:bg-gray-950 py-16 sm:py-20 lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -104,7 +104,7 @@ export default function HowItWorks() {
           className="text-center mb-6 sm:mb-8"
         >
           <h2
-            className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl xl:text-5xl"
+            className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl xl:text-5xl"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {t('howItWorks.title')}
@@ -132,9 +132,9 @@ export default function HowItWorks() {
             <motion.div
               key={i}
               variants={featureItemVariants}
-              className="flex items-center gap-2 text-sm text-gray-600"
+              className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
             >
-              <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span>{feature}</span>
@@ -151,8 +151,8 @@ export default function HowItWorks() {
           className="relative"
         >
           {/* Edge fade gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#faf8f5] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#faf8f5] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#faf8f5] dark:from-gray-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#faf8f5] dark:from-gray-950 to-transparent z-10 pointer-events-none" />
 
           {/* Disease Marquees */}
           <div className="space-y-2 sm:space-y-3">

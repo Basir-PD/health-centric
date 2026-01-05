@@ -78,7 +78,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="bg-white py-20 lg:py-28">
+    <section id="faq" className="bg-white dark:bg-gray-950 py-20 lg:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -90,7 +90,7 @@ export default function FAQ() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight">
             <span
-              className="font-medium text-gray-900"
+              className="font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('faq.title')}
@@ -106,7 +106,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-4 text-gray-500 text-base lg:text-lg"
+            className="mt-4 text-gray-500 dark:text-gray-400 text-base lg:text-lg"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {t('faq.subtitle')}
@@ -127,8 +127,8 @@ export default function FAQ() {
               variants={itemVariants}
               className={`overflow-hidden rounded-xl border transition-all duration-300 ${
                 openIndex === index
-                  ? 'border-gray-200 bg-[#faf8f5]'
-                  : 'border-gray-100 bg-white hover:border-gray-200'
+                  ? 'border-gray-200 dark:border-gray-700 bg-[#faf8f5] dark:bg-gray-900'
+                  : 'border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900/50 hover:border-gray-200 dark:hover:border-gray-700'
               }`}
             >
               <button
@@ -138,7 +138,7 @@ export default function FAQ() {
               >
                 <span
                   className={`text-base font-medium pr-4 transition-colors ${
-                    openIndex === index ? 'text-gray-900' : 'text-gray-700'
+                    openIndex === index ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'
                   }`}
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
@@ -146,9 +146,8 @@ export default function FAQ() {
                 </span>
                 <span
                   className={`flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full transition-all duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
+                    openIndex === index ? 'rotate-180 bg-[var(--color-brand)] text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
                   }`}
-                  style={openIndex === index ? { backgroundColor: 'var(--color-brand)', color: 'white' } : { backgroundColor: '#f3f4f6', color: '#6b7280' }}
                 >
                   <svg
                     className="h-4 w-4"
@@ -176,7 +175,7 @@ export default function FAQ() {
                 <div className="overflow-hidden">
                   <div className="px-6 pb-5">
                     <p
-                      className="text-gray-600 leading-relaxed"
+                      className="text-gray-600 dark:text-gray-400 leading-relaxed"
                       style={{ fontFamily: 'var(--font-body)' }}
                     >
                       {faq.answer}
@@ -195,7 +194,7 @@ export default function FAQ() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="text-gray-600 dark:text-gray-400" style={{ fontFamily: 'var(--font-body)' }}>
             Still have questions?{' '}
             <a
               href="#contact"

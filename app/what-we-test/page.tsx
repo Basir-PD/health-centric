@@ -104,7 +104,7 @@ const testCategories = [
 
 export default function WhatWeTestPage() {
   return (
-    <main className="min-h-screen bg-[#faf8f5]">
+    <main className="min-h-screen bg-[#faf8f5] dark:bg-gray-950">
       <Navigation />
 
       {/* Hero Section */}
@@ -141,7 +141,7 @@ export default function WhatWeTestPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 dark:text-white tracking-tight"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               What we{' '}
@@ -154,7 +154,7 @@ export default function WhatWeTestPage() {
             </h1>
 
             <p
-              className="mt-4 text-gray-500 text-base sm:text-lg max-w-2xl mx-auto"
+              className="mt-4 text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-2xl mx-auto"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               100+ biomarkers across the areas that matter most to your long-term health. One comprehensive panel, complete insights.
@@ -169,7 +169,7 @@ export default function WhatWeTestPage() {
                 >
                   100+
                 </div>
-                <div className="mt-1 text-sm text-gray-500">Biomarkers</div>
+                <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">Biomarkers</div>
               </div>
               <div className="text-center">
                 <div
@@ -178,7 +178,7 @@ export default function WhatWeTestPage() {
                 >
                   6
                 </div>
-                <div className="mt-1 text-sm text-gray-500">Health Categories</div>
+                <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">Health Categories</div>
               </div>
               <div className="text-center">
                 <div
@@ -187,7 +187,7 @@ export default function WhatWeTestPage() {
                 >
                   48h
                 </div>
-                <div className="mt-1 text-sm text-gray-500">Results Ready</div>
+                <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">Results Ready</div>
               </div>
             </div>
           </motion.div>
@@ -204,7 +204,7 @@ export default function WhatWeTestPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-900/50 rounded-2xl p-6 sm:p-8 border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
@@ -233,12 +233,12 @@ export default function WhatWeTestPage() {
 
                 {/* Title & Description */}
                 <h3
-                  className="text-xl font-semibold text-gray-900"
+                  className="text-xl font-semibold text-gray-900 dark:text-white"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {category.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">{category.description}</p>
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{category.description}</p>
 
                 {/* Tests List */}
                 <div className="mt-6 space-y-3">
@@ -260,8 +260,8 @@ export default function WhatWeTestPage() {
                         </svg>
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-gray-900">{test.name}</div>
-                        <div className="text-xs text-gray-500">{test.description}</div>
+                        <div className="text-sm font-medium text-gray-900 dark:text-white">{test.name}</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">{test.description}</div>
                       </div>
                     </div>
                   ))}
@@ -273,7 +273,7 @@ export default function WhatWeTestPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900/50">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -282,12 +282,12 @@ export default function WhatWeTestPage() {
             className="text-center mb-12"
           >
             <h2
-              className="text-2xl sm:text-3xl font-medium text-gray-900"
+              className="text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               How testing works
             </h2>
-            <p className="mt-3 text-gray-500">Simple, convenient, and comprehensive</p>
+            <p className="mt-3 text-gray-500 dark:text-gray-400">Simple, convenient, and comprehensive</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-3 gap-8">
@@ -321,10 +321,10 @@ export default function WhatWeTestPage() {
                 >
                   {item.step}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900" style={{ fontFamily: 'var(--font-display)' }}>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white" style={{ fontFamily: 'var(--font-display)' }}>
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">{item.description}</p>
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -338,15 +338,15 @@ export default function WhatWeTestPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl p-8 sm:p-12 text-center bg-white border border-gray-100 shadow-xl"
+            className="rounded-3xl p-8 sm:p-12 text-center bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl"
           >
             <h2
-              className="text-2xl sm:text-3xl font-medium text-gray-900"
+              className="text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Ready to understand your health?
             </h2>
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
+            <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Get comprehensive insights from 100+ biomarkers with our at-home testing service.
             </p>
 
@@ -363,7 +363,7 @@ export default function WhatWeTestPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold bg-white text-gray-700 border border-gray-200 shadow-sm transition-all hover:shadow-md hover:border-gray-300"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 shadow-sm transition-all hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600"
               >
                 View Pricing
               </Link>
@@ -377,7 +377,7 @@ export default function WhatWeTestPage() {
         <div className="text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
