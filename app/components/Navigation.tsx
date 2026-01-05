@@ -14,8 +14,9 @@ interface NavItem {
 }
 
 const navigationItems: NavItem[] = [
+  { labelKey: 'nav.home', href: '/' },
   { labelKey: 'nav.howItWorks', href: '#how-it-works', sectionId: 'how-it-works' },
-  { labelKey: 'nav.whatWeTest', href: '#tests', sectionId: 'tests' },
+  { labelKey: 'nav.whatWeTest', href: '/what-we-test' },
   { labelKey: 'nav.pricing', href: '/pricing' },
   { labelKey: 'nav.faq', href: '/faq' },
   { labelKey: 'nav.contact', href: '/contact' },
@@ -33,7 +34,7 @@ export default function Navigation() {
   const isHomePage = pathname === '/';
 
   // Check if we're on a page that needs always-white navbar
-  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/test' || pathname === '/faq' || pathname === '/pricing';
+  const isWhiteNavbarPage = pathname === '/contact' || pathname === '/privacy' || pathname === '/terms' || pathname === '/test' || pathname === '/faq' || pathname === '/pricing' || pathname === '/what-we-test';
 
   // On these pages, always show scrolled (white) style
   const showScrolledStyle = isWhiteNavbarPage || isScrolled;
@@ -69,6 +70,7 @@ export default function Navigation() {
       if (pathname === '/contact') setActiveSection('contact');
       else if (pathname === '/faq') setActiveSection('faq');
       else if (pathname === '/pricing') setActiveSection('pricing');
+      else if (pathname === '/what-we-test') setActiveSection('what-we-test');
       else setActiveSection(null);
       return;
     }
@@ -120,12 +122,15 @@ export default function Navigation() {
 
   // Check if a nav item is active
   const isNavItemActive = useCallback((item: NavItem) => {
+    // Home link is active when on home page and no section is being viewed
+    if (item.href === '/' && isHomePage && !activeSection) return true;
     if (item.sectionId && activeSection === item.sectionId) return true;
     if (item.href === '/contact' && pathname === '/contact') return true;
     if (item.href === '/faq' && pathname === '/faq') return true;
     if (item.href === '/pricing' && pathname === '/pricing') return true;
+    if (item.href === '/what-we-test' && pathname === '/what-we-test') return true;
     return false;
-  }, [activeSection, pathname]);
+  }, [activeSection, pathname, isHomePage]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
