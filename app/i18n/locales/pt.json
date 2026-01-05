@@ -171,5 +171,51 @@
     "successTitle": "Mensagem enviada",
     "successMessage": "Obrigado por entrar em contato. Responderemos em até 24 horas.",
     "backHome": "Voltar ao início"
+  },
+  "emails": {
+    "common": {
+      "logo": "Health Centric",
+      "footer": "Health Centric - Testes de Saúde Preventiva",
+      "location": "Cidade do Panamá, Panamá",
+      "privacyPolicy": "Política de Privacidade",
+      "termsOfService": "Termos de Uso",
+      "unsubscribe": "Cancelar inscrição"
+    },
+    "waitlist": {
+      "subject": "Você está na lista de espera da Health Centric!",
+      "preview": "Bem-vindo à Health Centric - Você está na lista de espera!",
+      "heading": "Você está na lista, {firstName}!",
+      "intro": "Obrigado por se juntar à lista de espera da Health Centric. Estamos animados em tê-lo como um dos primeiros a experimentar testes de saúde abrangentes projetados para cuidados preventivos.",
+      "featuresTitle": "O que está por vir:",
+      "feature1": "Mais de 100 biomarcadores testados",
+      "feature2": "Coleta de sangue profissional (visita de enfermeira ou laboratório)",
+      "feature3": "Resultados em 48 horas",
+      "feature4": "Insights de saúde personalizados",
+      "outro": "Nossa equipe analisará suas informações e entrará em contato em breve para agendar sua avaliação de saúde. Enquanto isso, se você tiver alguma dúvida, sinta-se à vontade para responder a este e-mail.",
+      "cta": "Saiba Mais Sobre Nossos Testes"
+    },
+    "contact": {
+      "subject": "Recebemos sua mensagem - Health Centric",
+      "preview": "Recebemos sua mensagem - Health Centric",
+      "heading": "Obrigado por entrar em contato, {name}!",
+      "intro": "Recebemos sua mensagem e agradecemos por dedicar seu tempo para nos contatar. Nossa equipe analisará sua consulta e responderá dentro de 24 horas.",
+      "nextStepsTitle": "O que acontece agora?",
+      "nextStepsText": "Um membro da nossa equipe analisará cuidadosamente sua mensagem e responderá por e-mail. Para assuntos urgentes, você também pode nos contatar diretamente em:",
+      "outro": "Enquanto isso, sinta-se à vontade para explorar nosso site e conhecer mais sobre nossos serviços de testes de saúde abrangentes.",
+      "cta": "Explorar Health Centric"
+    },
+    "newsletter": {
+      "subject": "Bem-vindo à Health Centric!",
+      "preview": "Bem-vindo à Health Centric - Seu guia está a caminho!",
+      "heading": "Bem-vindo à comunidade Health Centric!",
+      "intro": "Você agora está inscrito para receber informações de saúde baseadas em evidências para viver melhor e por mais tempo. Sem enrolação, apenas ciência.",
+      "featuresTitle": "O que você receberá:",
+      "feature1": "Guias de especialistas sobre prevenção e longevidade",
+      "feature2": "As últimas pesquisas sobre biomarcadores e otimização da saúde",
+      "feature3": "Dicas exclusivas da nossa equipe médica",
+      "feature4": "Acesso antecipado a novos recursos e serviços",
+      "outro": "Respeitamos sua caixa de entrada e enviamos apenas conteúdo valioso. Espere receber notícias nossas 1-2 vezes por mês com informações que podem realmente melhorar sua saúde.",
+      "cta": "Explorar Nossos Testes de Saúde"
+    }
   }
 }

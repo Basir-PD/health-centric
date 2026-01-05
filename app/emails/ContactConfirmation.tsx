@@ -13,47 +13,67 @@ import {
 
 interface ContactConfirmationProps {
   name: string;
+  translations: {
+    common: {
+      logo: string;
+      footer: string;
+      location: string;
+      privacyPolicy: string;
+      termsOfService: string;
+    };
+    contact: {
+      preview: string;
+      heading: string;
+      intro: string;
+      nextStepsTitle: string;
+      nextStepsText: string;
+      outro: string;
+      cta: string;
+    };
+  };
 }
 
-export default function ContactConfirmation({ name }: ContactConfirmationProps) {
+export default function ContactConfirmation({ name, translations }: ContactConfirmationProps) {
+  const t = translations;
+
   return (
     <Html>
       <Head />
-      <Preview>We received your message - Health Centric</Preview>
+      <Preview>{t.contact.preview}</Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header */}
           <Section style={header}>
-            <Text style={logo}>Health Centric</Text>
+            <Text style={logo}>{t.common.logo}</Text>
           </Section>
 
           {/* Main Content */}
           <Section style={content}>
-            <Heading style={h1}>Thanks for reaching out, {name}!</Heading>
+            <Heading style={h1}>{t.contact.heading.replace('{name}', name)}</Heading>
 
             <Text style={paragraph}>
-              We've received your message and appreciate you taking the time to contact us. Our team will review your inquiry and get back to you within 24 hours.
+              {t.contact.intro}
             </Text>
 
             <Section style={infoBox}>
-              <Text style={infoTitle}>What happens next?</Text>
+              <Text style={infoTitle}>{t.contact.nextStepsTitle}</Text>
               <Text style={infoText}>
-                A member of our team will carefully review your message and respond via email. For urgent matters, you can also reach us directly at:
+                {t.contact.nextStepsText}
               </Text>
               <Text style={contactInfo}>
-                <Link href="mailto:hello@healthcentric.com" style={emailLink}>
-                  hello@healthcentric.com
+                <Link href="mailto:support@healthcentric.ai" style={emailLink}>
+                  support@healthcentric.ai
                 </Link>
               </Text>
             </Section>
 
             <Text style={paragraph}>
-              In the meantime, feel free to explore our website to learn more about our comprehensive health testing services.
+              {t.contact.outro}
             </Text>
 
             <Section style={buttonContainer}>
-              <Link href="https://healthcentric.com" style={button}>
-                Explore Health Centric
+              <Link href="https://healthcentric.ai" style={button}>
+                {t.contact.cta}
               </Link>
             </Section>
           </Section>
@@ -62,15 +82,15 @@ export default function ContactConfirmation({ name }: ContactConfirmationProps) 
           <Hr style={hr} />
           <Section style={footer}>
             <Text style={footerText}>
-              Health Centric - Preventive Health Testing
+              {t.common.footer}
             </Text>
             <Text style={footerText}>
-              Panama City, Panama
+              {t.common.location}
             </Text>
             <Text style={footerLinks}>
-              <Link href="https://healthcentric.com/privacy" style={footerLink}>Privacy Policy</Link>
+              <Link href="https://healthcentric.ai/privacy" style={footerLink}>{t.common.privacyPolicy}</Link>
               {' • '}
-              <Link href="https://healthcentric.com/terms" style={footerLink}>Terms of Service</Link>
+              <Link href="https://healthcentric.ai/terms" style={footerLink}>{t.common.termsOfService}</Link>
             </Text>
           </Section>
         </Container>

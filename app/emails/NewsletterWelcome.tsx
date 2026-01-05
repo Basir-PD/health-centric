@@ -11,41 +11,68 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function NewsletterWelcome() {
+interface NewsletterWelcomeProps {
+  translations: {
+    common: {
+      logo: string;
+      footer: string;
+      location: string;
+      privacyPolicy: string;
+      termsOfService: string;
+      unsubscribe: string;
+    };
+    newsletter: {
+      preview: string;
+      heading: string;
+      intro: string;
+      featuresTitle: string;
+      feature1: string;
+      feature2: string;
+      feature3: string;
+      feature4: string;
+      outro: string;
+      cta: string;
+    };
+  };
+}
+
+export default function NewsletterWelcome({ translations }: NewsletterWelcomeProps) {
+  const t = translations;
+
   return (
     <Html>
       <Head />
-      <Preview>Welcome to Health Centric - Your guide is on the way!</Preview>
+      <Preview>{t.newsletter.preview}</Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header */}
           <Section style={header}>
-            <Text style={logo}>Health Centric</Text>
+            <Text style={logo}>{t.common.logo}</Text>
           </Section>
 
           {/* Main Content */}
           <Section style={content}>
-            <Heading style={h1}>Welcome to the Health Centric community!</Heading>
+            <Heading style={h1}>{t.newsletter.heading}</Heading>
 
             <Text style={paragraph}>
-              You're now subscribed to receive evidence-based health insights for living better, longer. No fluff, just science.
+              {t.newsletter.intro}
             </Text>
 
             <Section style={featureBox}>
-              <Text style={featureTitle}>What you'll receive:</Text>
-              <Text style={featureItem}>Expert-backed guides on prevention and longevity</Text>
-              <Text style={featureItem}>Latest research on biomarkers and health optimization</Text>
-              <Text style={featureItem}>Exclusive tips from our medical team</Text>
-              <Text style={featureItem}>Early access to new features and services</Text>
+              <Text style={featureTitle}>{t.newsletter.featuresTitle}</Text>
+              <Text style={featureItem}>• {t.newsletter.feature1}</Text>
+              <Text style={featureItem}>• {t.newsletter.feature2}</Text>
+              <Text style={featureItem}>• {t.newsletter.feature3}</Text>
+              <Text style={featureItem}>• {t.newsletter.feature4}</Text>
             </Section>
 
             <Text style={paragraph}>
-              We respect your inbox and only send valuable content. Expect to hear from us 1-2 times per month with insights that can actually improve your health.
+              {t.newsletter.outro}
             </Text>
 
             <Section style={buttonContainer}>
-              <Link href="https://healthcentric.com" style={button}>
-                Explore Our Health Tests
+              <Link href="https://healthcentric.ai" style={button}>
+                {t.newsletter.cta}
               </Link>
             </Section>
           </Section>
@@ -54,17 +81,17 @@ export default function NewsletterWelcome() {
           <Hr style={hr} />
           <Section style={footer}>
             <Text style={footerText}>
-              Health Centric - Preventive Health Testing
+              {t.common.footer}
             </Text>
             <Text style={footerText}>
-              Panama City, Panama
+              {t.common.location}
             </Text>
             <Text style={footerLinks}>
-              <Link href="https://healthcentric.com/privacy" style={footerLink}>Privacy Policy</Link>
+              <Link href="https://healthcentric.ai/privacy" style={footerLink}>{t.common.privacyPolicy}</Link>
               {' • '}
-              <Link href="https://healthcentric.com/terms" style={footerLink}>Terms of Service</Link>
+              <Link href="https://healthcentric.ai/terms" style={footerLink}>{t.common.termsOfService}</Link>
               {' • '}
-              <Link href="https://healthcentric.com/unsubscribe" style={footerLink}>Unsubscribe</Link>
+              <Link href="https://healthcentric.ai/unsubscribe" style={footerLink}>{t.common.unsubscribe}</Link>
             </Text>
           </Section>
         </Container>
@@ -140,7 +167,6 @@ const featureItem = {
   fontSize: '14px',
   lineHeight: '1.6',
   margin: '0 0 8px',
-  paddingLeft: '16px',
 };
 
 const buttonContainer = {

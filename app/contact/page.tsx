@@ -22,7 +22,7 @@ type FormData = {
 };
 
 export default function ContactPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
@@ -53,7 +53,7 @@ export default function ContactPage() {
         message: data.message,
       });
 
-      // Send confirmation email
+      // Send confirmation email in user's selected language
       try {
         await fetch('/api/send-email', {
           method: 'POST',
@@ -62,6 +62,7 @@ export default function ContactPage() {
             type: 'contact',
             email: data.email,
             name: data.name,
+            locale,
           }),
         });
       } catch (emailError) {

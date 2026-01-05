@@ -5,7 +5,6 @@ import {
   Heading,
   Hr,
   Html,
-  Img,
   Link,
   Preview,
   Section,
@@ -14,43 +13,66 @@ import {
 
 interface WaitlistConfirmationProps {
   firstName: string;
+  translations: {
+    common: {
+      logo: string;
+      footer: string;
+      location: string;
+      privacyPolicy: string;
+      termsOfService: string;
+    };
+    waitlist: {
+      preview: string;
+      heading: string;
+      intro: string;
+      featuresTitle: string;
+      feature1: string;
+      feature2: string;
+      feature3: string;
+      feature4: string;
+      outro: string;
+      cta: string;
+    };
+  };
 }
 
-export default function WaitlistConfirmation({ firstName }: WaitlistConfirmationProps) {
+export default function WaitlistConfirmation({ firstName, translations }: WaitlistConfirmationProps) {
+  const t = translations;
+
   return (
     <Html>
       <Head />
-      <Preview>Welcome to Health Centric - You're on the waitlist!</Preview>
+      <Preview>{t.waitlist.preview}</Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header */}
           <Section style={header}>
-            <Text style={logo}>Health Centric</Text>
+            <Text style={logo}>{t.common.logo}</Text>
           </Section>
 
           {/* Main Content */}
           <Section style={content}>
-            <Heading style={h1}>You're on the list, {firstName}!</Heading>
+            <Heading style={h1}>{t.waitlist.heading.replace('{firstName}', firstName)}</Heading>
 
             <Text style={paragraph}>
-              Thank you for joining the Health Centric waitlist. We're excited to have you as one of the first to experience comprehensive health testing designed for preventive care.
+              {t.waitlist.intro}
             </Text>
 
             <Section style={featureBox}>
-              <Text style={featureTitle}>What's coming your way:</Text>
-              <Text style={featureItem}>100+ biomarkers tested</Text>
-              <Text style={featureItem}>Professional blood collection (nurse visit or lab)</Text>
-              <Text style={featureItem}>Results in 48 hours</Text>
-              <Text style={featureItem}>Personalized health insights</Text>
+              <Text style={featureTitle}>{t.waitlist.featuresTitle}</Text>
+              <Text style={featureItem}>• {t.waitlist.feature1}</Text>
+              <Text style={featureItem}>• {t.waitlist.feature2}</Text>
+              <Text style={featureItem}>• {t.waitlist.feature3}</Text>
+              <Text style={featureItem}>• {t.waitlist.feature4}</Text>
             </Section>
 
             <Text style={paragraph}>
-              Our team will review your information and reach out soon to schedule your health assessment. In the meantime, if you have any questions, feel free to reply to this email.
+              {t.waitlist.outro}
             </Text>
 
             <Section style={buttonContainer}>
-              <Link href="https://healthcentric.com" style={button}>
-                Learn More About Our Tests
+              <Link href="https://healthcentric.ai" style={button}>
+                {t.waitlist.cta}
               </Link>
             </Section>
           </Section>
@@ -59,15 +81,15 @@ export default function WaitlistConfirmation({ firstName }: WaitlistConfirmation
           <Hr style={hr} />
           <Section style={footer}>
             <Text style={footerText}>
-              Health Centric - Preventive Health Testing
+              {t.common.footer}
             </Text>
             <Text style={footerText}>
-              Panama City, Panama
+              {t.common.location}
             </Text>
             <Text style={footerLinks}>
-              <Link href="https://healthcentric.com/privacy" style={footerLink}>Privacy Policy</Link>
+              <Link href="https://healthcentric.ai/privacy" style={footerLink}>{t.common.privacyPolicy}</Link>
               {' • '}
-              <Link href="https://healthcentric.com/terms" style={footerLink}>Terms of Service</Link>
+              <Link href="https://healthcentric.ai/terms" style={footerLink}>{t.common.termsOfService}</Link>
             </Text>
           </Section>
         </Container>
@@ -143,8 +165,6 @@ const featureItem = {
   fontSize: '14px',
   lineHeight: '1.6',
   margin: '0 0 8px',
-  paddingLeft: '16px',
-  position: 'relative' as const,
 };
 
 const buttonContainer = {

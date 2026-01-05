@@ -53,7 +53,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +71,7 @@ export default function Footer() {
     try {
       await submitToNewsletter({ email });
 
-      // Send welcome email
+      // Send welcome email in user's selected language
       try {
         await fetch('/api/send-email', {
           method: 'POST',
@@ -79,6 +79,7 @@ export default function Footer() {
           body: JSON.stringify({
             type: 'newsletter',
             email: email,
+            locale,
           }),
         });
       } catch (emailError) {

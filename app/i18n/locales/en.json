@@ -171,5 +171,51 @@
     "successTitle": "Message sent",
     "successMessage": "Thank you for reaching out. We'll get back to you within 24 hours.",
     "backHome": "Back to home"
+  },
+  "emails": {
+    "common": {
+      "logo": "Health Centric",
+      "footer": "Health Centric - Preventive Health Testing",
+      "location": "Panama City, Panama",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "unsubscribe": "Unsubscribe"
+    },
+    "waitlist": {
+      "subject": "You're on the Health Centric waitlist!",
+      "preview": "Welcome to Health Centric - You're on the waitlist!",
+      "heading": "You're on the list, {firstName}!",
+      "intro": "Thank you for joining the Health Centric waitlist. We're excited to have you as one of the first to experience comprehensive health testing designed for preventive care.",
+      "featuresTitle": "What's coming your way:",
+      "feature1": "100+ biomarkers tested",
+      "feature2": "Professional blood collection (nurse visit or lab)",
+      "feature3": "Results in 48 hours",
+      "feature4": "Personalized health insights",
+      "outro": "Our team will review your information and reach out soon to schedule your health assessment. In the meantime, if you have any questions, feel free to reply to this email.",
+      "cta": "Learn More About Our Tests"
+    },
+    "contact": {
+      "subject": "We received your message - Health Centric",
+      "preview": "We received your message - Health Centric",
+      "heading": "Thanks for reaching out, {name}!",
+      "intro": "We've received your message and appreciate you taking the time to contact us. Our team will review your inquiry and get back to you within 24 hours.",
+      "nextStepsTitle": "What happens next?",
+      "nextStepsText": "A member of our team will carefully review your message and respond via email. For urgent matters, you can also reach us directly at:",
+      "outro": "In the meantime, feel free to explore our website to learn more about our comprehensive health testing services.",
+      "cta": "Explore Health Centric"
+    },
+    "newsletter": {
+      "subject": "Welcome to Health Centric!",
+      "preview": "Welcome to Health Centric - Your guide is on the way!",
+      "heading": "Welcome to the Health Centric community!",
+      "intro": "You're now subscribed to receive evidence-based health insights for living better, longer. No fluff, just science.",
+      "featuresTitle": "What you'll receive:",
+      "feature1": "Expert-backed guides on prevention and longevity",
+      "feature2": "Latest research on biomarkers and health optimization",
+      "feature3": "Exclusive tips from our medical team",
+      "feature4": "Early access to new features and services",
+      "outro": "We respect your inbox and only send valuable content. Expect to hear from us 1-2 times per month with insights that can actually improve your health.",
+      "cta": "Explore Our Health Tests"
+    }
   }
 }

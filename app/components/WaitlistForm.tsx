@@ -83,7 +83,7 @@ function FormField({ label, error, children, required = true }: FormFieldProps) 
 }
 
 export default function WaitlistForm() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -117,7 +117,7 @@ export default function WaitlistForm() {
     try {
       await submitToWaitlist(data);
 
-      // Send confirmation email
+      // Send confirmation email in user's selected language
       try {
         await fetch('/api/send-email', {
           method: 'POST',
@@ -126,6 +126,7 @@ export default function WaitlistForm() {
             type: 'waitlist',
             email: data.email,
             firstName: data.first_name,
+            locale,
           }),
         });
       } catch (emailError) {
