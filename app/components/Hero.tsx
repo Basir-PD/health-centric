@@ -55,8 +55,8 @@ export default function Hero() {
         </video>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
       </div>
 
       {/* Content */}
@@ -65,21 +65,28 @@ export default function Hero() {
 
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-6 sm:mb-8">
-            <span className="h-px w-8 sm:w-12 bg-white/40" />
+            <span className="h-px w-8 sm:w-12 bg-white/50" />
             <span
-              className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-white/70"
-              style={{ fontFamily: 'var(--font-body)' }}
+              className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white"
+              style={{
+                fontFamily: 'var(--font-body)',
+                textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4)'
+              }}
             >
               {t('hero.eyebrow')}
             </span>
-            <span className="h-px w-8 sm:w-12 bg-white/40" />
+            <span className="h-px w-8 sm:w-12 bg-white/50" />
           </div>
 
           {/* Main Headline */}
           <h1 className="max-w-4xl">
             <span
-              className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight"
-              style={{ fontFamily: 'var(--font-display)', lineHeight: '1.1' }}
+              className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight"
+              style={{
+                fontFamily: 'var(--font-display)',
+                lineHeight: '1.1',
+                textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)'
+              }}
             >
               {t('hero.headline1')}
             </span>
@@ -89,7 +96,8 @@ export default function Hero() {
                 fontFamily: 'Georgia, "Times New Roman", Times, serif',
                 fontStyle: 'italic',
                 color: 'var(--color-brand-light)',
-                lineHeight: '1.1'
+                lineHeight: '1.1',
+                textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.4), 0 0 40px rgba(184, 101, 74, 0.4)'
               }}
             >
               {t('hero.headline2')}
@@ -98,8 +106,11 @@ export default function Hero() {
 
           {/* Description */}
           <p
-            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
-            style={{ fontFamily: 'var(--font-body)' }}
+            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-white max-w-2xl leading-relaxed"
+            style={{
+              fontFamily: 'var(--font-body)',
+              textShadow: '0 2px 10px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.4)'
+            }}
           >
             {t('hero.description')}
           </p>
@@ -111,7 +122,7 @@ export default function Hero() {
               className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: 'var(--color-brand)',
-                boxShadow: '0 0 30px rgba(184, 101, 74, 0.4)',
+                boxShadow: '0 0 30px rgba(184, 101, 74, 0.5), 0 4px 15px rgba(0,0,0,0.3)',
               }}
             >
               {t('hero.cta')}
@@ -127,28 +138,34 @@ export default function Hero() {
             </Link>
             <Link
               href="#tests"
-              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-white/90 border border-white/20 hover:bg-white/10 transition-all duration-300"
+              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-white border border-white/30 hover:bg-white/10 transition-all duration-300"
+              style={{
+                textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+              }}
             >
               {t('hero.ctaSecondary')}
             </Link>
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-12 sm:mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-white/50">
-            <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <div
+            className="mt-12 sm:mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-white"
+            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+          >
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-medium">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }}>
                 <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <span>{t('hero.trustClia')}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-medium">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }}>
                 <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
               </svg>
               <span>{t('hero.trustHipaa')}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-medium">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }}>
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
               <span>{t('hero.trustHsa')}</span>
