@@ -319,17 +319,17 @@ export default function WhatWeTestPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 * index }}
-                className="bg-white dark:bg-gray-900/50 rounded-2xl p-6 sm:p-8 border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-900/50 rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300"
               >
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                  <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     <div
-                      className="flex items-center justify-center w-12 h-12 rounded-xl"
+                      className="flex-shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl"
                       style={{ backgroundColor: 'rgba(184, 101, 74, 0.1)' }}
                     >
                       <svg
-                        className="w-6 h-6"
+                        className="w-5 h-5 sm:w-6 sm:h-6"
                         style={{ color: 'var(--color-brand)' }}
                         fill="none"
                         viewBox="0 0 24 24"
@@ -339,26 +339,26 @@ export default function WhatWeTestPage() {
                         {category.icon}
                       </svg>
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h3
-                        className="text-xl font-semibold text-gray-900 dark:text-white"
+                        className="text-base sm:text-xl font-semibold text-gray-900 dark:text-white truncate"
                         style={{ fontFamily: 'var(--font-display)' }}
                       >
                         {t(category.titleKey)}
                       </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{t(category.descriptionKey)}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 line-clamp-1 sm:line-clamp-none">{t(category.descriptionKey)}</p>
                     </div>
                   </div>
                   <div
-                    className="rounded-full px-4 py-1.5 text-sm font-semibold self-start sm:self-auto"
+                    className="rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold self-start sm:self-auto whitespace-nowrap"
                     style={{ backgroundColor: 'rgba(184, 101, 74, 0.1)', color: 'var(--color-brand)' }}
                   >
                     {category.biomarkerCount} {t('biomarkers.markers')}
                   </div>
                 </div>
 
-                {/* Biomarkers Table */}
-                <div className="overflow-x-auto">
+                {/* Biomarkers Table - Desktop */}
+                <div className="hidden sm:block overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-gray-100 dark:border-gray-800">
@@ -400,6 +400,39 @@ export default function WhatWeTestPage() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+
+                {/* Biomarkers Cards - Mobile */}
+                <div className="sm:hidden space-y-3">
+                  {category.biomarkers.map((biomarker, i) => (
+                    <div
+                      key={i}
+                      className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4"
+                    >
+                      <div className="font-medium text-gray-900 dark:text-white text-sm mb-2">
+                        {t(biomarker.nameKey)}
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 text-xs">
+                        <div>
+                          <div className="text-gray-400 dark:text-gray-500 mb-0.5">{t('biomarkers.tableUnit')}</div>
+                          <div className="text-gray-600 dark:text-gray-300">{biomarker.unit}</div>
+                        </div>
+                        <div>
+                          <div className="text-gray-400 dark:text-gray-500 mb-0.5">{t('biomarkers.tableNormal')}</div>
+                          <div className="text-gray-600 dark:text-gray-300">{biomarker.normalRange}</div>
+                        </div>
+                        <div>
+                          <div className="text-gray-400 dark:text-gray-500 mb-0.5">{t('biomarkers.tableOptimal')}</div>
+                          <span
+                            className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
+                            style={{ backgroundColor: 'rgba(184, 101, 74, 0.1)', color: 'var(--color-brand)' }}
+                          >
+                            {biomarker.optimalRange}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             ))}
