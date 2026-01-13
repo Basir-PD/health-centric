@@ -163,7 +163,7 @@ export default function TrustSection() {
                   <path d="M20 2L4 8v12c0 9.55 6.82 18.48 16 20 9.18-1.52 16-10.45 16-20V8L20 2zm-2 28l-6-6 2.12-2.12L18 25.76l9.88-9.88L30 18l-12 12z"/>
                 </svg>
                 <div>
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">100+</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">70+</div>
                   <div className="text-[10px] text-gray-400 dark:text-gray-500">Biomarkers</div>
                 </div>
               </div>

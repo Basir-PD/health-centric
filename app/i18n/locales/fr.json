@@ -14,19 +14,19 @@
     "eyebrow": "Soins préventifs avancés",
     "headline1": "Votre tableau de",
     "headline2": "santé",
-    "description": "Testez plus de 100 biomarqueurs depuis le confort de votre domicile ou dans un laboratoire près de chez vous. Détectez les signes précoces de maladie avant l'apparition des symptômes. Résultats en 48 heures avec des recommandations claires.",
+    "description": "Testez plus de 70 biomarqueurs depuis le confort de votre domicile ou dans un laboratoire près de chez vous. Détectez les signes précoces de maladie avant l'apparition des symptômes. Résultats en 48 heures avec des recommandations claires.",
     "cta": "Commencer le test",
     "ctaSecondary": "Voir nos tests",
-    "trustClia": "Laboratoires certifiés CLIA",
+    "trustClia": "70+ biomarqueurs",
     "trustHipaa": "Certifié MINSA",
-    "trustHsa": "Éligible HSA/FSA",
+    "trustHsa": "Résultats vérifiés par médecin",
     "scroll": "Défiler"
   },
   "awards": {
     "sectionTitle": "Reconnu pour",
     "sectionTitleHighlight": "l'excellence en santé",
     "subtitle": "Basé sur les mêmes standards de laboratoire utilisés par les hôpitaux de référence",
-    "trust1": "100+ biomarqueurs",
+    "trust1": "70+ biomarqueurs",
     "trust2": "Labs certifiés CLIA",
     "trust3": "Revue par médecin",
     "trust4": "Éligible HSA/FSA"
@@ -34,40 +34,40 @@
   "howItWorks": {
     "title": "Détectez les signes précoces de",
     "titleHighlight": "maladies graves",
-    "subtitle": "Votre bilan annuel teste 15 biomarqueurs. Nous en testons plus de 100.",
+    "subtitle": "Votre bilan annuel teste 15 biomarqueurs. Nous en testons plus de 70.",
     "feature1": "Suivez les changements dans le temps",
     "feature2": "Surveillez vos valeurs de référence",
     "feature3": "Détectez les problèmes tôt"
   },
   "valueProposition": {
     "title": "Ce que nous testons",
-    "subtitle": "Plus de 100 biomarqueurs dans les domaines les plus importants pour votre santé à long terme.",
+    "subtitle": "Plus de 70 biomarqueurs dans les domaines les plus importants pour votre santé à long terme.",
     "biomarkers": "Biomarqueurs",
     "more": "+Plus",
     "moreText": "Une santé complète en un seul test",
-    "cat1Title": "Thyroïde & hormones",
-    "cat1Test1": "TSH (Stimulation thyroïdienne)",
-    "cat1Test2": "T3 & T4 libres",
-    "cat1Test3": "Bilan testostérone",
-    "cat1Test4": "Estradiol & Progestérone",
-    "cat2Title": "Détection précoce des risques",
-    "cat2Test1": "Dépistage multi-cancer",
-    "cat2Test2": "PSA (Santé prostatique)",
-    "cat2Test3": "CA-125 (Ovarien)",
-    "cat2Test4": "Bilan métaux lourds",
-    "cat3Title": "Cœur & métabolisme",
-    "cat3Test1": "Bilan lipidique avancé",
-    "cat3Test2": "Lp(a) Cardiovasculaire",
-    "cat3Test3": "Ratio ApoB & ApoA1",
-    "cat3Test4": "HbA1c & Glycémie à jeun",
-    "cat4Title": "Marqueurs de longévité",
-    "cat4Test1": "IGF-1 (Facteur de croissance)",
-    "cat4Test2": "DHEA-S (Santé surrénalienne)",
-    "cat4Test3": "Taux d'homocystéine",
-    "cat5Title": "Cerveau & stress",
-    "cat5Test1": "Cortisol (Matin/Soir)",
-    "cat5Test2": "hs-CRP Inflammation",
-    "cat5Test3": "Vitamine B12 & Folate"
+    "cat1Title": "Hémogramme Complet",
+    "cat1Test1": "Hémoglobine et Hématocrite",
+    "cat1Test2": "Globules Rouges et Blancs",
+    "cat1Test3": "Plaquettes et Indices",
+    "cat1Test4": "Formule Leucocytaire",
+    "cat2Title": "Glucose et Métabolisme",
+    "cat2Test1": "Glycémie à Jeun",
+    "cat2Test2": "HbA1c",
+    "cat2Test3": "Insuline à Jeun",
+    "cat2Test4": "Glycémie Moyenne Estimée",
+    "cat3Title": "Profil Lipidique",
+    "cat3Test1": "Cholestérol Total",
+    "cat3Test2": "Cholestérol HDL et LDL",
+    "cat3Test3": "Triglycérides et VLDL",
+    "cat3Test4": "Ratio ApoB et ApoA1",
+    "cat4Title": "Fonction Hépatique et Rénale",
+    "cat4Test1": "AST, ALT et GGT",
+    "cat4Test2": "Bilan Bilirubine",
+    "cat4Test3": "Urée et Créatinine",
+    "cat5Title": "Hormones et Thyroïde",
+    "cat5Test1": "TSH, T3 et T4",
+    "cat5Test2": "Testostérone et PSA",
+    "cat5Test3": "Estradiol et Progestérone"
   },
   "testimonials": {
     "title": "Fait confiance par",
@@ -116,7 +116,7 @@
     "title": "Rejoindre la liste d'attente",
     "subtitle": "Prenez le contrôle de votre santé — tests complets avec analyses personnalisées.",
     "whatsIncluded": "Ce qui est inclus",
-    "feature1": "Plus de 100 biomarqueurs testés",
+    "feature1": "Plus de 70 biomarqueurs testés",
     "feature2": "Analyses personnalisées par des médecins",
     "feature3": "Résumé de santé complet",
     "feature4": "Résultats suivis tout au long de votre vie",
@@ -187,7 +187,7 @@
       "heading": "Vous êtes inscrit, {firstName} !",
       "intro": "Merci d'avoir rejoint la liste d'attente Health Centric. Nous sommes ravis de vous compter parmi les premiers à découvrir des tests de santé complets conçus pour les soins préventifs.",
       "featuresTitle": "Ce qui vous attend :",
-      "feature1": "Plus de 100 biomarqueurs testés",
+      "feature1": "Plus de 70 biomarqueurs testés",
       "feature2": "Prélèvement sanguin professionnel (visite infirmière ou laboratoire)",
       "feature3": "Résultats en 48 heures",
       "feature4": "Analyses de santé personnalisées",
@@ -216,6 +216,168 @@
       "feature4": "Accès anticipé aux nouvelles fonctionnalités et services",
       "outro": "Nous respectons votre boîte de réception et n'envoyons que du contenu de valeur. Attendez-vous à recevoir de nos nouvelles 1 à 2 fois par mois avec des informations qui peuvent réellement améliorer votre santé.",
       "cta": "Découvrir nos tests de santé"
+    }
+  },
+  "biomarkers": {
+    "badge": "Tests Complets",
+    "heroTitle": "Ce que nous",
+    "heroTitleHighlight": "testons",
+    "heroSubtitle": "Plus de 70 biomarqueurs dans les domaines les plus importants pour votre santé à long terme. Un panel complet avec les plages normales et optimales pour la longévité.",
+    "statBiomarkers": "Biomarqueurs",
+    "statCategories": "Catégories de Santé",
+    "statResults": "Résultats Prêts",
+    "normalRange": "Plage Normale",
+    "optimalRange": "Optimal pour la Longévité",
+    "markers": "marqueurs",
+    "tableBiomarker": "Biomarqueur",
+    "tableUnit": "Unité",
+    "tableNormal": "Plage Normale",
+    "tableOptimal": "Plage Optimale",
+    "howItWorksTitle": "Comment ça marche",
+    "howItWorksSubtitle": "Simple, pratique et complet",
+    "step1Title": "Réservez votre test",
+    "step1Description": "Choisissez un horaire qui vous convient. Une infirmière certifiée viendra chez vous ou au bureau.",
+    "step2Title": "Prélèvement rapide",
+    "step2Description": "Le prélèvement prend environ 10 minutes. Pas de jeûne requis pour la plupart des panels.",
+    "step3Title": "Recevez vos résultats",
+    "step3Description": "Recevez des résultats détaillés en 48 heures avec revue médicale et analyses personnalisées.",
+    "ctaTitle": "Prêt à comprendre votre santé ?",
+    "ctaSubtitle": "Obtenez des analyses complètes de plus de 70 biomarqueurs avec notre service de test à domicile.",
+    "ctaButton": "Commencer",
+    "ctaPricing": "Voir les Tarifs",
+    "backHome": "Retour à l'Accueil",
+    "categories": {
+      "cbc": {
+        "title": "Hémogramme Complet",
+        "description": "Analyse complète des cellules sanguines et composants"
+      },
+      "glucose": {
+        "title": "Métabolisme du Glucose",
+        "description": "Contrôle glycémique et marqueurs de santé métabolique"
+      },
+      "lipid": {
+        "title": "Profil Lipidique et Apolipoprotéines",
+        "description": "Évaluation du risque cardiovasculaire et du cholestérol"
+      },
+      "liver": {
+        "title": "Fonction Hépatique",
+        "description": "Enzymes hépatiques, protéines et niveaux de bilirubine"
+      },
+      "kidney": {
+        "title": "Fonction Rénale",
+        "description": "Santé rénale et marqueurs de filtration"
+      },
+      "thyroid": {
+        "title": "Fonction Thyroïdienne",
+        "description": "Hormones thyroïdiennes et régulation métabolique"
+      },
+      "cardiac": {
+        "title": "Marqueurs Cardiaques et Inflammation",
+        "description": "Santé cardiaque et marqueurs inflammatoires"
+      },
+      "hormones": {
+        "title": "Hormones",
+        "description": "Niveaux hormonaux masculins et féminins"
+      },
+      "vitamins": {
+        "title": "Vitamines et Minéraux",
+        "description": "Nutriments essentiels et électrolytes"
+      },
+      "enzymes": {
+        "title": "Enzymes Métaboliques",
+        "description": "Niveaux d'enzymes digestives et métaboliques"
+      },
+      "toxicology": {
+        "title": "Métaux Lourds",
+        "description": "Dépistage de l'exposition aux métaux toxiques"
+      }
+    },
+    "cbc": {
+      "hemoglobin": "Hémoglobine",
+      "hematocrit": "Hématocrite",
+      "mcv": "VGM (Volume Globulaire Moyen)",
+      "mch": "TCMH (Teneur Corpusculaire Moyenne en Hb)",
+      "mchc": "CCMH (Concentration Corpusculaire Moyenne en Hb)",
+      "rdw": "IDR (Indice de Distribution des Globules Rouges)",
+      "leukocytes": "Leucocytes (Globules Blancs)",
+      "platelets": "Plaquettes",
+      "mpv": "VPM (Volume Plaquettaire Moyen)"
+    },
+    "glucose": {
+      "fasting": "Glycémie à Jeun",
+      "hba1c": "HbA1c (Hémoglobine Glyquée)",
+      "insulin": "Insuline à Jeun",
+      "homaIr": "HOMA-IR (Résistance à l'Insuline)",
+      "cPeptide": "Peptide C"
+    },
+    "lipid": {
+      "totalCholesterol": "Cholestérol Total",
+      "ldl": "Cholestérol LDL",
+      "hdl": "Cholestérol HDL",
+      "triglycerides": "Triglycérides",
+      "vldl": "Cholestérol VLDL",
+      "apoB": "Apolipoprotéine B"
+    },
+    "liver": {
+      "ast": "AST (SGOT)",
+      "alt": "ALT (SGPT)",
+      "ggt": "GGT (Gamma Glutamyl Transférase)",
+      "alp": "Phosphatase Alcaline",
+      "totalBilirubin": "Bilirubine Totale",
+      "directBilirubin": "Bilirubine Directe",
+      "albumin": "Albumine",
+      "totalProtein": "Protéines Totales"
+    },
+    "kidney": {
+      "bun": "Urée (BUN)",
+      "creatinine": "Créatinine",
+      "egfr": "DFGe (Débit de Filtration Glomérulaire Estimé)",
+      "uricAcid": "Acide Urique",
+      "cystatinC": "Cystatine C"
+    },
+    "thyroid": {
+      "tsh": "TSH (Hormone Thyréostimulante)",
+      "freeT4": "T4 Libre (Thyroxine)",
+      "freeT3": "T3 Libre (Triiodothyronine)",
+      "tpoAntibodies": "Anticorps Anti-TPO"
+    },
+    "cardiac": {
+      "hsCrp": "CRP-hs (Protéine C-Réactive Ultra-sensible)",
+      "homocysteine": "Homocystéine",
+      "bnp": "BNP (Peptide Natriurétique de Type B)",
+      "lpa": "Lp(a) (Lipoprotéine a)"
+    },
+    "hormones": {
+      "testosterone": "Testostérone",
+      "estradiol": "Estradiol",
+      "dheas": "DHEA-S (Sulfate de Déhydroépiandrostérone)",
+      "cortisol": "Cortisol",
+      "igf1": "IGF-1 (Facteur de Croissance Insulinomimétique 1)",
+      "shbg": "SHBG (Globuline de Liaison aux Hormones Sexuelles)",
+      "prolactin": "Prolactine"
+    },
+    "vitamins": {
+      "vitaminD": "Vitamine D (25-Hydroxy)",
+      "vitaminB12": "Vitamine B12",
+      "folate": "Folate (Acide Folique)",
+      "ferritin": "Ferritine",
+      "magnesium": "Magnésium"
+    },
+    "enzymes": {
+      "ldh": "LDH (Lactate Déshydrogénase)",
+      "amylase": "Amylase",
+      "lipase": "Lipase",
+      "ck": "CK (Créatine Kinase)"
+    },
+    "toxicology": {
+      "lead": "Plomb",
+      "mercury": "Mercure",
+      "arsenic": "Arsenic",
+      "cadmium": "Cadmium",
+      "aluminum": "Aluminium",
+      "copper": "Cuivre",
+      "zinc": "Zinc",
+      "selenium": "Sélénium"
     }
   }
 }

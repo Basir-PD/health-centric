@@ -94,7 +94,7 @@ export default function CTA() {
 
               <ul className="mt-5 sm:mt-8 space-y-3 sm:space-y-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 {[
-                  '100+ biomarkers tested',
+                  '70+ biomarkers tested',
                   'Physician review included',
                   'Personalized action plan',
                   'At-home collection kit',

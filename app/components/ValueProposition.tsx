@@ -15,7 +15,7 @@ export default function ValueProposition() {
   const testCategories = [
     {
       titleKey: 'valueProposition.cat1Title',
-      biomarkerCount: 14,
+      biomarkerCount: 9,
       testKeys: [
         'valueProposition.cat1Test1',
         'valueProposition.cat1Test2',
@@ -25,7 +25,7 @@ export default function ValueProposition() {
     },
     {
       titleKey: 'valueProposition.cat2Title',
-      biomarkerCount: 28,
+      biomarkerCount: 11,
       testKeys: [
         'valueProposition.cat2Test1',
         'valueProposition.cat2Test2',
@@ -35,7 +35,7 @@ export default function ValueProposition() {
     },
     {
       titleKey: 'valueProposition.cat3Title',
-      biomarkerCount: 22,
+      biomarkerCount: 13,
       testKeys: [
         'valueProposition.cat3Test1',
         'valueProposition.cat3Test2',
@@ -45,7 +45,7 @@ export default function ValueProposition() {
     },
     {
       titleKey: 'valueProposition.cat4Title',
-      biomarkerCount: 19,
+      biomarkerCount: 11,
       testKeys: [
         'valueProposition.cat4Test1',
         'valueProposition.cat4Test2',
@@ -54,11 +54,12 @@ export default function ValueProposition() {
     },
     {
       titleKey: 'valueProposition.cat5Title',
-      biomarkerCount: 12,
+      biomarkerCount: 13,
       testKeys: [
         'valueProposition.cat5Test1',
         'valueProposition.cat5Test2',
         'valueProposition.cat5Test3',
+        'valueProposition.cat5Test4',
       ],
     },
   ];

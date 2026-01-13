@@ -32,7 +32,7 @@ const plans = [
     period: '/test',
     popular: true,
     features: [
-      '100+ biomarkers tested',
+      '70+ biomarkers tested',
       'Everything in Essential',
       'Hormone panel (testosterone, estrogen, cortisol)',
       'Vitamin & mineral levels (D, B12, iron, magnesium)',

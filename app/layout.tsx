@@ -71,6 +71,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${plusJakarta.variable} antialiased bg-[#faf8f5] dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300`}
+        suppressHydrationWarning
       >
         <ThemeProvider>
           <I18nProvider>{children}</I18nProvider>

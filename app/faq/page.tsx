@@ -22,7 +22,7 @@ const faqs = [
   {
     question: 'What biomarkers are included in the comprehensive panel?',
     answer:
-      'Our comprehensive panel tests 100+ biomarkers across key health categories including cardiovascular health (cholesterol, triglycerides, inflammation markers), metabolic function (blood sugar, insulin, HbA1c), thyroid health (TSH, T3, T4), hormones (testosterone, estrogen, cortisol), vitamins and minerals (D, B12, iron, magnesium), and organ function markers (liver, kidney).',
+      'Our comprehensive panel tests 70+ biomarkers across key health categories including cardiovascular health (cholesterol, triglycerides, inflammation markers), metabolic function (blood sugar, insulin, HbA1c), thyroid health (TSH, T3, T4), hormones (testosterone, estrogen, cortisol), vitamins and minerals (D, B12, iron, magnesium), and organ function markers (liver, kidney).',
     category: 'Testing',
   },
   {

@@ -14,10 +14,10 @@
     "eyebrow": "Advanced preventive care",
     "headline1": "Your health",
     "headline2": "dashboard",
-    "description": "Test 100+ biomarkers from comfort of your home or a lab near you. Detect early signs of disease before symptoms appear. Get results in 48 hours with clear next steps.",
+    "description": "Test 70+ biomarkers from comfort of your home or a lab near you. Detect early signs of disease before symptoms appear. Get results in 48 hours with clear next steps.",
     "cta": "Start your test",
     "ctaSecondary": "See what we test",
-    "trustClia": "100+ biomarkers",
+    "trustClia": "70+ biomarkers",
     "trustHipaa": "MINSA-certified",
     "trustHsa": "Doctor-verified results",
     "scroll": "Scroll"
@@ -26,7 +26,7 @@
     "sectionTitle": "Recognized for",
     "sectionTitleHighlight": "healthcare excellence",
     "subtitle": "Built on the same lab standards used by leading hospitals",
-    "trust1": "100+ biomarkers",
+    "trust1": "70+ biomarkers",
     "trust2": "CLIA-certified labs",
     "trust3": "Physician-reviewed",
     "trust4": "HSA/FSA eligible"
@@ -34,40 +34,40 @@
   "howItWorks": {
     "title": "Detect early signs of",
     "titleHighlight": "serious disease",
-    "subtitle": "Your annual checkup tests 15 biomarkers. We test 100+.",
+    "subtitle": "Your annual checkup tests 15 biomarkers. We test 70+.",
     "feature1": "Track changes over time",
     "feature2": "Monitor your baseline",
     "feature3": "Catch problems early"
   },
   "valueProposition": {
     "title": "What we test",
-    "subtitle": "100+ biomarkers across the areas that matter most to your long-term health.",
+    "subtitle": "70+ biomarkers across the areas that matter most to your long-term health.",
     "biomarkers": "Biomarkers",
     "more": "+More",
     "moreText": "Complete health in one test",
-    "cat1Title": "Thyroid & hormones",
-    "cat1Test1": "TSH (Thyroid Stimulating)",
-    "cat1Test2": "Free T3 & T4",
-    "cat1Test3": "Testosterone Panel",
-    "cat1Test4": "Estradiol & Progesterone",
-    "cat2Title": "Early risk detection",
-    "cat2Test1": "Multi-Cancer Screening",
-    "cat2Test2": "PSA (Prostate Health)",
-    "cat2Test3": "CA-125 (Ovarian)",
-    "cat2Test4": "Heavy Metals Panel",
-    "cat3Title": "Heart & metabolism",
-    "cat3Test1": "Advanced Lipid Panel",
-    "cat3Test2": "Lp(a) Cardiovascular",
-    "cat3Test3": "ApoB & ApoA1 Ratio",
-    "cat3Test4": "HbA1c & Fasting Glucose",
-    "cat4Title": "Longevity markers",
-    "cat4Test1": "IGF-1 (Growth Factor)",
-    "cat4Test2": "DHEA-S (Adrenal Health)",
-    "cat4Test3": "Homocysteine Levels",
-    "cat5Title": "Brain & stress",
-    "cat5Test1": "Cortisol (AM/PM)",
-    "cat5Test2": "hs-CRP Inflammation",
-    "cat5Test3": "Vitamin B12 & Folate"
+    "cat1Title": "Complete Blood Count",
+    "cat1Test1": "Hemoglobin & Hematocrit",
+    "cat1Test2": "Red & White Blood Cells",
+    "cat1Test3": "Platelets & Indices",
+    "cat1Test4": "Differential Count",
+    "cat2Title": "Glucose & Metabolism",
+    "cat2Test1": "Fasting Glucose",
+    "cat2Test2": "HbA1c",
+    "cat2Test3": "Fasting Insulin",
+    "cat2Test4": "Estimated Average Glucose",
+    "cat3Title": "Lipid Profile",
+    "cat3Test1": "Total Cholesterol",
+    "cat3Test2": "HDL & LDL Cholesterol",
+    "cat3Test3": "Triglycerides & VLDL",
+    "cat3Test4": "ApoB & ApoA1 Ratio",
+    "cat4Title": "Liver & Kidney Function",
+    "cat4Test1": "AST, ALT & GGT",
+    "cat4Test2": "Bilirubin Panel",
+    "cat4Test3": "BUN & Creatinine",
+    "cat5Title": "Hormones & Thyroid",
+    "cat5Test1": "TSH, T3 & T4",
+    "cat5Test2": "Testosterone & PSA",
+    "cat5Test3": "Estradiol & Progesterone"
   },
   "testimonials": {
     "title": "Trusted by",
@@ -116,7 +116,7 @@
     "title": "Join the Waitlist",
     "subtitle": "Take control of your health — comprehensive testing with personalized insights.",
     "whatsIncluded": "What's included",
-    "feature1": "100+ biomarkers tested",
+    "feature1": "70+ biomarkers tested",
     "feature2": "Personalized insights from physicians",
     "feature3": "Comprehensive health summary",
     "feature4": "Results tracked over your lifetime",
@@ -187,7 +187,7 @@
       "heading": "You're on the list, {firstName}!",
       "intro": "Thank you for joining the Health Centric waitlist. We're excited to have you as one of the first to experience comprehensive health testing designed for preventive care.",
       "featuresTitle": "What's coming your way:",
-      "feature1": "100+ biomarkers tested",
+      "feature1": "70+ biomarkers tested",
       "feature2": "Professional blood collection (nurse visit or lab)",
       "feature3": "Results in 48 hours",
       "feature4": "Personalized health insights",
@@ -216,6 +216,168 @@
       "feature4": "Early access to new features and services",
       "outro": "We respect your inbox and only send valuable content. Expect to hear from us 1-2 times per month with insights that can actually improve your health.",
       "cta": "Explore Our Health Tests"
+    }
+  },
+  "biomarkers": {
+    "badge": "Comprehensive Testing",
+    "heroTitle": "What we",
+    "heroTitleHighlight": "test",
+    "heroSubtitle": "70+ biomarkers across the areas that matter most to your long-term health. One comprehensive panel with normal and optimal longevity ranges.",
+    "statBiomarkers": "Biomarkers",
+    "statCategories": "Health Categories",
+    "statResults": "Results Ready",
+    "normalRange": "Normal Range",
+    "optimalRange": "Optimal for Longevity",
+    "markers": "markers",
+    "tableBiomarker": "Biomarker",
+    "tableUnit": "Unit",
+    "tableNormal": "Normal Range",
+    "tableOptimal": "Optimal Range",
+    "howItWorksTitle": "How testing works",
+    "howItWorksSubtitle": "Simple, convenient, and comprehensive",
+    "step1Title": "Book your test",
+    "step1Description": "Choose a time that works for you. A certified nurse will come to your home or office.",
+    "step2Title": "Quick blood draw",
+    "step2Description": "The collection takes about 10 minutes. No fasting required for most panels.",
+    "step3Title": "Get your results",
+    "step3Description": "Receive detailed results in 48 hours with physician review and personalized insights.",
+    "ctaTitle": "Ready to understand your health?",
+    "ctaSubtitle": "Get comprehensive insights from 70+ biomarkers with our at-home testing service.",
+    "ctaButton": "Get Started",
+    "ctaPricing": "View Pricing",
+    "backHome": "Back to Home",
+    "categories": {
+      "cbc": {
+        "title": "Complete Blood Count",
+        "description": "Comprehensive analysis of blood cells and components"
+      },
+      "glucose": {
+        "title": "Glucose Metabolism",
+        "description": "Blood sugar control and metabolic health markers"
+      },
+      "lipid": {
+        "title": "Lipid Profile & Apolipoproteins",
+        "description": "Cardiovascular risk and cholesterol assessment"
+      },
+      "liver": {
+        "title": "Liver Function",
+        "description": "Liver enzymes, proteins, and bilirubin levels"
+      },
+      "kidney": {
+        "title": "Kidney Function",
+        "description": "Kidney health and waste filtration markers"
+      },
+      "thyroid": {
+        "title": "Thyroid Function",
+        "description": "Thyroid hormones and metabolic regulation"
+      },
+      "cardiac": {
+        "title": "Cardiac Markers & Inflammation",
+        "description": "Heart health and inflammatory markers"
+      },
+      "hormones": {
+        "title": "Hormones",
+        "description": "Male and female hormone levels"
+      },
+      "vitamins": {
+        "title": "Vitamins & Minerals",
+        "description": "Essential nutrients and electrolytes"
+      },
+      "enzymes": {
+        "title": "Metabolic Enzymes",
+        "description": "Digestive and metabolic enzyme levels"
+      },
+      "toxicology": {
+        "title": "Heavy Metals",
+        "description": "Toxic metal exposure screening"
+      }
+    },
+    "cbc": {
+      "hemoglobin": "Hemoglobin",
+      "hematocrit": "Hematocrit",
+      "mcv": "MCV (Mean Corpuscular Volume)",
+      "mch": "MCH (Mean Corpuscular Hemoglobin)",
+      "mchc": "MCHC (Mean Corpuscular Hb Concentration)",
+      "rdw": "RDW (Red Cell Distribution Width)",
+      "leukocytes": "Leukocytes (White Blood Cells)",
+      "platelets": "Platelets",
+      "mpv": "MPV (Mean Platelet Volume)"
+    },
+    "glucose": {
+      "fasting": "Fasting Glucose",
+      "hba1c": "HbA1c (Glycated Hemoglobin)",
+      "insulin": "Fasting Insulin",
+      "homaIr": "HOMA-IR (Insulin Resistance)",
+      "cPeptide": "C-Peptide"
+    },
+    "lipid": {
+      "totalCholesterol": "Total Cholesterol",
+      "ldl": "LDL Cholesterol",
+      "hdl": "HDL Cholesterol",
+      "triglycerides": "Triglycerides",
+      "vldl": "VLDL Cholesterol",
+      "apoB": "Apolipoprotein B"
+    },
+    "liver": {
+      "ast": "AST (SGOT)",
+      "alt": "ALT (SGPT)",
+      "ggt": "GGT (Gamma Glutamyl Transferase)",
+      "alp": "Alkaline Phosphatase",
+      "totalBilirubin": "Total Bilirubin",
+      "directBilirubin": "Direct Bilirubin",
+      "albumin": "Albumin",
+      "totalProtein": "Total Protein"
+    },
+    "kidney": {
+      "bun": "BUN (Blood Urea Nitrogen)",
+      "creatinine": "Creatinine",
+      "egfr": "eGFR (Estimated Glomerular Filtration Rate)",
+      "uricAcid": "Uric Acid",
+      "cystatinC": "Cystatin C"
+    },
+    "thyroid": {
+      "tsh": "TSH (Thyroid Stimulating Hormone)",
+      "freeT4": "Free T4 (Thyroxine)",
+      "freeT3": "Free T3 (Triiodothyronine)",
+      "tpoAntibodies": "TPO Antibodies"
+    },
+    "cardiac": {
+      "hsCrp": "hs-CRP (High-Sensitivity C-Reactive Protein)",
+      "homocysteine": "Homocysteine",
+      "bnp": "BNP (B-type Natriuretic Peptide)",
+      "lpa": "Lp(a) (Lipoprotein a)"
+    },
+    "hormones": {
+      "testosterone": "Testosterone",
+      "estradiol": "Estradiol",
+      "dheas": "DHEA-S (Dehydroepiandrosterone Sulfate)",
+      "cortisol": "Cortisol",
+      "igf1": "IGF-1 (Insulin-like Growth Factor 1)",
+      "shbg": "SHBG (Sex Hormone Binding Globulin)",
+      "prolactin": "Prolactin"
+    },
+    "vitamins": {
+      "vitaminD": "Vitamin D (25-Hydroxy)",
+      "vitaminB12": "Vitamin B12",
+      "folate": "Folate",
+      "ferritin": "Ferritin",
+      "magnesium": "Magnesium"
+    },
+    "enzymes": {
+      "ldh": "LDH (Lactate Dehydrogenase)",
+      "amylase": "Amylase",
+      "lipase": "Lipase",
+      "ck": "CK (Creatine Kinase)"
+    },
+    "toxicology": {
+      "lead": "Lead",
+      "mercury": "Mercury",
+      "arsenic": "Arsenic",
+      "cadmium": "Cadmium",
+      "aluminum": "Aluminum",
+      "copper": "Copper",
+      "zinc": "Zinc",
+      "selenium": "Selenium"
     }
   }
 }

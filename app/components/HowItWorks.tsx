@@ -4,39 +4,37 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../i18n/provider';
 
-const diseases1 = [
-  'Lead toxicity', 'Alzheimer\'s disease', 'Graves\' disease', 'Ovarian cancer',
-  'Hypothyroidism', 'Celiac disease', 'PCOS', 'Prostate cancer', 'Addison\'s disease',
-  'Type 2 Diabetes', 'Hemochromatosis', 'Lupus', 'Rheumatoid arthritis', 'Anemia',
-  'Pancreatic cancer', 'Colon cancer', 'Breast cancer', 'Bladder cancer', 'Lymphoma',
-  'Leukemia', 'Melanoma', 'Hepatitis B', 'Hepatitis C', 'HIV', 'Syphilis',
+// Biomarkers from complete blood count and glucose metabolism
+const biomarkers1 = [
+  'Hemoglobin', 'Hematocrit', 'MCV', 'MCH', 'MCHC', 'RDW', 'Leukocytes',
+  'Platelets', 'MPV', 'Fasting Glucose', 'HbA1c', 'Fasting Insulin',
+  'HOMA-IR', 'C-Peptide', 'Total Cholesterol', 'LDL Cholesterol',
 ];
 
-const diseases2 = [
-  'Heart disease', 'Kidney disease', 'Liver dysfunction', 'Thyroid disorders',
-  'Metabolic syndrome', 'Osteoporosis', 'Multiple sclerosis', 'Chronic fatigue',
-  'Vitamin deficiencies', 'Autoimmune disorders', 'Hormone imbalances', 'Lyme disease',
-  'Insulin resistance', 'Hyperthyroidism', 'Hashimoto\'s disease', 'Cushing syndrome',
-  'Gout', 'Hypogonadism', 'Adrenal insufficiency', 'Pernicious anemia', 'Thalassemia',
+// Lipid profile and liver function biomarkers
+const biomarkers2 = [
+  'HDL Cholesterol', 'Triglycerides', 'VLDL', 'Apo B', 'AST', 'ALT',
+  'GGT', 'Alkaline Phosphatase', 'Total Bilirubin', 'Direct Bilirubin',
+  'Albumin', 'Total Protein', 'BUN', 'Creatinine', 'eGFR', 'Uric Acid',
 ];
 
-const diseases3 = [
-  'Fatty liver disease', 'Cirrhosis', 'Cholesterol disorders', 'Atherosclerosis',
-  'Coronary artery disease', 'Stroke risk', 'Deep vein thrombosis', 'Pulmonary embolism',
-  'Iron deficiency', 'B12 deficiency', 'Folate deficiency', 'Vitamin D deficiency',
-  'Zinc deficiency', 'Magnesium deficiency', 'Calcium disorders', 'Electrolyte imbalances',
+// Kidney, thyroid, and cardiac biomarkers
+const biomarkers3 = [
+  'Cystatin C', 'TSH', 'Free T4', 'Free T3', 'TPO Antibodies', 'hs-CRP',
+  'Homocysteine', 'BNP', 'Lp(a)', 'Testosterone', 'Estradiol', 'DHEA-S',
+  'Cortisol', 'IGF-1', 'SHBG', 'Prolactin',
 ];
 
-const diseases4 = [
-  'Chronic kidney disease', 'Glomerulonephritis', 'Nephrotic syndrome', 'UTI markers',
-  'Prediabetes', 'Gestational diabetes', 'Metabolic dysfunction', 'Obesity markers',
-  'Inflammation markers', 'Oxidative stress', 'Testosterone deficiency', 'Estrogen imbalance',
-  'Cortisol dysfunction', 'Growth hormone deficiency', 'Parathyroid disorders', 'Bone loss',
+// Vitamins, minerals, enzymes, and heavy metals
+const biomarkers4 = [
+  'Vitamin D', 'Vitamin B12', 'Folate', 'Ferritin', 'Magnesium', 'LDH',
+  'Amylase', 'Lipase', 'CK', 'Lead', 'Mercury', 'Arsenic', 'Cadmium',
+  'Aluminum', 'Copper', 'Zinc', 'Selenium',
 ];
 
 
-function MarqueeRow({ diseases, direction = 'left', speed = 30 }: { diseases: string[]; direction?: 'left' | 'right'; speed?: number }) {
-  const doubled = [...diseases, ...diseases];
+function MarqueeRow({ biomarkers, direction = 'left', speed = 30 }: { biomarkers: string[]; direction?: 'left' | 'right'; speed?: number }) {
+  const doubled = [...biomarkers, ...biomarkers];
 
   return (
     <div className="relative overflow-hidden py-2">
@@ -46,12 +44,12 @@ function MarqueeRow({ diseases, direction = 'left', speed = 30 }: { diseases: st
           animation: `${direction === 'left' ? 'marquee-left' : 'marquee-right'} ${speed}s linear infinite`,
         }}
       >
-        {doubled.map((disease, i) => (
+        {doubled.map((biomarker, i) => (
           <div
             key={i}
             className="flex-shrink-0 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 text-sm text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap shadow-sm hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all duration-300"
           >
-            {disease}
+            {biomarker}
           </div>
         ))}
       </div>
@@ -154,12 +152,12 @@ export default function HowItWorks() {
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#faf8f5] dark:from-gray-950 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#faf8f5] dark:from-gray-950 to-transparent z-10 pointer-events-none" />
 
-          {/* Disease Marquees */}
+          {/* Biomarker Marquees */}
           <div className="space-y-2 sm:space-y-3">
-            <MarqueeRow diseases={diseases1} direction="left" speed={45} />
-            <MarqueeRow diseases={diseases2} direction="right" speed={50} />
-            <MarqueeRow diseases={diseases3} direction="left" speed={42} />
-            <MarqueeRow diseases={diseases4} direction="right" speed={48} />
+            <MarqueeRow biomarkers={biomarkers1} direction="left" speed={45} />
+            <MarqueeRow biomarkers={biomarkers2} direction="right" speed={50} />
+            <MarqueeRow biomarkers={biomarkers3} direction="left" speed={42} />
+            <MarqueeRow biomarkers={biomarkers4} direction="right" speed={48} />
           </div>
         </motion.div>
       </div>
